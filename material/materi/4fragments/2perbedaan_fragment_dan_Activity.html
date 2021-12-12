@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-icon-180x180.png">
+  <link href="../../assets/favicon.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+
+  <title>Arsitek Android</title>
+
+  <link href="../../main.550dcf66.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-default active">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" title="">
+            <img src="../../assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
+            Android Stack
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html" title="">Home</a></li>
+            <li><a href="../../project.html" title="">Project</a></li>
+            <li>
+              <p>
+                <a href="../../components.html" class="btn btn-default navbar-btn" title="">Components</a>
+              </p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <h1 class="text-center"> Belajar Mengenal Perbedaan Activity dengan Fragment Android</h1>
+          <div>
+
+
+            <script>
+              //<![CDATA[
+              var relatedTitles = new Array,
+                relatedTitlesNum = 0,
+                relatedUrls = new Array;
+
+              function bacajuga(e) {
+                for (var l = 0; l < e.feed.entry.length; l++) {
+                  var t = e.feed.entry[l];
+                  relatedTitles[relatedTitlesNum] = t.title.$t;
+                  for (var r = 0; r < t.link.length; r++)
+                    if ("alternate" == t.link[r].rel) {
+                      relatedUrls[relatedTitlesNum] = t.link[r].href, relatedTitlesNum++;
+                      break
+                    }
+                }
+              }
+
+              function removeRelatedDuplicates() {
+                for (var e = new Array(0), l = new Array(0), t = 0; t < relatedUrls.length; t++) contains(e,
+                  relatedUrls[t]) || (e.length += 1, e[e.length - 1] = relatedUrls[t], l.length += 1, l[l.length -
+                  1] = relatedTitles[t]);
+                relatedTitles = l, relatedUrls = e
+              }
+
+              function contains(e, l) {
+                for (var t = 0; t < e.length; t++)
+                  if (e[t] == l) return !0;
+                return !1
+              }
+
+              function printRelatedLabels(e) {
+                for (var l = 0; l < relatedUrls.length; l++) relatedUrls[l] == e && (relatedUrls.splice(l, 1),
+                  relatedTitles.splice(l, 1));
+                var t = Math.floor((relatedTitles.length - 1) * Math.random());
+                l = 0;
+                if (widgetBacaJuga == 1 && relatedTitles.length > 1) {
+                  for (document.write("<div class='baca-juga-wrap'>" + judulbacajuga + "<ul>"); l < relatedTitles
+                    .length && l < 20 && l < jumlahbacajuga;) document.write('<li><a href="' + relatedUrls[t] + '">' +
+                    relatedTitles[t] + "</a></li>"), t < relatedTitles.length - 1 ? t++ : t = 0, l++;
+                  document.write("</ul></div>")
+                }
+                relatedUrls.splice(0, relatedUrls.length), relatedTitles.splice(0, relatedTitles.length)
+              }
+              //]]>
+            </script>
+
+            <div class="post-body entry-content" id="post-body-1899725996943830334">
+              <meta
+                content="   Sebenarnya jika kalian telah membaca artikel di okedroid.com  , tentang Activity  dan Fragment.  Kalian pasti sudah tahu dimana letak per..."
+                itemprop="description">
+              <div id="body-post-it">
+                <div dir="ltr" style="text-align: left;" trbidi="on">
+                  <div style="text-align: justify;">
+                    <div>
+                      Tentang <b>Activity</b> dan <b>Fragment.</b> Kalian pasti
+                      sudah tahu dimana letak perbedaan Activity dengan Fragment &nbsp;,namun pada artikel kali ini akan
+                      saya satukan , dan bahas ke dalam satu artikel. agar kalian bisa memahami dimana letak
+                      perbedaannya.Karena memang keduanya ,merupakan salah satu hal yang fundamental unuk dipelajari,
+                      jika kita ingin membuat dan mengembangkan Aplikasi Android. Oke langsung saja ,mari kita bahas di
+                      dalam artikel di bawah ini :</div>
+                    <div>
+                      <br></div>
+                  </div>
+                
+                  <div>
+                    <br></div>
+                  <div>
+                    <br></div>
+                  <div>
+                    <b>1. Pengertian atau Pengenalan Activity&nbsp;</b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div style="text-align: justify;">
+                    <b>Activity </b>adalah suatu halaman pada pengembangan Aplikasi Android,yang mengatur suatu komponen
+                    tampilan (layout.xml), dan user interaksi atau logic antar komponen(program.java) &nbsp; agar dapat
+                    menghubungkan &nbsp;antara activity satu dengan activity lainya, di dalam Aplikasi Android. Activity
+                    dapat memuat banyak Action atau tindakan dari pengguna. Activity di buat untuk mengatur class pada
+                    Java,di setiap tampilan antar muka di dalam Aplikasi Android.Activity juga mengelola bagian-bagian
+                    dari user interface (antar muka ), yaitu Fragment<b>.</b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <b>2. Pengertian atau Pengenalan Fragment&nbsp;</b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <div style="text-align: justify;">
+                      <b>Fragment</b> adalah salah satu komponen , antar muka (user interface ) yang merupakan sebuah
+                      bagian dari Activity, dapat disebut juga dengan nama Sub-Activity. Satu Activity bisa mengelola
+                      beberapa fragment .untuk menampilkan hasil di layar user (pengguna). Dalam Satu Activity juga
+                      ,sebuah fragment dapat diganti,ditambahkan dan dihapus ,dan juga bersifat reusable ,artinya dapat
+                      digunakan kembali sesuai kebutuhan. Fragment dipengaruhi dari lifecycle (siklus hidup ) Activity ,
+                      karna Fragment termasuk bagian dari Activity.&nbsp;</div>
+                    <div style="font-weight: bold;">
+                      <br></div>
+                  </div>
+                  <blockquote class="tr_bq">
+                    Jadi kesimpulanya adalah , Fragment tidak bisa hidup atau berdiri sendiri(standalone) . tanpa adanya
+                    minimal 1 Activity ,dan Activity dapat memuat banyak Fragment ,dan yang pasti keduanya digunakan
+                    untuk keperluan user inteface pada Aplikasi Android.</blockquote>
+                  <div>
+                    <br></div>
+                  <div>
+                    <br></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <b>3. Lifecycle atau Siklus Hidup Activity</b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container"
+                      style="margin-left: auto; margin-right: auto; text-align: center;">
+                      <tbody>
+                        <tr>
+                          <td style="text-align: center;"><a
+                              href="https://4.bp.blogspot.com/-OsecPY-xoo0/VvnpGNNCt3I/AAAAAAAAFNQ/rYnT3EUVYygLMh2wJ-dh7mY32AxhygcVw/s1600/activity-lifecyle.png"
+                              imageanchor="1" style="margin-left: auto; margin-right: auto;"><img
+                                alt="Activity Life Cycle Android " border="0" height="400"
+                                src="https://4.bp.blogspot.com/-OsecPY-xoo0/VvnpGNNCt3I/AAAAAAAAFNQ/rYnT3EUVYygLMh2wJ-dh7mY32AxhygcVw/s400/activity-lifecyle.png"
+                                title="Activity Life Cycle Android " width="331"></a></td>
+                        </tr>
+                        <tr>
+                          <td class="tr-caption" style="font-size: 12.8px;">Activity Life Cycle Android (source :
+                            developer.android.com)</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div style="text-align: justify;">
+                    </div>
+                  </div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <ul style="text-align: justify;">
+                      <li>kapan activity akan dibuat&nbsp;<b>onCreate()</b>,</li>
+                      <li>kapan&nbsp;activity&nbsp;akan di jalankan&nbsp;<b>onStart()</b>&nbsp;,&nbsp;</li>
+                      <li>kapan activty akan diberhentikan sementara&nbsp;<b>onPause()</b></li>
+                      <li>kemudian akan dilanjutkan kembali&nbsp;<b>onResume()</b>.</li>
+                      <li>kapan activty akan dihentikan&nbsp;<b>onStop(),</b></li>
+                      <li>kapan activty akan restore atau dikembalikan lagi&nbsp;<b>onRestart()</b>,</li>
+                      <li>serta dihancurkan dari system&nbsp;<b>onDestroy(),</b></li>
+                    </ul>
+                    <div style="text-align: justify;">
+                    </div>
+                  </div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <b>4.&nbsp;</b><b>Lifecycle atau Siklus Hidup Fragment</b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <b><br></b></div>
+                  <div>
+                    <table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container"
+                      style="margin-left: auto; margin-right: auto; text-align: center;">
+                      <tbody>
+                        <tr>
+                          <td style="text-align: center;"><a
+                              href="https://developer.android.com/images/fragment_lifecycle.png?hl=id" imageanchor="1"
+                              style="margin-left: auto; margin-right: auto;"><img
+                                alt="Lifecycle Fragment Android Studio" border="0" height="640"
+                                src="https://developer.android.com/images/fragment_lifecycle.png?hl=id"
+                                title="Lifecycle Fragment Android Studio" width="232"></a></td>
+                        </tr>
+                        <tr>
+                          <td class="tr-caption" style="font-size: 12.8px;">Lifecycle Fragment (source:&nbsp;<a
+                              href="https://developer.android.com/guide/components/fragments.html?hl=id"
+                              target="_blank">android developer</a>)<br>
+                            <div>
+                              <br></div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <ul style="text-align: left;">
+                      <li><b>onAttach(Activity)</b>&nbsp;&nbsp;: &nbsp;digunakan untuk memanggil 1 kali ketika menempel
+                        di Activity.</li>
+                      <li><b>onCreate(Bundle)</b>&nbsp;&nbsp; : digunakan untuk mempersiapkan fragment.</li>
+                      <li><b>onCreateView(LayoutInflater, ViewGroup, Bundle)&nbsp;</b>&nbsp;: menciptakan dan
+                        menampilkan kembali secara hirarki View.</li>
+                      <li><b>onActivityCreated(Bundle)&nbsp;</b>: method ini dipanggil setelah method&nbsp;onCreate().
+                      </li>
+                      <li><i>onViewStateRestored(Bundle)</i>&nbsp;: digunakan untuk menyatakan informasi
+                        &nbsp;kepada&nbsp;fragment bahwa&nbsp;semua akan disimpan ke dalam state (layar) dari tampilan
+                        fragment secara hirarki yang telah dipulihkan.</li>
+                      <li><b>onStart()</b>&nbsp;: digunakan untuk membuat fragment terlihat.</li>
+                      <li><b>onResume(</b>) : digunakan untuk membuat fragment interaktif.</li>
+                      <li><b>onPause()<span class="Apple-tab-span" style="white-space: pre;"> </span></b>&nbsp;:
+                        digunakan jika fragment tidak lagi interaktif.</li>
+                      <li><b>onStop()</b>&nbsp;&nbsp;:digunakan jika fragment tidak lagi&nbsp; terlihat.</li>
+                      <li><b>onDestroyView()</b>&nbsp;: digunakan untuk membersihkan resources (sumber daya.</li>
+                      <li><b>onDestroy()</b>&nbsp;&nbsp;: digunakan untuk membersihkan akhir resources (sumber daya
+                        )dari layar fragment.</li>
+                      <li><b>onDetach()</b>&nbsp;: digunakan ketika fragment ,tidak lagi ada di Activity.</li>
+                    </ul>
+                  </div>
+                  <div>
+
+                    <div>
+                      <b><br></b></div>
+                    <div>
+                      <b>5. Cara Membuat Activity dan Fragment Baru &nbsp;&nbsp;</b></div>
+                    <div>
+                      <b><br></b></div>
+                    <div>
+                      Activity:</div>
+                    <div>
+                      <br></div>
+                    <div>
+                      <table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container"
+                        style="margin-left: auto; margin-right: auto; text-align: center;">
+                        <tbody>
+                          <tr>
+                            <td style="text-align: center;"><a
+                                href="https://1.bp.blogspot.com/-n77mBWlEKBs/VuJ1ejIhAaI/AAAAAAAAE-E/4A7PgZXl4pss5nd0QQ5ictvAoMPPCEruA/s1600/membuat-mengkonfigurasi-activity-baru-android-studio.png"
+                                imageanchor="1" style="margin-left: auto; margin-right: auto;"><img
+                                  alt="Membuat Activity Baru Android" border="0" height="170"
+                                  src="https://1.bp.blogspot.com/-n77mBWlEKBs/VuJ1ejIhAaI/AAAAAAAAE-E/4A7PgZXl4pss5nd0QQ5ictvAoMPPCEruA/s320/membuat-mengkonfigurasi-activity-baru-android-studio.png"
+                                  title="Membuat Activity Baru Android" width="320"></a></td>
+                          </tr>
+                          <tr>
+                            <td class="tr-caption" style="font-size: 12.8px;">Membuat Activity Baru<br>
+                              <div>
+                                <br></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <br></div>
+                    <div>
+                      <script src="//pastebin.com/embed_js/GYTrFcH0"></script>
+                      <style>
+                        div.embedPastebin {
+                          text-align: left;
+                          padding: 0;
+                          color: #000;
+                          margin: 0;
+                          font-family: monospace;
+                          background: #F7F7F7;
+                          border: 1px solid ddd;
+                          border-radius: 3px;
+                        }
+
+                        div.embedPastebin {}
+
+                        div.embedPastebin div.embedFooter {
+                          background: #F7F7F7;
+                          color: #333;
+                          font-size: 100%;
+                          padding: 6px 12px;
+                          border-bottom: 1px solid #ddd;
+                          text-transform: uppercase;
+                        }
+
+                        div.embedPastebin div.embedFooter a,
+                        div.embedPastebin div.embedFooter a:visited {
+                          color: #336699;
+                          text-decoration: none;
+                        }
+
+                        div.embedPastebin div.embedFooter a:hover {
+                          color: red;
+                        }
+
+                        .noLines ol {
+                          list-style-type: none;
+                          padding-left: 0.5em;
+                        }
+
+                        .embedPastebin {
+                          background-color: #F8F8F8;
+                          border: 1px solid #ddd;
+                          font-size: 12px;
+                          overflow: auto;
+                          margin: 0 0 0 0;
+                          padding: 0 0 0 0;
+                          line-height: 21px
+                        }
+
+                        .embedPastebin div {
+                          line-height: 21px;
+                          font-family: Consolas, Menlo, Monaco, Lucida Console, 'Bitstream Vera Sans Mono', 'Courier', monospace;
+                        }
+
+                        ol {
+                          margin: 0;
+                          padding: 0 0 0 55px
+                        }
+
+                        ol li {
+                          border: 0;
+                          margin: 0;
+                          padding: 0;
+                        }
+
+                        li.ln-xtra .de1,
+                        li.ln-xtra .de2 {
+                          background: #F8F8CE;
+                        }
+
+                        .embedPastebin ol li.li1 {
+                          margin: 0;
+                        }
+
+                        .embedPastebin ol li.li2 {
+                          margin: 0;
+                        }
+                      </style>
+                      <link href="https://pastebin.com/themes/pastebin/css/geshi/light/java.css?694707f98000ed24d865"
+                        rel="stylesheet">
+                      <div class="">
+                        <div class="embedPastebin">
+                          <div class="embedFooter">Data hosted with ♥ by <a href="https://pastebin.com"
+                              target="_blank">Pastebin.com</a> - <a href="https://pastebin.com/raw/GYTrFcH0"
+                              target="_blank">Download Raw</a> - <a href="https://pastebin.com/GYTrFcH0"
+                              target="_blank">See Original</a></div>
+                          <div class="highlighted-code">
+                            <div class="source">
+                              <ol class="java">
+                                <li class="li1">
+                                  <div class="de1"><span class="kw1">import</span> <span
+                                      class="co2">android.os.Bundle</span><span class="sy0">;</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1"><span class="kw1">import</span> <span
+                                      class="co2">android.support.v7.app.AppCompatActivity</span><span
+                                      class="sy0">;</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp;</div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1"><span class="kw1">public</span> <span class="kw1">class</span>
+                                    MainActivity <span class="kw1">extends</span> AppCompatActivity <span
+                                      class="br0">{</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp; &nbsp; <span class="coMULTI">/*</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1"><span class="coMULTI">&nbsp; &nbsp; Fathurrahman(okedroid.com)</span>
+                                  </div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp;</div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1"><span class="coMULTI">&nbsp; &nbsp; &nbsp;*/</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp; &nbsp; @Override</div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp; &nbsp; <span class="kw1">protected</span> <span
+                                      class="kw4">void</span> onCreate<span class="br0">(</span>Bundle
+                                    savedInstanceState<span class="br0">)</span> <span class="br0">{</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">super</span>.<span
+                                      class="me1">onCreate</span><span class="br0">(</span>savedInstanceState<span
+                                      class="br0">)</span><span class="sy0">;</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; setContentView<span
+                                      class="br0">(</span>R.<span class="me1">layout</span>.<span
+                                      class="me1">activity_main</span><span class="br0">)</span><span
+                                      class="sy0">;</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp;</div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp;</div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp;</div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1">&nbsp;</div>
+                                </li>
+                                <li class="li1">
+                                  <div class="de1"><span class="br0">}</span></div>
+                                </li>
+                              </ol>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <br></div>
+                      <div>
+                        <br></div>
+                      <div>
+                        Fragment :</div>
+                      <div>
+                        <b><br></b></div>
+                      <div>
+                        <table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container"
+                          style="margin-left: auto; margin-right: auto; text-align: center;">
+                          <tbody>
+                            <tr>
+                              <td style="text-align: center;"><a
+                                  href="https://3.bp.blogspot.com/-CyQn60-Q35M/WLZo-AEqtII/AAAAAAAAGdY/A47HEoVQUl4tFrWcRgTyKcYAEYRsuNs_wCLcB/s1600/buat-fragment-baru-di-android-studio.png"
+                                  imageanchor="1" style="margin-left: auto; margin-right: auto;"><img
+                                    alt="Buat Fragment Baru Android Studio" border="0" height="197"
+                                    src="https://3.bp.blogspot.com/-CyQn60-Q35M/WLZo-AEqtII/AAAAAAAAGdY/A47HEoVQUl4tFrWcRgTyKcYAEYRsuNs_wCLcB/s320/buat-fragment-baru-di-android-studio.png"
+                                    title="Buat Fragment Baru Android Studio" width="320"></a></td>
+                            </tr>
+                            <tr>
+                              <td class="tr-caption" style="font-size: 12.8px;">Buat Fragment Baru<br>
+                                <div>
+                                  <br>
+                                  <div id="baca-juga">
+                                    <script
+                                      src="/feeds/posts/default/-/Activity?alt=json-in-script&amp;callback=bacajuga&amp;max-results=5">
+                                    </script>
+                                    <script
+                                      src="/feeds/posts/default/-/Android App Development?alt=json-in-script&amp;callback=bacajuga&amp;max-results=5">
+                                    </script>
+                                    <script
+                                      src="/feeds/posts/default/-/Fragment?alt=json-in-script&amp;callback=bacajuga&amp;max-results=5">
+                                    </script>
+                                    <script
+                                      src="/feeds/posts/default/-/Tutorial Aplikasi Android Studio?alt=json-in-script&amp;callback=bacajuga&amp;max-results=5">
+                                    </script>
+                                    <script>
+                                      var judulbacajuga = "<h2>Related:</h2>"
+                                      var jumlahbacajuga = 3;
+                                      removeRelatedDuplicates();
+                                      printRelatedLabels(
+                                        "https://www.okedroid.com/2017/03/belajar-mengenal-perbedaan-activity-dan-fragment-android.html"
+                                        );
+                                    </script>
+                                    <div class="baca-juga-wrap">
+                                      <h2>Related:</h2>
+                                      <ul>
+                                        <li><a
+                                            href="https://www.okedroid.com/2018/07/3-cara-membuat-validasi-form-input-kosong-edittext-android.html">3
+                                            Cara Membuat Validasi Form Input Kosong EditText Android Studio</a></li>
+                                        <li><a
+                                            href="https://www.okedroid.com/2018/07/cara-membuat-button-sejajar-vertikal-horizontal-layout-xml.html">Cara
+                                            Membuat Button Sejajar Vertikal dan Horizontal Pada Layout XML </a></li>
+                                        <li><a
+                                            href="https://www.okedroid.com/2018/01/belajar-membuat-halaman-settings-pada-aplikasi-android.html">Belajar
+                                            Membuat Halaman Settings pada Aplikasi Android</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <script src="//pastebin.com/embed_js/vuyVJ2ti"></script>
+                        <style>
+                          div.embedPastebin {
+                            text-align: left;
+                            padding: 0;
+                            color: #000;
+                            margin: 0;
+                            font-family: monospace;
+                            background: #F7F7F7;
+                            border: 1px solid ddd;
+                            border-radius: 3px;
+                          }
+
+                          div.embedPastebin {}
+
+                          div.embedPastebin div.embedFooter {
+                            background: #F7F7F7;
+                            color: #333;
+                            font-size: 100%;
+                            padding: 6px 12px;
+                            border-bottom: 1px solid #ddd;
+                            text-transform: uppercase;
+                          }
+
+                          div.embedPastebin div.embedFooter a,
+                          div.embedPastebin div.embedFooter a:visited {
+                            color: #336699;
+                            text-decoration: none;
+                          }
+
+                          div.embedPastebin div.embedFooter a:hover {
+                            color: red;
+                          }
+
+                          .noLines ol {
+                            list-style-type: none;
+                            padding-left: 0.5em;
+                          }
+
+                          .embedPastebin {
+                            background-color: #F8F8F8;
+                            border: 1px solid #ddd;
+                            font-size: 12px;
+                            overflow: auto;
+                            margin: 0 0 0 0;
+                            padding: 0 0 0 0;
+                            line-height: 21px
+                          }
+
+                          .embedPastebin div {
+                            line-height: 21px;
+                            font-family: Consolas, Menlo, Monaco, Lucida Console, 'Bitstream Vera Sans Mono', 'Courier', monospace;
+                          }
+
+                          ol {
+                            margin: 0;
+                            padding: 0 0 0 55px
+                          }
+
+                          ol li {
+                            border: 0;
+                            margin: 0;
+                            padding: 0;
+                          }
+
+                          li.ln-xtra .de1,
+                          li.ln-xtra .de2 {
+                            background: #F8F8CE;
+                          }
+
+                          .embedPastebin ol li.li1 {
+                            margin: 0;
+                          }
+
+                          .embedPastebin ol li.li2 {
+                            margin: 0;
+                          }
+                        </style>
+                        <link href="https://pastebin.com/themes/pastebin/css/geshi/light/java.css?694707f98000ed24d865"
+                          rel="stylesheet">
+                        <div class="">
+                          <div class="embedPastebin">
+                            <div class="embedFooter">Data hosted with ♥ by <a href="https://pastebin.com"
+                                target="_blank">Pastebin.com</a> - <a href="https://pastebin.com/raw/vuyVJ2ti"
+                                target="_blank">Download Raw</a> - <a href="https://pastebin.com/vuyVJ2ti"
+                                target="_blank">See Original</a></div>
+                            <div class="highlighted-code">
+                              <div class="source">
+                                <ol class="java">
+                                  <li class="li1">
+                                    <div class="de1">&nbsp;</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="kw1">import</span> <span
+                                        class="co2">android.os.Bundle</span><span class="sy0">;</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="kw1">import</span> <span
+                                        class="co2">android.support.v4.app.Fragment</span><span class="sy0">;</span>
+                                    </div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="kw1">import</span> <span
+                                        class="co2">android.view.LayoutInflater</span><span class="sy0">;</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="kw1">import</span> <span
+                                        class="co2">android.view.View</span><span class="sy0">;</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="kw1">import</span> <span
+                                        class="co2">android.view.ViewGroup</span><span class="sy0">;</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp;</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp;</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="co3">/**</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="co3">&nbsp;* A simple {@link Fragment}
+                                        subclass.</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="co3">&nbsp;*/</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="kw1">public</span> <span class="kw1">class</span>
+                                      BlankFragment <span class="kw1">extends</span> Fragment <span class="br0">{</span>
+                                    </div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp;</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp;</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> BlankFragment<span
+                                        class="br0">(</span><span class="br0">)</span> <span class="br0">{</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// Required empty
+                                        public constructor</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp;</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp;</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; @Override</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <span
+                                        class="kw3">View</span> onCreateView<span class="br0">(</span>LayoutInflater
+                                      inflater, ViewGroup container,</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Bundle savedInstanceState<span
+                                        class="br0">)</span> <span class="br0">{</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// Inflate the layout
+                                        for this fragment</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span>
+                                      inflater.<span class="me1">inflate</span><span class="br0">(</span>R.<span
+                                        class="me1">layout</span>.<span class="me1">fragment_blank</span>, container,
+                                      <span class="kw2">false</span><span class="br0">)</span><span class="sy0">;</span>
+                                    </div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1">&nbsp;</div>
+                                  </li>
+                                  <li class="li1">
+                                    <div class="de1"><span class="br0">}</span></div>
+                                  </li>
+                                </ol>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <br>
+                          <br>
+                          <br></div>
+                        <div>
+                          Demikian ,Perbedaan Activity dengan Fragment Android. Jika ada kesalahan dan penambahan akan
+                          saya update nanti .Terima Kasih,</div>
+                        <div>
+                          <br></div>
+                        <div>
+                          <br></div>
+                
+
+                  </div>
+                </div>
+
+              </section>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+                <div class="section-container">
+                  <div class="container text-center">
+                    <div class="row section-container-spacer">
+                      <div class="col-xs-12 col-md-12">
+
+                        <h3>Do you like it ?</h3>
+                        <p>
+                          <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                          </a>
+                          <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                          </a>
+                          <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <footer class="footer-container white-text-container">
+                  <div class="container">
+                    <div class="row">
+
+
+                      <div class="col-xs-12">
+                        <h3>Android Stack</h3>
+
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-7">
+                            <p><small>Website created with <a href="http://www.mashup-template.com/"
+                                  title="Create website with free html template">Android Stack</a>/<a
+                                  href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></small>
+                            </p>
+                          </div>
+                          <div class="col-xs-12 col-sm-5">
+                            <p class="text-right">
+                              <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon"
+                                title="">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                              </a>
+                              <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon"
+                                title="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                              </a>
+                              <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon"
+                                title="">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+
+                <script>
+                  document.addEventListener("DOMContentLoaded", function (event) {
+                    navActivePage();
+                    scrollRevelation('.reveal');
+                  });
+                </script>
+
+                <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+                <script type="text/javascript" src="../../main.0cf8b554.js"></script>
+</body>
+
+</html>

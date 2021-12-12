@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-icon-180x180.png">
+  <link href="../../assets/favicon.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+
+  <title>Arsitek Android</title>
+
+  <link href="../../main.550dcf66.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-default active">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" title="">
+            <img src="../../assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
+            Android Stack
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html" title="">Home</a></li>
+            <li><a href="../../project.html" title="">Project</a></li>
+            <li>
+              <p>
+                <a href="../../components.html" class="btn btn-default navbar-btn" title="">Components</a>
+              </p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <h1 class="text-center">Tips Belajar Membuat Fragment Sederhana</h1>
+          <div class="entry-content">
+
+
+            <div class="post-content">
+              <p><span style="font-weight: 400;">Hai, pernah denger tentang fragment? Kali ini dicoding tips akan
+                  membahas sekilas tentang fragment. Bagi kalian yang baru mengenal fragment, simpelnya Fragment itu
+                  bagian dari Activity yang memiliki siklus hidupnya sendiri, meskipun begitu Fragment berjalan di atas
+                  suatu Activity. Jika Activity-nya di destroy maka fragment juga ikut menghilang. Nah mungkin itu
+                  sekilas penjelasan tentang Fragment, lebih jelasnya langsung kita coba membuat Fragment
+                  sederhana.</span></p>
+              <p><span style="font-weight: 400;">Okay, pastikan Android Studio kalian dalam kondisi prima (<em>a.k.a
+                    terupdate dengan baik</em>). Kita langsung saja buat projek baru. Kalau disini kebetulan nama
+                  projectnya “Fragment“. Selanjutnya kita buat Fragment baru di dalamnya dengan nama “TampilanFragment“.
+                  Sebelum menekan tombol finish, uncheck “Include fragment factory methods?“ dan “include interface
+                  callbacks“.</span></p>
+              <p><span style="font-weight: 400;">Sekarang saatnya kita buat tampilan aplikasinya. Pertama tampilan pada
+                  Layout “MainActivity”.</span></p>
+              <p><span style="font-weight: 400;"><a
+                    href="https://www.dicoding.com/blog/wp-content/uploads/2017/01/1-3.png"><img
+                  
+                      src="https://www.dicoding.com/blog/wp-content/uploads/2017/01/1-3.png" alt="1" class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                      style="display: block; margin: auto;"></a></span><span id="more-2963"></span></p>
+              <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+              <div id="crayon-608d5795e21ba482077062"
+                class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate"
+                data-settings=" minimize scroll-mouseover"
+                style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+
+                <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+                  style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;">
+                  <span class="crayon-title"></span>
+                  <div class="crayon-tools"
+                    style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;">
+                    <div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-plain-button" title="Toggle Plain Code">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-expand-button" title="Expand Code">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-copy-button" title="Copy">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-popup-button" title="Open Code In New Window">
+                      <div class="crayon-button-icon"></div>
+                    </div><span class="crayon-language">XHTML</span>
+                  </div>
+                </div>
+                <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+                <div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no"
+                    data-settings="dblclick" readonly=""
+                    style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context="app.learn.dhahedda.fragment.MainActivity"&gt;
+    
+        &lt;TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Hello World, This is Main Activity Layout !" /&gt;
+    
+        &lt;TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingBottom="15dp"
+            android:text="If you want to go to the fragment layout, Click the Red Button below ! " /&gt;
+    
+        &lt;Button
+            android:text="Fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_fragment"
+            android:background="@android:color/holo_red_dark"
+            android:textColor="@android:color/background_light"/&gt;
+    
+        &lt;FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="40dp"
+            android:id="@+id/frame_layout"&gt;
+    
+        &lt;/FrameLayout&gt;
+    
+    &lt;/LinearLayout&gt;</textarea></div>
+                <div class="crayon-main" style="max-height: 500px; position: relative; z-index: 1; overflow: hidden;">
+                  <table class="crayon-table table table-bordered table-striped" style="">
+                    <tbody>
+                      <tr class="crayon-row">
+                        <td class="crayon-nums " data-settings="show">
+                          <div class="crayon-nums-content"
+                            style="font-size: 12px !important; line-height: 15px !important;">
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-1">1</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-2">2
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-3">3</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-4">4
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-5">5</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-6">6
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-7">7</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-8">8
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-9">9</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-10">10
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-11">11</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-12">12
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-13">13</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-14">14
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-15">15</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-16">16
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-17">17</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-18">18
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-19">19</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-20">20
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-21">21</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-22">22
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-23">23</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-24">24
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-25">25</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-26">26
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-27">27</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-28">28
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-29">29</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-30">30
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-31">31</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-32">32
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-33">33</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-34">34
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-35">35</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-36">36
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-37">37</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-38">38
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-39">39</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-40">40
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21ba482077062-41">41</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21ba482077062-42">42
+                            </div>
+                          </div>
+                        </td>
+                        <td class="crayon-code">
+                          <div class="crayon-pre"
+                            style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-1"><span
+                                class="crayon-r ">&lt;LinearLayout </span>xmlns<span class="crayon-o">:</span><span
+                                class="crayon-e ">android</span><span class="crayon-o">=</span><span
+                                class="crayon-s ">"http://schemas.android.com/apk/res/android"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-2"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>xmlns<span
+                                class="crayon-o">:</span><span class="crayon-e ">tools</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"http://schemas.android.com/tools"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-3"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">id</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"@+id/activity_main"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-4"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-5"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-6"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">paddingBottom</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"@dimen/activity_vertical_margin"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-7"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">paddingLeft</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"@dimen/activity_horizontal_margin"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-8"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">paddingRight</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"@dimen/activity_horizontal_margin"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-9"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">paddingTop</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"@dimen/activity_vertical_margin"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-10"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">orientation</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"vertical"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-11"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>tools<span
+                                class="crayon-o">:</span><span class="crayon-e ">context</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"app.learn.dhahedda.fragment.MainActivity"</span><span
+                                class="crayon-r ">&gt;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-12">&nbsp;
+                            </div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-13"><span
+                                class="crayon-i ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-r ">&lt;TextView</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-14"><span
+                                class="crayon-r ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"wrap_content"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-15"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"wrap_content"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-16"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">textSize</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"18sp"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-17"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">text</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"Hello World, This is Main Activity
+                                Layout !"</span><span class="crayon-r "> /&gt;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-18">&nbsp;
+                            </div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-19"><span
+                                class="crayon-i ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-r ">&lt;TextView</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-20"><span
+                                class="crayon-r ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"wrap_content"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-21"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"wrap_content"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-22"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">textSize</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"12sp"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-23"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">paddingBottom</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"15dp"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-24"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">text</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"If you want to go to the fragment
+                                layout, Click the Red Button below ! "</span><span class="crayon-r "> /&gt;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-25">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-26"><span
+                                class="crayon-i ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-r ">&lt;Button</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-27"><span
+                                class="crayon-r ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">text</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"Fragment"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-28"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-29"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"wrap_content"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-30"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">id</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"@+id/btn_fragment"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-31"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">background</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"@android:color/holo_red_dark"</span>
+                            </div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-32"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">textColor</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"@android:color/background_light"</span><span
+                                class="crayon-r ">/&gt;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-33">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-34"><span
+                                class="crayon-i ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-r ">&lt;FrameLayout</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-35"><span
+                                class="crayon-r ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-36"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-37"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">paddingTop</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"40dp"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-38"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">id</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"@+id/frame_layout"</span><span
+                                class="crayon-r ">&gt;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-39">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-40"><span
+                                class="crayon-i ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-r ">&lt;/FrameLayout&gt;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21ba482077062-41">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21ba482077062-42"><span
+                                class="crayon-r ">&lt;/LinearLayout&gt;</span></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- [Format Time: 0.0006 seconds] -->
+              <p><span style="font-weight: 400;">Perhatikan di situ ada FrameLayout, fungsinya u/ mewadahi tampilan dari
+                  Fragment yang kita buat.</span></p>
+              <p><span style="font-weight: 400;">Langsung yuk kita buat tampilan sederhana di Layout nya
+                  Fragment.</span></p>
+              <p><a href="https://www.dicoding.com/blog/wp-content/uploads/2017/01/2.png"><img
+                  
+                    src="https://www.dicoding.com/blog/wp-content/uploads/2017/01/2.png" alt="2" class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;"></a></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+              <div id="crayon-608d5795e21c0926139671"
+                class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate"
+                data-settings=" minimize scroll-mouseover"
+                style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+
+                <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+                  style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;">
+                  <span class="crayon-title"></span>
+                  <div class="crayon-tools"
+                    style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;">
+                    <div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-plain-button" title="Toggle Plain Code">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-copy-button" title="Copy">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-popup-button" title="Open Code In New Window">
+                      <div class="crayon-button-icon"></div>
+                    </div><span class="crayon-language">XHTML</span>
+                  </div>
+                </div>
+                <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+                <div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no"
+                    data-settings="dblclick" readonly=""
+                    style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="app.learn.dhahedda.fragment.TampilanFragment"
+        android:orientation="vertical"&gt;
+    
+    
+        &lt;TextView
+            android:text="Hai Again ! This is a fragment layout."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:paddingBottom="10dp"
+            android:id="@+id/textView" /&gt;
+    
+        &lt;Button
+            android:text="Show Me"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_show" /&gt;
+    &lt;/LinearLayout&gt;</textarea></div>
+                <div class="crayon-main" style="max-height: 500px; position: relative; z-index: 1; overflow: hidden;">
+                  <table class="crayon-table table table-bordered table-striped" style="">
+                    <tbody>
+                      <tr class="crayon-row">
+                        <td class="crayon-nums " data-settings="show">
+                          <div class="crayon-nums-content"
+                            style="font-size: 12px !important; line-height: 15px !important;">
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-1">1</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-2">2
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-3">3</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-4">4
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-5">5</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-6">6
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-7">7</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-8">8
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-9">9</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-10">10
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-11">11</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-12">12
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-13">13</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-14">14
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-15">15</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-16">16
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-17">17</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-18">18
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-19">19</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-20">20
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-21">21</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c0926139671-22">22
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c0926139671-23">23</div>
+                          </div>
+                        </td>
+                        <td class="crayon-code">
+                          <div class="crayon-pre"
+                            style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-1">LinearLayout<span
+                                class="crayon-h"> </span>xmlns<span class="crayon-o">:</span><span
+                                class="crayon-e ">android</span><span class="crayon-o">=</span><span
+                                class="crayon-s ">"http://schemas.android.com/apk/res/android"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-2"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>xmlns<span
+                                class="crayon-o">:</span><span class="crayon-e ">tools</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"http://schemas.android.com/tools"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-3"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-4"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-5"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>tools<span
+                                class="crayon-o">:</span><span class="crayon-e ">context</span><span
+                                class="crayon-o">=</span><span
+                                class="crayon-s ">"app.learn.dhahedda.fragment.TampilanFragment"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-6"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">orientation</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"vertical"</span><span
+                                class="crayon-r ">&gt;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-7">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-8">&nbsp;
+                            </div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-9"><span
+                                class="crayon-i ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-r ">&lt;TextView</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-10"><span
+                                class="crayon-r ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">text</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"Hai Again ! This is a fragment
+                                layout."</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-11"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-12"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"wrap_content"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-13"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">textStyle</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"bold"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-14"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">textAlignment</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"center"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-15"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">paddingBottom</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"10dp"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-16"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">id</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"@+id/textView"</span><span
+                                class="crayon-r "> /&gt;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-17">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-18"><span
+                                class="crayon-i ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-r ">&lt;Button</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-19"><span
+                                class="crayon-r ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">text</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"Show Me"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-20"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-21"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"wrap_content"</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c0926139671-22"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span
+                                class="crayon-o">:</span><span class="crayon-e ">id</span><span
+                                class="crayon-o">=</span><span class="crayon-s ">"@+id/btn_show"</span><span
+                                class="crayon-r "> /&gt;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c0926139671-23"><span
+                                class="crayon-r ">&lt;/LinearLayout&gt;</span></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- [Format Time: 0.0003 seconds] -->
+              <p><span style="font-weight: 400;">Sudah? Sekarang kita tambahkan sedikit <strong>Action</strong> pada
+                  <strong>Button</strong> di kelas “TampilanFragment” seperti di bawah ini :</span></p>
+              <p><a href="https://www.dicoding.com/blog/wp-content/uploads/2017/01/3.png"><img
+                 
+                    src="https://www.dicoding.com/blog/wp-content/uploads/2017/01/3.png" alt="3" class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;"></a></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+              <div id="crayon-608d5795e21c3075322858"
+                class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate"
+                data-settings=" minimize scroll-mouseover"
+                style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+
+                <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+                  style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;">
+                  <span class="crayon-title"></span>
+                  <div class="crayon-tools"
+                    style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;">
+                    <div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-plain-button" title="Toggle Plain Code">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-expand-button" title="Expand Code">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-copy-button" title="Copy">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-popup-button" title="Open Code In New Window">
+                      <div class="crayon-button-icon"></div>
+                    </div><span class="crayon-language">Java</span>
+                  </div>
+                </div>
+                <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+                <div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no"
+                    data-settings="dblclick" readonly=""
+                    style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">public class TampilanFragment extends Fragment {
+        Button btn_show;
+    
+        public TampilanFragment() {
+            // Required empty public constructor
+        }
+    
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_tampilan, container, false);
+    
+            btn_show = (Button) view.findViewById(R.id.btn_show);
+            btn_show.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getContext(), "This is from Fragment!", Toast.LENGTH_LONG).show();
+                }
+            });
+            return view;
+        }
+    }</textarea></div>
+                <div class="crayon-main" style="max-height: 500px; position: relative; z-index: 1; overflow: hidden;">
+                  <table class="crayon-table table table-bordered table-striped" style="">
+                    <tbody>
+                      <tr class="crayon-row">
+                        <td class="crayon-nums " data-settings="show">
+                          <div class="crayon-nums-content"
+                            style="font-size: 12px !important; line-height: 15px !important;">
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-1">1</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-2">2
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-3">3</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-4">4
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-5">5</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-6">6
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-7">7</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-8">8
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-9">9</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-10">10
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-11">11</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-12">12
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-13">13</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-14">14
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-15">15</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-16">16
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-17">17</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-18">18
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-19">19</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-20">20
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c3075322858-21">21</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c3075322858-22">22
+                            </div>
+                          </div>
+                        </td>
+                        <td class="crayon-code">
+                          <div class="crayon-pre"
+                            style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-1"><span
+                                class="crayon-m">public</span><span class="crayon-h"> </span><span
+                                class="crayon-t">class</span><span class="crayon-h"> </span><span
+                                class="crayon-e">TampilanFragment</span><span class="crayon-h"> </span><span
+                                class="crayon-r">extends</span><span class="crayon-h"> </span><span
+                                class="crayon-e">Fragment</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">{</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-2"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">Button
+                              </span><span class="crayon-v">btn_show</span><span class="crayon-sy">;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-3">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-4"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-m">public</span><span class="crayon-h"> </span><span
+                                class="crayon-e">TampilanFragment</span><span class="crayon-sy">(</span><span
+                                class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">{</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-5"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-c">// Required empty public constructor</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-6"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-7">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-8"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@Override</span>
+                            </div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-9"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">View
+                              </span><span class="crayon-e">onCreateView</span><span class="crayon-sy">(</span><span
+                                class="crayon-e">LayoutInflater </span><span class="crayon-v">inflater</span><span
+                                class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                                class="crayon-e">ViewGroup </span><span class="crayon-v">container</span><span
+                                class="crayon-sy">,</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-10"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              </span><span class="crayon-e">Bundle </span><span
+                                class="crayon-v">savedInstanceState</span><span class="crayon-sy">)</span><span
+                                class="crayon-h"> </span><span class="crayon-sy">{</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-11"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-e">View </span><span class="crayon-v">view</span><span class="crayon-h">
+                              </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span
+                                class="crayon-v">inflater</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">inflate</span><span class="crayon-sy">(</span><span
+                                class="crayon-v">R</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">layout</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">fragment_tampilan</span><span class="crayon-sy">,</span><span
+                                class="crayon-h"> </span><span class="crayon-v">container</span><span
+                                class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                                class="crayon-t">false</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-12">&nbsp;
+                            </div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-13"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-v">btn_show</span><span class="crayon-h"> </span><span
+                                class="crayon-o">=</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">(</span><span class="crayon-v">Button</span><span
+                                class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                                class="crayon-v">view</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">findViewById</span><span class="crayon-sy">(</span><span
+                                class="crayon-v">R</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">id</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">btn_show</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-14"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-v">btn_show</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">setOnClickListener</span><span class="crayon-sy">(</span><span
+                                class="crayon-r">new</span><span class="crayon-h"> </span><span
+                                class="crayon-v">View</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">OnClickListener</span><span class="crayon-sy">(</span><span
+                                class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">{</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-15"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-n">@Override</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-16"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-m">public</span><span class="crayon-h"> </span><span
+                                class="crayon-t">void</span><span class="crayon-h"> </span><span
+                                class="crayon-e">onClick</span><span class="crayon-sy">(</span><span
+                                class="crayon-e">View </span><span class="crayon-v">view</span><span
+                                class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">{</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-17"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-v">Toast</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">makeText</span><span class="crayon-sy">(</span><span
+                                class="crayon-e">getContext</span><span class="crayon-sy">(</span><span
+                                class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h">
+                              </span><span class="crayon-s">"This is from Fragment!"</span><span
+                                class="crayon-sy">,</span><span class="crayon-h"> </span><span
+                                class="crayon-v">Toast</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">LENGTH_LONG</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">.</span><span class="crayon-e">show</span><span
+                                class="crayon-sy">(</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-18"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-sy">}</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-19"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-sy">}</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-20"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-st">return</span><span class="crayon-h"> </span><span
+                                class="crayon-v">view</span><span class="crayon-sy">;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c3075322858-21"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c3075322858-22"><span
+                                class="crayon-sy">}</span></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- [Format Time: 0.0006 seconds] -->
+              <p><span style="font-weight: 400;">Setelah itu giliran kelas “MainActivity” yang kita modifikasi :</span>
+              </p>
+              <p><a href="https://www.dicoding.com/blog/wp-content/uploads/2017/01/4.png"><img
+            
+                    src="https://www.dicoding.com/blog/wp-content/uploads/2017/01/4.png" alt="4" class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;"></a></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+              <div id="crayon-608d5795e21c4128046284"
+                class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate"
+                data-settings=" minimize scroll-mouseover"
+                style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+
+                <div class="crayon-toolbar" data-settings=" mouseover overlay hide delay"
+                  style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;">
+                  <span class="crayon-title"></span>
+                  <div class="crayon-tools"
+                    style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;">
+                    <div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-plain-button" title="Toggle Plain Code">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-expand-button" title="Expand Code">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-copy-button" title="Copy">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-popup-button" title="Open Code In New Window">
+                      <div class="crayon-button-icon"></div>
+                    </div><span class="crayon-language">Java</span>
+                  </div>
+                </div>
+                <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+                <div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no"
+                    data-settings="dblclick" readonly=""
+                    style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">public class MainActivity extends AppCompatActivity {
+        Button btn_fragment;
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+    
+            btn_fragment = (Button) findViewById(R.id.btn_fragment);
+            btn_fragment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    getSupportFragmentManager().beginTransaction().add(R.id.frame_layout, new TampilanFragment()).commit();
+                }
+            });
+    
+        }
+    }</textarea></div>
+                <div class="crayon-main" style="max-height: 500px; position: relative; z-index: 1; overflow: hidden;">
+                  <table class="crayon-table table table-bordered table-striped" style="">
+                    <tbody>
+                      <tr class="crayon-row">
+                        <td class="crayon-nums " data-settings="show">
+                          <div class="crayon-nums-content"
+                            style="font-size: 12px !important; line-height: 15px !important;">
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-1">1</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-2">2
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-3">3</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-4">4
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-5">5</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-6">6
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-7">7</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-8">8
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-9">9</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-10">10
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-11">11</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-12">12
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-13">13</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-14">14
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-15">15</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-16">16
+                            </div>
+                            <div class="crayon-num" data-line="crayon-608d5795e21c4128046284-17">17</div>
+                            <div class="crayon-num crayon-striped-num" data-line="crayon-608d5795e21c4128046284-18">18
+                            </div>
+                          </div>
+                        </td>
+                        <td class="crayon-code">
+                          <div class="crayon-pre"
+                            style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-1"><span
+                                class="crayon-m">public</span><span class="crayon-h"> </span><span
+                                class="crayon-t">class</span><span class="crayon-h"> </span><span
+                                class="crayon-e">MainActivity</span><span class="crayon-h"> </span><span
+                                class="crayon-r">extends</span><span class="crayon-h"> </span><span
+                                class="crayon-e">AppCompatActivity</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">{</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-2"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">Button
+                              </span><span class="crayon-v">btn_fragment</span><span class="crayon-sy">;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-3">&nbsp;</div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-4"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@Override</span>
+                            </div>
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-5"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-m">protected</span><span class="crayon-h"> </span><span
+                                class="crayon-t">void</span><span class="crayon-h"> </span><span
+                                class="crayon-e">onCreate</span><span class="crayon-sy">(</span><span
+                                class="crayon-e">Bundle </span><span class="crayon-v">savedInstanceState</span><span
+                                class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">{</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-6"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-r">super</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">onCreate</span><span class="crayon-sy">(</span><span
+                                class="crayon-v">savedInstanceState</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-7"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-e">setContentView</span><span class="crayon-sy">(</span><span
+                                class="crayon-v">R</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">layout</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">activity_main</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-8">&nbsp;
+                            </div>
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-9"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-v">btn_fragment</span><span class="crayon-h"> </span><span
+                                class="crayon-o">=</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">(</span><span class="crayon-v">Button</span><span
+                                class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                                class="crayon-e">findViewById</span><span class="crayon-sy">(</span><span
+                                class="crayon-v">R</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">id</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">btn_fragment</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-10"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-v">btn_fragment</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">setOnClickListener</span><span class="crayon-sy">(</span><span
+                                class="crayon-r">new</span><span class="crayon-h"> </span><span
+                                class="crayon-v">View</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">OnClickListener</span><span class="crayon-sy">(</span><span
+                                class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">{</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-11"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-n">@Override</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-12"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-m">public</span><span class="crayon-h"> </span><span
+                                class="crayon-t">void</span><span class="crayon-h"> </span><span
+                                class="crayon-e">onClick</span><span class="crayon-sy">(</span><span
+                                class="crayon-e">View </span><span class="crayon-v">view</span><span
+                                class="crayon-sy">)</span><span class="crayon-h"> </span><span
+                                class="crayon-sy">{</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-13"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-e">getSupportFragmentManager</span><span class="crayon-sy">(</span><span
+                                class="crayon-sy">)</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">beginTransaction</span><span class="crayon-sy">(</span><span
+                                class="crayon-sy">)</span><span class="crayon-sy">.</span><span
+                                class="crayon-e">add</span><span class="crayon-sy">(</span><span
+                                class="crayon-v">R</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">id</span><span class="crayon-sy">.</span><span
+                                class="crayon-v">frame_layout</span><span class="crayon-sy">,</span><span
+                                class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h">
+                              </span><span class="crayon-e">TampilanFragment</span><span class="crayon-sy">(</span><span
+                                class="crayon-sy">)</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">.</span><span class="crayon-e">commit</span><span
+                                class="crayon-sy">(</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-14"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-sy">}</span></div>
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-15"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                class="crayon-sy">}</span><span class="crayon-sy">)</span><span
+                                class="crayon-sy">;</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-16">&nbsp;
+                            </div>
+                            <div class="crayon-line" id="crayon-608d5795e21c4128046284-17"><span
+                                class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div>
+                            <div class="crayon-line crayon-striped-line" id="crayon-608d5795e21c4128046284-18"><span
+                                class="crayon-sy">}</span></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- [Format Time: 0.0005 seconds] -->
+              <p><span style="font-weight: 400;">Perhatikan baik-baik pada code yang di blok warna biru. Di situ kita
+                  memanggil Fragment “TampilanFragment“ untuk menempati FrameLayout dengan id </span><i><span
+                    style="font-weight: 400;">frame_layout</span></i><span style="font-weight: 400;"> yang telah kita
+                  buat sebelumnya di tampilan Main Activity. </span></p>
+              <p><span style="font-weight: 400;">Nah sekarang coba deh run aplikasinya. &nbsp;</span></p>
+              <p><a
+                  href="https://www.dicoding.com/blog/wp-content/uploads/2017/01/Screenshot_2017-01-23-18-38-38.png"><img
+                    class="alignnone wp-image-2968"
+                    src="https://www.dicoding.com/blog/wp-content/uploads/2017/01/Screenshot_2017-01-23-18-38-38.png"
+                    alt="screenshot_2017-01-23-18-38-38" width="250" height="427"></a> <a
+                  href="https://www.dicoding.com/blog/wp-content/uploads/2017/01/Screenshot_2017-01-23-18-39-02.png"><img
+                    class="alignnone wp-image-2969"
+                    src="https://www.dicoding.com/blog/wp-content/uploads/2017/01/Screenshot_2017-01-23-18-39-02.png"
+                    alt="screenshot_2017-01-23-18-39-02" width="250" height="427"></a> <a
+                  href="https://www.dicoding.com/blog/wp-content/uploads/2017/01/Screenshot_2017-01-23-18-39-05.png"><img
+                    class="alignnone wp-image-2970"
+                    src="https://www.dicoding.com/blog/wp-content/uploads/2017/01/Screenshot_2017-01-23-18-39-05.png"
+                    alt="screenshot_2017-01-23-18-39-05" width="250" height="427"></a></p>
+              
+              <p><span style="font-weight: 400;">Semoga bermafaat kawan, yuk terus belajar dan nantikan tips kami
+                  selanjutnya.</span></p>
+            </div>
+
+            
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+          <div class="section-container">
+            <div class="container text-center">
+              <div class="row section-container-spacer">
+                <div class="col-xs-12 col-md-12">
+
+                  <h3>Do you like it ?</h3>
+                  <p>
+                    <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
+                      <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
+                      <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
+                      <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <footer class="footer-container white-text-container">
+            <div class="container">
+              <div class="row">
+
+
+                <div class="col-xs-12">
+                  <h3>Android Stack</h3>
+
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-7">
+                      <p><small>Website created with <a href="http://www.mashup-template.com/"
+                            title="Create website with free html template">Android Stack</a>/<a
+                            href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></small>
+                      </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-5">
+                      <p class="text-right">
+                        <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                          <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                          <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                          <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </footer>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", function (event) {
+              navActivePage();
+              scrollRevelation('.reveal');
+            });
+          </script>
+
+          <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+          <script type="text/javascript" src="../../main.0cf8b554.js"></script>
+</body>
+
+</html>

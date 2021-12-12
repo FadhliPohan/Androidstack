@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-icon-180x180.png">
+  <link href="../../assets/favicon.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+
+  <title>Arsitek Android</title>
+
+  <link href="../../main.550dcf66.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-default active">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" title="">
+            <img src="../../assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
+            Android Stack
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html" title="">Home</a></li>
+            <li><a href="../../project.html" title="">Project</a></li>
+            <li>
+              <p>
+                <a href="../../components.html" class="btn btn-default navbar-btn" title="">Components</a>
+              </p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <div class="single_post" style="height: auto !important;">
+            <header>
+              <h1 class="text-center">Tutorial Cara Membuat Alert Dialog Sederhana di Android</h1>
+              
+            </header>
+            <!--.headline_area-->
+            <div class="post-single-content box mark-links entry-content" style="height: auto !important;">
+
+
+              <div class="thecontent" style="height: auto !important;">
+                <div class="code-block code-block-7" style="margin: 8px 0; clear: both;">
+                </div>
+                <p>Di Android terdapat beberapa jenis pop-up dialog, ada Toast, <a
+                    href="http://www.twoh.co/2015/07/09/tutorial-menampilkan-snackbar-pada-android-design-support-library/"
+                    target="_blank" rel="noopener noreferrer">SnackBar</a>, dan ada juga AlertDialog. Alert Dialog
+                  adalah sebuah pop up yang muncul pada saat-saat tertentu dan berfungsi untuk memberi info pada
+                  pengguna, berbentuk kotak. Pada tutorial ini kita akan membuat Alert Dialog sederhana / bawaan dari
+                  Android, AlertDialog basic ini berisi icon (default-nya kosong), title dialog, pesan yang ingin
+                  disampaikan dialog itu, dan tombol “Yes” atau “No” yang bisa dicustom.<span id="more-825768"></span>
+                </p>
+             <br><br>
+
+                <h2 class="text-center">Membuat Alert Dialog Android menggunakan Android Studio</h2>
+                <p>Langsung saja, untuk menampilkan Alert Dialog di Android, tahap-tahapnya sebagai berikut :</p>
+                <ol>
+                  <li>Pertama-tama gunakan <strong>AlertDialog.Builder</strong> untuk membuat interface dari kotak
+                    dialog itu, seperti title, pesan yang ingin ditampilkan, tombol, tombol click listener, dan icon.
+                  </li>
+                  <li>Kemudian, menggunakan builder tersebut kita akan membuat object AlertDialog baru.</li>
+                  <li>Gunakan fungsi <strong>AlertDialog.show()</strong> untuk menampilkan dialog. Selesai.</li>
+                </ol>
+                <p>Oke, pertama-tama buatlah sebuah project baru di Android Studio terlebih dahulu, cara-caranya <a
+                    href="http://www.twoh.co/2014/09/28/belajar-membuat-aplikasi-android-menggunakan-android-studio/"
+                    target="_blank" rel="noopener noreferrer">ada di sini</a>.</p>
+                <p>Setelah itu buka file layout xml, <em>activity_main.xml</em>, dan isikan kode berikut (layout hanya
+                  berisi&nbsp;satu buah tombol).</p>
+
+                <div>
+                  <div id="highlighter_317993" class="syntaxhighlighter  xml">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                            <div class="line number10 index9 alt1">10</div>
+                          </td>
+                          <td class="code">
+                            <div class="container">
+                              <div class="line number1 index0 alt2"><code class="xml plain">&lt;?</code><code
+                                  class="xml keyword">xml</code> <code class="xml color1">version</code><code
+                                  class="xml plain">=</code><code class="xml string">"1.0"</code> <code
+                                  class="xml color1">encoding</code><code class="xml plain">=</code><code
+                                  class="xml string">"utf-8"</code><code class="xml plain">?&gt;&nbsp; </code></div>
+                              <div class="line number2 index1 alt1"><code class="xml plain">&lt;</code><code
+                                  class="xml keyword">LinearLayout</code> <code
+                                  class="xml color1">xmlns:android</code><code class="xml plain">=</code><code
+                                  class="xml string">"<a
+                                    href="http://schemas.android.com/apk/res/android">http://schemas.android.com/apk/res/android</a>"</code>
+                                <code class="xml color1">android:orientation</code><code class="xml plain">=</code><code
+                                  class="xml string">"vertical"</code> <code
+                                  class="xml color1">android:layout_width</code><code class="xml plain">=</code><code
+                                  class="xml string">"match_parent"</code> <code
+                                  class="xml color1">android:gravity</code><code class="xml plain">=</code><code
+                                  class="xml string">"center_vertical|center_horizontal"</code> <code
+                                  class="xml color1">android:layout_height</code><code class="xml plain">=</code><code
+                                  class="xml string">"match_parent"</code><code class="xml plain">&gt;</code></div>
+                              <div class="line number3 index2 alt2">&nbsp;</div>
+                              <div class="line number4 index3 alt1"><code class="xml plain">&lt;</code><code
+                                  class="xml keyword">Button</code></div>
+                              <div class="line number5 index4 alt2"><code class="xml color1">android:id</code><code
+                                  class="xml plain">=</code><code class="xml string">"@+id/bt_alert"</code></div>
+                              <div class="line number6 index5 alt1"><code
+                                  class="xml color1">android:layout_width</code><code class="xml plain">=</code><code
+                                  class="xml string">"wrap_content"</code></div>
+                              <div class="line number7 index6 alt2"><code class="xml color1">android:text</code><code
+                                  class="xml plain">=</code><code class="xml string">"Munculkan Alert Dialog"</code>
+                              </div>
+                              <div class="line number8 index7 alt1"><code
+                                  class="xml color1">android:elevation</code><code class="xml plain">=</code><code
+                                  class="xml string">"0dp"</code></div>
+                              <div class="line number9 index8 alt2"><code
+                                  class="xml color1">android:layout_height</code><code class="xml plain">=</code><code
+                                  class="xml string">"wrap_content"</code> <code class="xml plain">/&gt;&nbsp; </code>
+                              </div>
+                              <div class="line number10 index9 alt1"><code class="xml plain">&lt;/</code><code
+                                  class="xml keyword">LinearLayout</code><code class="xml plain">&gt;</code></div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <p>Kemudian pada MainActivity.java, isikan kode berikut :</p>
+                <div>
+                  <div id="highlighter_404252" class="syntaxhighlighter  java">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                            <div class="line number7 index6 alt2">7</div>
+                            <div class="line number8 index7 alt1">8</div>
+                            <div class="line number9 index8 alt2">9</div>
+                            <div class="line number10 index9 alt1">10</div>
+                            <div class="line number11 index10 alt2">11</div>
+                            <div class="line number12 index11 alt1">12</div>
+                            <div class="line number13 index12 alt2">13</div>
+                            <div class="line number14 index13 alt1">14</div>
+                            <div class="line number15 index14 alt2">15</div>
+                            <div class="line number16 index15 alt1">16</div>
+                            <div class="line number17 index16 alt2">17</div>
+                            <div class="line number18 index17 alt1">18</div>
+                            <div class="line number19 index18 alt2">19</div>
+                            <div class="line number20 index19 alt1">20</div>
+                            <div class="line number21 index20 alt2">21</div>
+                            <div class="line number22 index21 alt1">22</div>
+                            <div class="line number23 index22 alt2">23</div>
+                            <div class="line number24 index23 alt1">24</div>
+                            <div class="line number25 index24 alt2">25</div>
+                            <div class="line number26 index25 alt1">26</div>
+                            <div class="line number27 index26 alt2">27</div>
+                            <div class="line number28 index27 alt1">28</div>
+                            <div class="line number29 index28 alt2">29</div>
+                            <div class="line number30 index29 alt1">30</div>
+                            <div class="line number31 index30 alt2">31</div>
+                            <div class="line number32 index31 alt1">32</div>
+                            <div class="line number33 index32 alt2">33</div>
+                            <div class="line number34 index33 alt1">34</div>
+                            <div class="line number35 index34 alt2">35</div>
+                            <div class="line number36 index35 alt1">36</div>
+                            <div class="line number37 index36 alt2">37</div>
+                            <div class="line number38 index37 alt1">38</div>
+                            <div class="line number39 index38 alt2">39</div>
+                            <div class="line number40 index39 alt1">40</div>
+                            <div class="line number41 index40 alt2">41</div>
+                            <div class="line number42 index41 alt1">42</div>
+                            <div class="line number43 index42 alt2">43</div>
+                            <div class="line number44 index43 alt1">44</div>
+                            <div class="line number45 index44 alt2">45</div>
+                            <div class="line number46 index45 alt1">46</div>
+                            <div class="line number47 index46 alt2">47</div>
+                            <div class="line number48 index47 alt1">48</div>
+                            <div class="line number49 index48 alt2">49</div>
+                            <div class="line number50 index49 alt1">50</div>
+                            <div class="line number51 index50 alt2">51</div>
+                            <div class="line number52 index51 alt1">52</div>
+                            <div class="line number53 index52 alt2">53</div>
+                            <div class="line number54 index53 alt1">54</div>
+                            <div class="line number55 index54 alt2">55</div>
+                          </td>
+                          <td class="code">
+                            <div class="container">
+                              <div class="line number1 index0 alt2"><code class="java preprocessor">/**</code></div>
+                              <div class="line number2 index1 alt1"><code class="java spaces">&nbsp;</code><code
+                                  class="java preprocessor">* Created by Hafizh Herdi on 1/7/2017.</code></div>
+                              <div class="line number3 index2 alt2"><code class="java spaces">&nbsp;</code><code
+                                  class="java preprocessor">*/</code></div>
+                              <div class="line number4 index3 alt1">&nbsp;</div>
+                              <div class="line number5 index4 alt2"><code class="java keyword">public</code> <code
+                                  class="java keyword">class</code> <code class="java plain">MainActivity </code><code
+                                  class="java keyword">extends</code> <code class="java plain">AppCompatActivity
+                                  {</code></div>
+                              <div class="line number6 index5 alt1">&nbsp;</div>
+                              <div class="line number7 index6 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">private</code> <code class="java plain">Button btAlert;</code>
+                              </div>
+                              <div class="line number8 index7 alt1">&nbsp;</div>
+                              <div class="line number9 index8 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java color1">@Override</code></div>
+                              <div class="line number10 index9 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">protected</code> <code class="java keyword">void</code> <code
+                                  class="java plain">onCreate(</code><code class="java color1">@Nullable</code> <code
+                                  class="java plain">Bundle savedInstanceState) {</code></div>
+                              <div class="line number11 index10 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">super</code><code
+                                  class="java plain">.onCreate(savedInstanceState);</code></div>
+                              <div class="line number12 index11 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">setContentView(R.layout.activity_main);</code></div>
+                              <div class="line number13 index12 alt2">&nbsp;</div>
+                              <div class="line number14 index13 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">btAlert = (Button) findViewById(R.id.bt_alert);</code></div>
+                              <div class="line number15 index14 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">btAlert.setOnClickListener(</code><code
+                                  class="java keyword">new</code> <code class="java plain">View.OnClickListener()
+                                  {</code></div>
+                              <div class="line number16 index15 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java color1">@Override</code></div>
+                              <div class="line number17 index16 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">public</code> <code class="java keyword">void</code> <code
+                                  class="java plain">onClick(View view) {</code></div>
+                              <div class="line number18 index17 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">showDialog();</code></div>
+                              <div class="line number19 index18 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">}</code></div>
+                              <div class="line number20 index19 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">});</code></div>
+                              <div class="line number21 index20 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code>
+                              </div>
+                              <div class="line number22 index21 alt1">&nbsp;</div>
+                              <div class="line number23 index22 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">private</code> <code class="java keyword">void</code> <code
+                                  class="java plain">showDialog(){</code></div>
+                              <div class="line number24 index23 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">AlertDialog.Builder alertDialogBuilder = </code><code
+                                  class="java keyword">new</code> <code class="java plain">AlertDialog.Builder(</code>
+                              </div>
+                              <div class="line number25 index24 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">this</code><code class="java plain">);</code></div>
+                              <div class="line number26 index25 alt1">&nbsp;</div>
+                              <div class="line number27 index26 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java comments">// set title dialog</code></div>
+                              <div class="line number28 index27 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">alertDialogBuilder.setTitle(</code><code
+                                  class="java string">"Keluar dari aplikasi?"</code><code class="java plain">);</code>
+                              </div>
+                              <div class="line number29 index28 alt2">&nbsp;</div>
+                              <div class="line number30 index29 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java comments">// set pesan dari dialog</code></div>
+                              <div class="line number31 index30 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">alertDialogBuilder</code></div>
+                              <div class="line number32 index31 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">.setMessage(</code><code class="java string">"Klik Ya untuk
+                                  keluar!"</code><code class="java plain">)</code></div>
+                              <div class="line number33 index32 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">.setIcon(R.mipmap.ic_launcher)</code></div>
+                              <div class="line number34 index33 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">.setCancelable(</code><code class="java keyword">false</code><code
+                                  class="java plain">)</code></div>
+                              <div class="line number35 index34 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">.setPositiveButton(</code><code
+                                  class="java string">"Ya"</code><code class="java plain">,</code><code
+                                  class="java keyword">new</code> <code
+                                  class="java plain">DialogInterface.OnClickListener() {</code></div>
+                              <div class="line number36 index35 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">public</code> <code class="java keyword">void</code> <code
+                                  class="java plain">onClick(DialogInterface dialog,</code><code
+                                  class="java keyword">int</code> <code class="java plain">id) {</code></div>
+                              <div class="line number37 index36 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java comments">// jika tombol diklik, maka akan menutup activity ini</code>
+                              </div>
+                              <div class="line number38 index37 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">MainActivity.</code><code class="java keyword">this</code><code
+                                  class="java plain">.finish();</code></div>
+                              <div class="line number39 index38 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">}</code></div>
+                              <div class="line number40 index39 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">})</code></div>
+                              <div class="line number41 index40 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">.setNegativeButton(</code><code
+                                  class="java string">"Tidak"</code><code class="java plain">,</code><code
+                                  class="java keyword">new</code> <code
+                                  class="java plain">DialogInterface.OnClickListener() {</code></div>
+                              <div class="line number42 index41 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">public</code> <code class="java keyword">void</code> <code
+                                  class="java plain">onClick(DialogInterface dialog, </code><code
+                                  class="java keyword">int</code> <code class="java plain">id) {</code></div>
+                              <div class="line number43 index42 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java comments">// jika tombol ini diklik, akan menutup dialog</code></div>
+                              <div class="line number44 index43 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java comments">// dan tidak terjadi apa2</code></div>
+                              <div class="line number45 index44 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">dialog.cancel();</code></div>
+                              <div class="line number46 index45 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">}</code></div>
+                              <div class="line number47 index46 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">});</code></div>
+                              <div class="line number48 index47 alt1">&nbsp;</div>
+                              <div class="line number49 index48 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java comments">// membuat alert dialog dari builder</code></div>
+                              <div class="line number50 index49 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">AlertDialog alertDialog = alertDialogBuilder.create();</code></div>
+                              <div class="line number51 index50 alt2">&nbsp;</div>
+                              <div class="line number52 index51 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java comments">// menampilkan alert dialog</code></div>
+                              <div class="line number53 index52 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">alertDialog.show();</code></div>
+                              <div class="line number54 index53 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code>
+                              </div>
+                              <div class="line number55 index54 alt2"><code class="java plain">}</code></div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <p>Jika sudah, jangan lupa untuk menambahkan import-import yang kurang. Kemudian bisa langsung
+                  dijalankan project aplikasinya.</p>
+                <p>Oh iya, kode diatas untuk memunculkan dialog dengan dua tombol action, “Yes” or “No”, untuk membuat
+                  dialog dengan satu tombol, bisa menggunakan fungsi berikut :</p>
+                <div>
+                  <div id="highlighter_98028" class="syntaxhighlighter  java">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td class="gutter">
+                            <div class="line number1 index0 alt2">1</div>
+                            <div class="line number2 index1 alt1">2</div>
+                            <div class="line number3 index2 alt2">3</div>
+                            <div class="line number4 index3 alt1">4</div>
+                            <div class="line number5 index4 alt2">5</div>
+                            <div class="line number6 index5 alt1">6</div>
+                          </td>
+                          <td class="code">
+                            <div class="container">
+                              <div class="line number1 index0 alt2"><code
+                                  class="java plain">.setNeutralButton(</code><code class="java string">"Ok"</code><code
+                                  class="java plain">, </code><code class="java keyword">new</code> <code
+                                  class="java plain">DialogInterface.OnClickListener() {</code></div>
+                              <div class="line number2 index1 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java color1">@Override</code></div>
+                              <div class="line number3 index2 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java keyword">public</code> <code class="java keyword">void</code> <code
+                                  class="java plain">onClick(DialogInterface dialogInterface, </code><code
+                                  class="java keyword">int</code> <code class="java plain">i) {</code></div>
+                              <div class="line number4 index3 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java comments">// do something</code></div>
+                              <div class="line number5 index4 alt2"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">}</code></div>
+                              <div class="line number6 index5 alt1"><code
+                                  class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                  class="java plain">})</code></div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <p>&nbsp;</p>
+                <p>Atau kalian juga memanggil ketiga fungsi tersebut untuk membuat Alert Dialog dengan tiga buah tombol,
+                  “Yes”, “No” dan “Netral”, namun hal ini jarang dipakai.</p>
+                <h2 class="text-center">Demo</h2>
+                <div id="attachment_825769" style="width: 615px" class="text-center"><img
+                    aria-describedby="caption-attachment-825769" loading="lazy" class=" wp-image-825769"
+                    src="http://www.twoh.co/wp-content/uploads/2017/01/alert_dialog_android.jpg" alt="" width="605"
+                    height="362">
+                  <p id="caption-attachment-825769" class="wp-caption-text">Alert Dialog demo</p>
+                </div>
+             
+               
+
+
+
+            </div>
+            <!--.post-single-content-->
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <div class="section-container">
+    <div class="container text-center">
+      <div class="row section-container-spacer">
+        <div class="col-xs-12 col-md-12">
+
+          <h3>Do you like it ?</h3>
+          <p>
+            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer-container white-text-container">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-xs-12">
+          <h3>Android Stack</h3>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-7">
+              <p><small>Website created with <a href="http://www.mashup-template.com/"
+                    title="Create website with free html template">Android Stack</a>/<a href="https://www.unsplash.com/"
+                    title="Beautiful Free Images">Unsplash</a></small>
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+              <p class="text-right">
+                <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+      scrollRevelation('.reveal');
+    });
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+  <script type="text/javascript" src="../../main.0cf8b554.js"></script>
+</body>
+
+</html>

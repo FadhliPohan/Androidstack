@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-icon-180x180.png">
+  <link href="../../assets/favicon.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+
+  <title>Pengertian Activity</title>
+
+  <link href="../../main.550dcf66.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-default active">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" title="">
+            <img src="../../assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
+            Android Stack
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html" title="">Home</a></li>
+            <li><a href="../../project.html" title="">Project</a></li>
+            <li>
+              <p>
+                <a href="../../components.html" class="btn btn-default navbar-btn" title="">Components</a>
+              </p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <h1 class="text-center">Pengenalan Activity dan Intent
+          </h1>
+
+          <br>
+          <h3 class="text-Left">1. Activity</h3>
+
+          <p>Activity merupakan salah satu komponen yang ada di Android Studio yang berfungsi untuk menampilkan user
+            interface (UI) dari aplikasi yang akan dibuat, biasanya diletakkan pada “setcontentview”. Bukan hanya
+            menampilkan UI, activity juga digunakan untuk melakukan berbagai kegiatan yang diperlukan di dalam aplikasi
+            tersebut seperti berpindah dari satu tampilan ke tampilan lainnya, menjalankan program lain, dan masih
+            banyak lagi yang dapat dilakukan di dalam sebuah activity.
+          </p>
+          <p>Activity memiliki sirkulasi kehidupan atau yang biasanya disebut “lifecycle”, seperti yang ditunjukkan pada
+            Gambar 1 di bawah ini.</p>
+
+          <div class="section-container-spacer">
+            <img src="https://socs.binus.ac.id/files/2017/09/wi-1.jpg" alt="" class="img-responsive reveal-content"
+              data-action="zoom" width="416" height="594" style="display: block; margin: auto;">
+            <figcaption id="figcaption_attachment_15541" class="text-center" itemprop="description">Gambar 1.
+              Lifecycle komponen activity di dalam Android Studio</figcaption>
+          </div>
+
+          <p style="text-align: justify">Dalam proses <em>lifecycle</em>, <em>activity </em>memiliki beberapa tampilan, yaitu:</p>
+          <ul style="text-align: justify">
+            <li><em>Foreground activity</em>, merupakan tampilan paling depan yang dilihat oleh <em>user </em>pada saat menggunakan</li>
+            <li><em>Visible activity</em>, merupakan tampilan aplikasi yang dilihat oleh <em>user</em>, namun bukan yang paling depan (<em>foreground activity</em>). Contoh: pada saat muncul dialog, tampilan yang di belakang dialog tersebut merupakan <em>visible activity</em>.</li>
+            <li><em>Background activity</em>, merupakan tampilan yang sedang disimpan untuk dimunculkan pada saat <em>user </em>men-<em>trigger event </em>yang akan memunculkan <em>activity </em> Contoh: setelah <em>user </em>melakukan <em>login</em>, <em>user </em>akan masuk ke dalam tampilan main menu. Main menu tersebut adalah <em>background activity </em>pada awalnya tidak ditampilkan namun, dikarenakan <em>user login </em>ke sistem, <em>activity </em>tersebut muncul.</li>
+            <li><em>Empty process</em>, bukan merupakan tampilan namun berupa proses yang dapat mengubah tampilan dari aplikasi yang digunakan oleh <em>user </em>seperti <em>Service </em>dan <em>BroadcastReciver</em>. Biasanya proses ini digunakan untuk mengurangi penggunaan <em>memory </em>yang berlebihan, agar proses untuk mengubah tampilan aplikasi tersebut berjalan di <em>background process </em>dan tidak mempengaruhi performa dari <em>handphone</em>.</li>
+            </ul>
+
+
+          <br>
+          <h3 class="text-Left">2. Intent</h3>
+          <div class="section-container-spacer">
+
+          </div>
+
+          <div>
+            <p>Intent adalah sebuah kelas dalam programming Android yang berfungsi untuk perpindahan halaman.</p>
+            <p>Intent juga merupakan suatu objek yang terdapat dalam suatu activity dimana objek tersebut dapat
+              komunikasi dengan activity yang lain, baik activity pada fungsi internal android misal seperti memanggil
+              activity dalam satu package atau beda package yang masih berada dalam satu project.</p>
+            <p>Intent merupakan objek tipe android.content.Intent. Melalui metode <code>startActivity()</code> yang
+              digunakan untuk memulai sebuah activity lain.</p>
+            <p>Intent dibagi menjadi 2, yaitu :</p>
+            <ol>
+              <li><strong>Explicit Intent</strong> berfungsi untuk mengaktifkan komponen-komponen dalam satu aplikasi
+                yang sama. Misalnya seperti : Berpindah Activity.</li>
+              <li><strong>Implicit Intent</strong> berfungsi untuk memanggil fungsi activity yang sudah ada di fungsi
+                internal android seperti Dial Number, Open Browser dan lainnya.</li>
+            </ol>
+            <p>Tutorial kali ini, saya akan mempraktekan implementasi dari Intent menggunakan <strong>Android
+                Studio</strong>.</p>
+                <br>
+            <h2 class="text-center"><strong>Langkah - langkah</strong></h2>
+            <ul>
+              <li>
+                <h3>Explicit dan Implicit Intent</h3>
+              </li>
+            </ul>
+            <p>Pertama-tama, buatlah dua buah activity pada Android Studio Anda. Lalu tambahkan baris program pada :</p>
+            <h4><strong>activity_main.xml</strong></h4>
+            <p>Berikut baris program pada <strong>activity_main.xm</strong> :</p>
+            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+            &lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.example.acer.myapplication.PageOne"&gt;
+            
+                &lt;Button
+                    android:id="@+id/explicitintent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Klik disini untuk Explicit Intent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="150dp"/&gt;
+                    
+                &lt;Button
+                    android:id="@+id/implicitintent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Klik disini untuk Implicit Intent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="200dp"/&gt;
+            
+            &lt;/RelativeLayout&gt;
+            </code></pre>
+            <h4><strong>activity_page_two.xml</strong></h4>
+            <p>Berikut baris program pada <strong>activity_page_two.xml</strong> :</p>
+            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+            &lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.example.acer.myapplication.PageTwo"&gt;
+            
+                &lt;TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ini adalah halaman kedua"
+                    android:textSize="30dp"
+                    android:layout_marginTop="150dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="30dp" /&gt;
+            
+            &lt;/RelativeLayout&gt;
+            </code></pre>
+            <h4><strong>PageOne.java</strong></h4>
+            <p>Berikut baris program untuk <strong>PageOne.java</strong> :</p>
+            <pre><code>
+            import android.content.Intent;
+            import android.net.Uri;
+            import android.support.v7.app.AppCompatActivity;
+            import android.os.Bundle;
+            import android.view.View;
+            import android.widget.Button;
+            import android.widget.Toast;
+            
+            public class PageOne extends AppCompatActivity implements View.OnClickListener {
+                Button explicitintent;
+                Button implicitintent;
+            
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                    super.onCreate(savedInstanceState);
+                    setContentView(R.layout.activity_main);
+                    explicitintent = (Button)findViewById(R.id.explicitintent);
+                    explicitintent.setOnClickListener(this);
+                    implicitintent = (Button)findViewById(R.id.implicitintent);
+                    implicitintent.setOnClickListener(this);
+            
+                }
+            
+                @Override
+                public void onClick(View v) {
+                    switch (v.getId()){
+                        case R.id.explicitintent:
+                            Intent explicit = new Intent(PageOne.this, PageTwo.class);
+                            startActivity(explicit);
+                            break;
+                        case R.id.implicitintent:
+                           Intent implicit = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.codepolitan.com"));
+                            startActivity(implicit);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            </code></pre>
+            <ul>
+              <li>
+                <h4>Intent dengan Extra</h4>
+              </li>
+            </ul>
+            <p><strong>Intent dengan extra</strong> atau <code>putExtra()</code> adalah sebuah metode dari Intent yang
+              digunakan untuk mengirimkan data ke activity yang dituju. Data yang akan dikirim pun tipenya dapat
+              bermacam-macam, bisa berbentuk String, angka (integer, float, double), ArrayList, boolean, array,
+              character, dan sebagainya. Namun tidak semua tipe data support untuk dikirim antar Activity, tipe data
+              yang berukuran besar seperti gambar (image bitmap) atau file, tidak dapat dipassing antar Activity melalui
+              metode ini.</p>
+            <h4><strong>MainActivity.java</strong></h4>
+            <p>Berikut baris program untuk <strong>MainActivity.java</strong> :</p>
+            <pre><code>import android.content.Intent;
+            import android.os.Bundle;
+            import android.support.v7.app.AppCompatActivity;
+            import android.view.View;
+            import android.widget.Button;
+            import android.widget.EditText;
+            
+            public class MainActivity extends AppCompatActivity {
+            
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                    super.onCreate(savedInstanceState);
+                    setContentView(R.layout.activity_main);
+                    final EditText name = (EditText) findViewById(R.id.edit_textdata);
+                    Button button = (Button) findViewById(R.id.button_submitintent);
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(MainActivity.this,Main2Activity.class);
+                            i.putExtra("name", name.getText().toString());
+                            startActivity(i);
+                        }
+                    });
+                }
+            }
+            </code></pre>
+            <h4><strong>Main2Activity.java</strong></h4>
+            <p>Berikut baris program untuk <strong>Main2Activity.java</strong> :</p>
+            <pre><code>import android.os.Bundle;
+            import android.support.v7.app.AppCompatActivity;
+            import android.widget.TextView;
+            
+            public class Main2Activity extends AppCompatActivity {
+            
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                    super.onCreate(savedInstanceState);
+                    setContentView(R.layout.activity_main2);
+                    TextView t = (TextView) findViewById(R.id.text_viewdata);
+                    Bundle bundle=getIntent().getExtras();
+                    String s=bundle.getString("name");
+                    t.setText(s);
+            
+                }
+            }
+            </code></pre>
+            <h4><strong>activity_main.xml</strong></h4>
+            <p>Berikut baris program pada <strong>activity_main.xml</strong> :</p>
+            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+            &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"&gt;
+            
+                &lt;TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ini halaman utama Activity 1"
+                    android:textAppearance="?android:attr/textAppearanceLarge" /&gt;
+            
+                &lt;EditText
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/edit_textdata"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Data"/&gt;
+                    
+                &lt;Button
+                    android:id="@+id/button_submitintent"
+                    android:text="Intent with extra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" /&gt;
+                
+            &lt;/LinearLayout&gt;
+            </code></pre>
+            <h4><strong>activity_main2.xml</strong></h4>
+            <p>Berikut baris program pada <strong>activity_main2.xml</strong> :</p>
+            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+            &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="match_parent"&gt;
+            
+                &lt;TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ini halaman kedua Activity 2"
+                    android:textAppearance="?android:attr/textAppearanceLarge" /&gt;
+            
+                &lt;TextView
+                    android:layout_margin="15dp"
+                    android:id="@+id/text_viewdata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data"
+                    android:textAppearance="?android:attr/textAppearanceMedium" /&gt;
+            
+            &lt;/LinearLayout&gt;
+            </code></pre>
+            <h4><strong>Hasil Output</strong></h4>
+            <p><strong>Explicit Intent</strong></p>
+            <p><img src="https://static.cdn-cdpl.com/source/634a156d2b7858558437c2588d26eb2f/explicit.png"
+                alt="explixit"></p>
+            <h4><strong>Hasil Output</strong></h4>
+            <p><strong>Implicit Intent</strong></p>
+            <p><img src="https://static.cdn-cdpl.com/source/634a156d2b7858558437c2588d26eb2f/implicit.png" alt=""></p>
+            <h4><strong>Hasil Output</strong></h4>
+            <p><strong>Intent dengan Extra</strong></p>
+            <p><img src="https://static.cdn-cdpl.com/source/634a156d2b7858558437c2588d26eb2f/extraintent.png"
+                alt=""><br>
+              Sekian dari saya semoga tutorial ini bermanfaat bagi anda yang mencobanya. Terima Kasih.</p>
+            <p><strong>Referensi</strong> <a
+                href="http://www.vogella.com/tutorials/AndroidIntent/article.html">http://www.vogella.com/tutorials/AndroidIntent/article.html</a>
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+  <div class="section-container">
+    <div class="container text-center">
+      <div class="row section-container-spacer">
+        <div class="col-xs-12 col-md-12">
+
+          <h3>Do you like it ?</h3>
+          <p>
+            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer-container white-text-container">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-xs-12">
+          <h3>Android Stack</h3>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-7">
+              <p><small>Website created with <a href="http://www.mashup-template.com/"
+                    title="Create website with free html template">Android Stack</a>/<a href="https://www.unsplash.com/"
+                    title="Beautiful Free Images">Unsplash</a></small>
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+              <p class="text-right">
+                <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+      scrollRevelation('.reveal');
+    });
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+  <script type="text/javascript" src="../../main.0cf8b554.js"></script>
+</body>
+
+</html>

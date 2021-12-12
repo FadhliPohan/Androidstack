@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-icon-180x180.png">
+  <link href="../../assets/favicon.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+
+  <title>Arsitek Android</title>
+
+  <link href="../../main.550dcf66.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-default active">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" title="">
+            <img src="../../assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
+            Android Stack
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html" title="">Home</a></li>
+            <li><a href="../../project.html" title="">Project</a></li>
+            <li>
+              <p>
+                <a href="../../components.html" class="btn btn-default navbar-btn" title="">Components</a>
+              </p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <section class="normal markdown-section">
+
+            <!-----
+
+
+## Using this Markdown file:
+1. Cut and paste this output into your source file.
+2. See the notes and action items below regarding this conversion run.
+3. Check the rendered output and use a linkchecker before you publish this page.
+
+
+### Conversion notes
+* GDC version 1.1.14
+* Thu Dec 01 2016 13:25:59 GMT-0800 (PST)
+* Source doc: https://docs.google.com/a/google.com/open?id=1IMbfrCJykEGkJeBdgtoU32UPK8gCf5Vi8OuxTV40L1A
+* This document has images: check for >>>>  inline image link in generated source and store images to your server.
+* Conversion time: 9.146 seconds
+----->
+
+
+            <h1 id="12-layout-tampilan-dan-sumber-daya" class="text-center">Layout, Tampilan, dan Sumber Daya</h1>
+
+            <p><a id="chapterstart"></a></p>
+            <p>Bab ini menjelaskan layout antarmuka pengguna di layar dan sumber daya lain yang Anda buat untuk
+              aplikasi, dan kode yang akan digunakan untuk merespons ketukan pengguna pada elemen antarmuka pengguna.
+            </p>
+            <p><a id="pattern"></a></p>
+            <h2 class="text-center" id="pola-model-view-presenter">Pola model-view-presenter</h2>
+            <p>Menautkan aktivitas ke sumber daya layout adalah contoh dari bagian pola arsitektur <em><a
+                  href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter"
+                  target="_blank">model-view-presenter</a></em> (MVP). Pola MVP adalah cara yang sudah umum digunakan
+              untuk mengelompokkan fungsi aplikasi:</p>
+            <ul>
+              <li><strong>Tampilan. </strong>Tampilan adalah elemen antarmuka pengguna yang menampilkan data dan respons
+                terhadap tindakan pengguna. Setiap elemen layar adalah tampilan. Sistem Android menyediakan berbagai
+                jenis tampilan.</li>
+              <li><strong>Presenter.</strong> Presenter menghubungkan tampilan aplikasi ke model. Presenter menyediakan
+                tampilan dengan data sebagaimana ditetapkan oleh model, dan juga menyediakan masukan pengguna dari
+                tampilan kepada model.</li>
+              <li><strong>Model. </strong>Model menetapkan struktur data aplikasi dan kode untuk mengakses dan
+                memanipulasi data. Beberapa aplikasi yang Anda buat dalam pelajaran bisa digunakan bersama model untuk
+                mengakses data. Aplikasi Hello Toast tidak menggunakan model data, namun Anda bisa memikirkan logikanya
+                — menampilkan pesan, dan meningkatkan penghitung ketukan — sebagai model.</li>
+                <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;"
+                  src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/dg_model_view_presenter.png"
+                  alt="Pola Arsitektur Model-View-Presenter (MVP)" title="Pola Arsitektur Model-View-Presenter (MVP)">
+              
+            </ul>
+            <p><a id="view"></a></p>
+            <h2 class="text-center" id="tampilan">Tampilan</h2>
+            <p>UI terdiri dari hierarki objek yang disebut <em>tampilan</em>, setiap elemen layar adalah
+              <em>tampilan</em>. Kelas <a href="https://developer.android.com/reference/android/view/View.html"
+                target="_blank">View</a> menyatakan blok pembangunan dasar untuk semua komponen UI, dan kelas dasar
+              untuk kelas yang menyediakan komponen UI interaktif seperti tombol, kotak centang, dan bidang entri teks.
+            </p>
+            <p>Tampilan memiliki lokasi, yang dinyatakan sebagai pasangan koordinat kiri dan atas, dan dua dimensi, yang
+              dinyatakan sebagai lebar dan tinggi. Unit untuk lokasi dan dimensi adalah piksel yang tidak tergantung
+              perangkat (dp).</p>
+            <p>Sistem Android menyediakan ratusan tampilan yang telah didefinisikan sebelumnya, termasuk yang
+              menampilkan:</p>
+            <ul>
+              <li>Teks (<a href="http://developer.android.com/reference/android/widget/TextView.html"
+                  target="_blank">TextView</a>)</li>
+              <li>Bidang untuk memasukkan dan mengedit teks (<a
+                  href="https://developer.android.com/reference/android/widget/EditText.html"
+                  target="_blank">EditText</a>)</li>
+              <li>Pengguna tombol bisa mengetuk (<a
+                  href="https://developer.android.com/reference/android/widget/Button.html" target="_blank">Button</a>)
+                dan komponen interaktif lainnya</li>
+              <li>Teks yang bisa digulir (<a
+                  href="https://developer.android.com/reference/android/widget/ScrollView.html"
+                  target="_blank">ScrollView</a>) dan item yang bisa digulir (<a
+                  href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html"
+                  target="_blank">RecyclerView</a>)</li>
+              <li>Gambar (<a href="https://developer.android.com/reference/android/widget/ImageView.html"
+                  target="_blank">ImageView</a>)</li>
+            </ul>
+            <p>Anda bisa mendefinisikan tampilan untuk muncul di layar dan merespons ketukan pengguna. Tampilan juga
+              bisa didefinisikan untuk menerima masukan teks, atau tidak terlihat hingga diperlukan.</p>
+            <p>Anda bisa menetapkan tampilan di file sumber daya layout XML. Sumber daya layout ditulis dalam XML dan
+              dicantumkan dalam folder <strong>layout</strong> di folder <strong>res</strong> dalam Project: Tampilan
+              Android.</p>
+            <h3 id="grup-tampilan">Grup tampilan</h3>
+            <p>Tampilan bisa dikelompokkan bersama di dalam <em>grup tampilan </em>(<a
+                href="https://developer.android.com/reference/android/view/ViewGroup.html"
+                target="_blank">ViewGroup</a>), yang berfungsi sebagai kontainer tampilan. Hubungannya adalah
+              induk-anak, dalam hal ini <em>induk</em> adalah grup tampilan, dan <em>anak</em> adalah tampilan atau grup
+              tampilan dalam grup. Berikut ini adalah grup tampilan yang umum:</p>
+            <ul>
+              <li><a href="https://developer.android.com/reference/android/widget/ScrollView.html"
+                  target="_blank">ScrollView</a>: Grup yang berisi satu tampilan anak lainnya dan memungkinkan
+                pengguliran tampilan anak.</li>
+              <li><a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html"
+                  target="_blank">RecyclerView</a>: Grup yang berisi daftar tampilan atau grup tampilan lainnya dan
+                memungkinkan penggulirannya dengan menambahkan dan membuang tampilan secara dinamis dari layar.</li>
+            </ul>
+            <h3 id="grup-tampilan-layout">Grup tampilan layout</h3>
+            <p>Tampilan untuk layar dikelola dalam hierarki. Di <em>akar</em> hierarki ini adalah <a
+                href="https://developer.android.com/reference/android/view/ViewGroup.html" target="_blank">ViewGroup</a>
+              yang berisi layout keseluruhan layar. Layar anak grup tampilan bisa menjadi tampilan atau grup tampilan
+              lain seperti yang ditampilkan dalam gambar berikut.
+              <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;"
+                src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/dg_viewgroup_hierarchy.png"
+                alt="Hierarki Tampilan" title="Hierarki Tampilan"></p>
+            <p>Dalam gambar di atas:</p>
+            <ol>
+              <li>Grup tampilan <em>akar</em>.</li>
+              <li>Rangkaian tampilan anak dan grup tampilan pertama yang induknya adalah akar.</li>
+            </ol>
+            <p>Beberapa grup tampilan ditandai sebagai <em>layout</em> karena grup tampilan tersebut mengelola tampilan
+              anak dalam cara khusus dan umumnya digunakan sebagai grup tampilan akar. Beberapa contoh layout adalah:
+            </p>
+            <ul>
+              <li><a href="https://developer.android.com/reference/android/widget/LinearLayout.html"
+                  target="_blank">LinearLayout</a>: Grup tampilan anak yang diposisikan dan disejajarkan secara
+                horizontal atau secara vertikal.</li>
+              <li><a href="https://developer.android.com/reference/android/widget/RelativeLayout.html"
+                  target="_blank">RelativeLayout</a>: Grup tampilan anak yang setiap tampilannya diposisikan dan
+                disejajarkan relatif terhadap tampilan dalam grup tampilan. Dengan kata lain, posisi tampilan anak bisa
+                dijelaskan dalam hubungan satu sama lain atau dengan grup tampilan induk.</li>
+              <li><a href="http://tools.android.com/tech-docs/layout-editor" target="_blank">ConstraintLayout</a>: Grup
+                tampilan anak yang menggunakan titik jangkar, tepi, dan panduan untuk mengontrol cara memosisikan
+                tampilan relatif terhadap elemen lain di layout. ConstraintLayout didesain untuk mempermudah saat
+                menyeret dan melepaskan tampilan di editor layout.</li>
+              <li><a href="https://developer.android.com/reference/android/widget/TableLayout.html"
+                  target="_blank">TableLayout</a>: Grup tampilan anak yang disusun ke dalam baris dan kolom.</li>
+              <li><a href="https://developer.android.com/reference/android/widget/AbsoluteLayout.html"
+                  target="_blank">AbsoluteLayout</a>: Grup yang memungkinkan Anda menetapkan lokasi pasti (koordinat
+                x/y) tampilan anaknya. Layout mutlak bersifat kurang fleksibel dan lebih sulit dikelola daripada tipe
+                layout lainnya tanpa pemosisian mutlak.</li>
+              <li><a href="https://developer.android.com/reference/android/widget/FrameLayout.html"
+                  target="_blank">FrameLayout</a>: Grup tampilan anak bertumpuk. FrameLayout didesain untuk memblokir
+                area di layar guna menampilkan satu tampilan. Tampilan anak digambar bertumpuk, dengan anak yang baru
+                saja ditambahkan di atas. Ukuran FrameLayout adalah ukuran tampilan anak terbesarnya.</li>
+              <li><a href="https://developer.android.com/reference/android/widget/GridLayout.html"
+                  target="_blank">GridLayout</a>: Grup yang menempatkan layar anaknya dalam kotak persegi panjang yang
+                bisa digulir.
+                <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/dg_common_layouts_visual_rep.png"
+                  alt="Representasi Visual Layout" title="Representasi Visual Layout"></li>
+            </ul>
+            <p><strong>Tip</strong>: Ketahui selengkapnya tentang tipe layout yang berbeda di <a
+                href="https://developer.android.com/guide/topics/ui/layout-objects.html" target="_blank">Objek Layout
+                Umum</a>.</p>
+            <p>Contoh sederhana dari layout dengan tampilan anak adalah aplikasi Hello Toast di salah satu pelajaran
+              awal. Tampilan aplikasi Hello Toast muncul dalam gambar di bawah ini sebagai diagram file layout
+              (activity_main.xml), bersama diagram hierarki (kanan atas) dan tangkapan layar layout yang benar-benar
+              selesai (kanan bawah).
+              <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/dg_layout_diagram_and_hierarchy.png"
+                alt="Konsep Layout (kiri)" title="Konsep Layout (kiri)"></p>
+            <p>Dalam gambar di atas:</p>
+            <ol>
+              <li>Layout akar LinearLayout, yang berisi semua tampilan anak, disetel ke orientasi vertikal.</li>
+              <li>Button (<code>button_toast</code>) tampilan anak. Sebagai tampilan anak pertama, muncul di bagian atas
+                di layout linear.</li>
+              <li>TextView (<code>show_count</code>) tampilan anak. Sebagai tampilan anak kedua, muncul di bawah
+                tampilan anak pertama di layout linear.</li>
+              <li>Button (<code>button_count</code>) tampilan anak. Sebagai tampilan anak ketiga, muncul di bawah
+                tampilan anak kedua di layout linear.</li>
+            </ol>
+            <p>Hierarki tampilan bisa tumbuh menjadi kompleks untuk aplikasi yang menampilkan banyak tampilan di layar.
+              Penting untuk memahami hierarki tampilan, karena akan memengaruhi apakah tampilan terlihat dan apakah
+              digambar secara efisien.</p>
+            <p><strong>Tip</strong>: Anda bisa menjelajahi hierarki tampilan aplikasi menggunakan <a
+                href="https://developer.android.com/studio/profile/hierarchy-viewer-walkthru.html"
+                target="_blank">Hierarchy Viewer</a>. Hierarchy Viewer menampilkan tampilan pohon hierarki dan
+              memungkinkan Anda menganalisis kinerja tampilan di perangkat Android. Masalah kinerja dibahas di bab
+              berikutnya.</p>
+            <p>Anda mendefinisikan tampilan di editor layout, atau dengan memasukkan kode XML. Editor layout menunjukkan
+              representasi visual kode XML.</p>
+            <h3 id="menggunakan-editor-layout">Menggunakan editor layout</h3>
+            <p>Gunakan editor layout untuk mengedit file layout. Anda bisa menyeret dan melepas objek tampilan ke dalam
+              panel grafik, serta menyusun, mengubah ukuran, dan menetapkan propertinya. Anda akan segera melihat efek
+              perubahan yang dilakukan.</p>
+            <p>Untuk menggunakan editor layout, buka file layout XML. Editor layout muncul bersama tab
+              <strong>Design</strong> di bagian bawah yang disorot. (Jika tab <strong>Text</strong> disorot dan Anda
+              melihat kode XML, klik tab <strong>Design</strong>.) Untuk template Empty Activity, layout seperti yang
+              ditampilkan dalam gambar di bawah ini.
+              <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/as_exploreeditor.png" alt="Editor Layout"
+                title="Editor Layout"></p>
+            <p>Dalam gambar di atas:</p>
+            <ol>
+              <li>File <strong>XML layout</strong>. File layout XML, biasanya diberi nama file
+                <strong>activiy_main.xml</strong>. Klik dua kali untuk membuka editor layout.</li>
+              <li><strong>Palet elemen UI</strong> (tampilan). Panel Palette menyediakan daftar elemen UI dan layout.
+                Tambahkan elemen atau layout ke UI dengan menyeretnya ke panel desain.</li>
+              <li>
+                <p><strong>Bilah alat desain</strong>. Bilah alat panel desain menyediakan tombol untuk mengonfigurasi
+                  penampilan layout dalam panel desain dan untuk mengedit properti layout. Lihat gambar di bawah ini
+                  untuk detail.</p>
+                <p><strong>Tip</strong>: Arahkan kursor ke atas setiap ikon untuk menampilkan keterangan alat yang
+                  merangkum fungsinya.</p>
+              </li>
+              <li><strong>Panel Properties</strong>. Panel Properties menyediakan kontrol properti untuk tampilan yang
+                dipilih.</li>
+              <li><strong>Kontrol properti</strong>. Kontrol properti sesuai dengan atribut XML. Yang ditampilkan dalam
+                gambar adalah properti <code>Text</code> dari TextView yang dipilih, yang disetel ke <code>Hello
+                  World!</code>.</li>
+              <li><strong>Panel desain</strong>. Seret tampilan dari panel Palette ke panel desain untuk memosisikannya
+                di layout.</li>
+              <li><strong>Component Tree</strong>. Panel Component Tree menampilkan hierarki tampilan. Klik tampilan
+                atau grup tampilan dalam panel ini untuk memilihnya. Gambar menampilkan TextView yang dipilih.</li>
+              <li>Tab <strong>Design</strong> dan <strong>Text</strong>. Klik <strong>Design</strong> untuk melihat
+                editor layout, atau <strong>Text</strong> untuk melihat kode XML.</li>
+            </ol>
+            <p>Bilah alat (bantu) desain editor layout menawarkan deretan tombol yang memungkinkan Anda mengonfigurasi
+              penampilan layout:
+              <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/layout-editor-toolbar1-callouts_2-2_2x.png"
+                alt="Bilah Alat Desain" title="Bilah Alat Desain"></p>
+            <p>Dalam gambar di atas:</p>
+            <ol>
+              <li><strong>Design</strong>, <strong>Blueprint</strong>, dan <strong>Both</strong>: Klik ikon
+                <strong>Design</strong> (ikon pertama) untuk menampilkan pratinjau warna layout. Klik ikon
+                <strong>Blueprint</strong> (ikon tengah) untuk hanya menampilkan ringkasan setiap tampilan. Anda bisa
+                melihat <em>kedua</em> tampilan bersebelahan dengan mengeklik ikon ketiga.</li>
+              <li><strong>Orientasi layar</strong>: Klik untuk memutar perangkat antara lanskap dan potret.</li>
+              <li><strong>Tipe dan ukuran perangkat</strong>: Pilih tipe perangkat (ponsel/tablet, Android TV, atau
+                Android Wear) dan konfigurasi layar (ukuran dan kepadatan).</li>
+              <li><strong>Versi API</strong>: Pilih versi Android yang digunakan untuk pratinjau layout.</li>
+              <li><strong>Tema aplikasi</strong>: Pilih tema UI yang akan diterapkan pada pratinjau.</li>
+              <li><strong>Bahasa</strong>: Pilih bahasa untuk menampilkan string UI Anda. Daftar ini hanya menampilkan
+                bahasa yang tersedia dalam sumber daya string.</li>
+              <li><strong>Varian Layout</strong>: Alihkan ke salah satu layout alternatif untuk file ini, atau buat yang
+                baru.</li>
+            </ol>
+            <p>Editor layout menawarkan lebih banyak fitur di tab <strong>Design</strong> bila Anda menggunakan
+              ConstraintLayout, termasuk tuas untuk mendefinisikan pembatas. <em>Pembatas</em> adalah koneksi atau
+              penyejajaran ke tampilan lainnya, ke layout induk, atau ke panduan yang tidak terlihat. Setiap pembatas
+              muncul sebagai garis yang membentang dari tuas melingkar. Setiap tampilan memiliki tuas pembatas melingkar
+              di bagian tengah setiap sisi. Setelah memilih tampilan di panel Component Tree atau mengekliknya di
+              layout, tampilan juga menampilkan tuas pengubah ukuran pada setiap sudut.
+              <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/as_layout_contraint_2_handles_annotated.png"
+                alt="Tuas Pembatas dan Pengubah Ukuran pada Tampilan"
+                title="Tuas Pembatas dan Pengubah Ukuran pada Tampilan"></p>
+            <p>Dalam gambar di atas:</p>
+            <ol>
+              <li><strong>Tuas pengubah ukuran</strong>.</li>
+              <li><strong>Garis pembatas dan tuas</strong>. Dalam gambar, pembatas menyejajarkan sisi kiri tampilan ke
+                sisi kiri tombol.</li>
+              <li><strong>Tuas patokan</strong>. Tuas patokan menyejajarkan patokan teks tampilan ke patokan tampilan
+                lainnya.</li>
+              <li><strong>Tuas pembatas</strong> tanpa garis pembatas.</li>
+            </ol>
+            <h3 id="menggunakan-xml">Menggunakan XML</h3>
+            <p>Terkadang lebih cepat dan lebih mudah mengedit kode XML secara langsung, terutama saat menyalin dan
+              menempelkan kode untuk tampilan serupa.</p>
+            <p>Untuk menampilkan dan mengedit kode XML, buka file layout XML. Editor layout muncul bersama tab
+              <strong>Design</strong> di bagian bawah yang disorot. Klik tab <strong>Text</strong> untuk melihat kode
+              XML. Yang berikut ini menampilkan cuplikan kode XML untuk LinearLayout dengan Button dan TextView:</p>
+            <pre><code>&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+... &gt;
+
+&lt;Button
+android:id="@+id/button_toast"
+android:layout_width="@dimen/my_view_width"
+android:layout_height="wrap_content"
+... /&gt;
+
+&lt;TextView
+android:id="@+id/show_count"
+android:layout_width="@dimen/my_view_width"
+android:layout_height="@dimen/counter_height"
+... /&gt;
+...
+&lt;/LinearLayout&gt;
+</code></pre>
+            <h3 id="atribut-xml-properti-tampilan">Atribut XML (properti tampilan)</h3>
+            <p>Tampilan memiliki <em>properti</em> yang mendefinisikan tempat munculnya tampilan di layar, ukurannya,
+              dan bagaimana kaitan tampilan dengan tampilan lainnya, dan cara tampilan merespons masukan pengguna. Saat
+              mendefinisikan tampilan di XML, properti dirujuk sebagai <em>atribut</em>.</p>
+            <p>Misalnya, dalam keterangan XML TextView berikut, <code>android:id</code>,
+              <code>android:layout_width</code>, <code>android:layout_height</code>, <code>android:background</code>,
+              merupakan atribut XML yang diterjemahkan secara otomatis menjadi properti TextView:</p>
+            <pre><code>&lt;TextView
+android:id="@+id/show_count"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="@color/myBackgroundColor"
+android:textStyle="bold"
+android:text="@string/count_initial_value"
+/&gt;
+</code></pre>
+            <p>Atribut biasanya berbentuk seperti ini:</p>
+            <pre><code>android:attribute_name="value"
+</code></pre>
+            <p><em>attribute_name</em> adalah nama atribut. <em>value</em> adalah string dengan nilai untuk atribut.
+              Misalnya:</p>
+            <pre><code>android:textStyle="bold"
+</code></pre>
+            <p>Jika <em>value</em> adalah sumber daya, seperti warna, simbol <code>@</code> menetapkan jenis sumber
+              dayanya. Misalnya:</p>
+            <pre><code>android:background="@color/myBackgroundColor"
+</code></pre>
+            <p>Atribut latar belakang disetel ke sumber daya warna yang diidentifikasi sebagai
+              <code>myBackgroundColor</code>, yang dideklarasikan sebagai <code>#FFF043</code>. Sumber daya warna
+              dijelaskan dalam "<a href="#style_related">Atribut terkait gaya</a>" dalam bab ini.</p>
+            <p>Setiap tampilan dan grup tampilan mendukung berbagai atribut XML-nya sendiri. Beberapa atribut telah
+              ditetapkan untuk tampilan (misalnya, TextView mendukung atribut <code>textSize</code> ), namun
+              atribut-atribut ini juga diwarisi oleh tampilan apa pun yang mungkin memperluas kelas TextView. Sebagian
+              bersifat umum untuk semua tampilan, karena diwarisi dari kelas <a
+                href="https://developer.android.com/reference/android/view/View.html" target="_blank">View</a> akar
+              (seperti atribut <code>android:id</code> ). Untuk keterangan atribut khusus, lihat bagian ringkasan
+              dokumentasi kelas <a href="https://developer.android.com/reference/android/view/View.html"
+                target="_blank">View</a>.</p>
+            <h4 id="mengidentifikasi-tampilan">Mengidentifikasi tampilan</h4>
+            <p>Untuk mengidentifikasi tampilan secara unik dan merujuknya dari kode, Anda harus memberikan ID. Atribut
+              <code>android:id</code> memungkinkan Anda menetapkan <code>id</code> yang unik— yakni identifier sumber
+              daya untuk tampilan.</p>
+            <p>Misalnya:</p>
+            <pre><code>android:id="@+id/button_count"
+</code></pre>
+            <p>Bagian <code>"@+id/button_count"</code> dari atribut di atas akan membuat <code>id</code> baru yang
+              disebut <code>button_count</code> untuk tampilan. Anda menggunakan simbol plus (<code>+</code>) untuk
+              menunjukkan bahwa Anda sedang membuat baru <code>id</code>.</p>
+            <h4 id="merujuk-tampilan">Merujuk tampilan</h4>
+            <p>Untuk merujuk ke identifier sumber daya yang ada, hilangkan simbol plus (<code>+</code>). Misalnya, untuk
+              merujuk tampilan berdasarkan <code>id</code> -nya dalam atribut <em>lain</em>, misalnya
+              <code>android:layout_toLeftOf</code> (yang dijelaskan di bagian berikutnya) untuk mengontrol posisi
+              tampilan, Anda perlu menggunakan:</p>
+            <pre><code>android:layout_toLeftOf="@id/show_count"
+</code></pre>
+            <p>Dalam atribut di atas, <code>"@id/show_count"</code> merujuk ke tampilan dengan identifier sumber daya
+              <code>show_count</code>. Atribut memosisikan tampilan agar "ke kiri dari" tampilan <code>show_count</code>
+              .</p>
+            <h4 id="memosisikan-tampilan">Memosisikan tampilan</h4>
+            <p>Beberapa atribut pemosisian yang terkait layout diperlukan untuk tampilan, dan secara otomatis muncul
+              bila Anda menambahkan tampilan ke layout XML, siap untuk Anda tambahkan nilainya.</p>
+            <h4 id="pemosisian-linearlayout">Pemosisian LinearLayout</h4>
+            <p>Misalnya, LinearLayout diperlukan untuk menyetel atribut ini:</p>
+            <ul>
+              <li><a
+                  href="https://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#attr_android:layout_width"
+                  target="_blank">android:layout_width</a></li>
+              <li><a
+                  href="https://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#attr_android:layout_height"
+                  target="_blank">android:layout_height</a></li>
+              <li><a
+                  href="https://developer.android.com/reference/android/widget/LinearLayout.html#attr_android:orientation"
+                  target="_blank">android:orientation</a></li>
+            </ul>
+            <p>Atribut <code>android:layout_width</code> dan <code>android:layout_height</code> bisa menggunakan salah
+              satu dari tiga nilai ini:</p>
+            <ul>
+              <li><code>match_parent</code> akan meluaskan tampilan untuk mengisi induknya dengan lebar dan tinggi. Bila
+                LinearLayout adalah tampilan akar, ia akan meluaskan ke ukuran layar perangkat. Untuk tampilan dalam
+                grup tampilan akar, ia akan meluaskan ke ukuran grup tampilan induk.</li>
+              <li><code>wrap_content</code> akan menciutkan dimensi tampilan yang cukup besar untuk menampung isinya.
+                (Jika tidak ada isinya, tampilan menjadi tidak terlihat.)</li>
+              <li>Gunakan <code>dp</code> (<a href="https://en.wikipedia.org/wiki/Device_independent_pixel"
+                  target="_blank">piksel yang tidak tergantung perangkat</a>) berjumlah tetap untuk menetapkan ukuran
+                tetap, yang disesuaikan untuk ukuran layar perangkat. Misalnya, <code>16dp</code> berarti 16 piksel yang
+                tidak tergantung perangkat. Piksel yang tidak tergantung perangkat dan dimensi lain dijelaskan di "<a
+                  href="#dimensions">Dimensi</a>" dalam bab ini.</li>
+            </ul>
+            <p>Atribut <code>android:orientation</code> bisa berupa:</p>
+            <ul>
+              <li><code>horizontal:</code> Tampilan disusun dari kiri ke kanan.</li>
+              <li><code>vertical:</code> Tampilan disusun dari atas ke bawah.</li>
+            </ul>
+            <p>Atribut terkait layout lainnya antara lain:</p>
+            <ul>
+              <li><code>Android:layout_gravity</code>: Atribut ini digunakan bersama tampilan untuk mengontrol tempat
+                menyusun tampilan dalam grup tampilan induknya. Misalnya, atribut berikut memusatkan tampilan secara
+                horizontal di layar:
+                <pre><code>android:layout_gravity="center_horizontal"
+</code></pre>
+              </li>
+              <li>Pengisi adalah ruang, yang diukur dalam piksel yang tidak tergantung perangkat, antara tepi tampilan
+                dan isi tampilan, seperti yang ditampilkan dalam gambar di bawah ini.
+                <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/dg_padding_annotated.png" alt="Pengisi" title="Pengisi">
+              </li>
+            </ul>
+            <p>Dalam gambar di atas:</p>
+            <ol>
+              <li>Pengisi adalah ruang antara tepi tampilan (garis putus-putus) dan isi tampilan (garis utuh). Pengisi
+                tidak sama dengan margin, yang merupakan ruang dari tepi tampilan ke induknya.</li>
+            </ol>
+            <p>Ukuran tampilan menyertakan pengisinya. Berikut ini adalah atribut pengisi yang umum digunakan:</p>
+            <ul>
+              <li><code>Android:padding</code>: Menyetel pengisi keempat tepi.</li>
+              <li><code>android:paddingTop</code>: Menyetel pengisi tepi atas.</li>
+              <li><code>android:paddingBottom</code>: Menyetel pengisi tepi bawah.</li>
+              <li><code>android:paddingLeft</code>: Menyetel pengisi tepi kiri.</li>
+              <li><code>android:paddingRight</code>: Menyetel pengisi tepi kanan.</li>
+              <li><code>android:paddingStart</code>: Menyetel pengisi awal tampilan; digunakan di tempat di atas,
+                terutama bersama tampilan yang panjang dan sempit.</li>
+              <li><code>android:paddingEnd</code>: Menyetel pengisi, dalam piksel, tepi ujung; yang digunakan bersama
+                <code>android:paddingStart</code>.</li>
+            </ul>
+            <p><strong>Tip</strong>: Untuk melihat semua atribut XML untuk LinearLayout, lihat bagian Rangkuman
+              referensi <a href="https://developer.android.com/reference/android/widget/LinearLayout.html"
+                target="_blank">LinearLayout</a> di Panduan Developer. Layout akar lainnya, seperti <a
+                href="http://developer.android.com/guide/topics/ui/layout/relative.html"
+                target="_blank">RelativeLayout</a> dan <a
+                href="https://developer.android.com/reference/android/widget/AbsoluteLayout.html"
+                target="_blank">AbsoluteLayout</a>, mencantumkan atribut XML-nya di bagian Rangkuman.</p>
+            <h4 id="pemosisian-relativelayout">Pemosisian RelativeLayout</h4>
+            <p>Grup tampilan berguna lainnya untuk layout adalah <a
+                href="https://developer.android.com/reference/android/widget/RelativeLayout.html"
+                target="_blank">RelativeLayout</a>, yang bisa Anda gunakan untuk memosisikan tampilan anak yang
+              berhubungan satu sama lain atau dengan induk. Atribut yang bisa Anda gunakan bersama RelativeLayout antara
+              lain berikut ini:</p>
+            <ul>
+              <li><a
+                  href="https://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_toLeftOf"
+                  target="_blank">android:layout_toLeftOf</a>: Memosisikan tepi kanan tampilan ini ke kiri tampilan
+                lainnya (yang diidentifikasi melalui <code>ID</code>-nya).</li>
+              <li><a
+                  href="https://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_toRightOf"
+                  target="_blank">android:layout_toRightOf</a>: Memosisikan tepi kiri tampilan ini ke kanan tampilan
+                lainnya (yang diidentifikasi melalui <code>ID</code>-nya).</li>
+              <li><a
+                  href="https://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerHorizontal"
+                  target="_blank">android:layout_centerHorizontal</a>: Memusatkan tampilan ini secara horizontal dalam
+                induknya.</li>
+              <li><a
+                  href="https://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerVertical"
+                  target="_blank">android:layout_centerVertical</a>: Memusatkan tampilan ini secara vertikal dalam
+                induknya.</li>
+              <li><a
+                  href="https://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignParentTop"
+                  target="_blank">android:layout_alignParentTop</a>: Memosisikan tepi atas tampilan ini agar cocok
+                dengan tepi atas induknya.</li>
+              <li><a
+                  href="https://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_alignParentBottom"
+                  target="_blank">android:layout_alignParentBottom</a>: Memosisikan tepi bawah tampilan ini agar cocok
+                dengan tepi bawah induknya.</li>
+            </ul>
+            <p>Untuk daftar lengkap atribut tampilan dalam RelativeLayout, lihat <a
+                href="https://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html"
+                target="_blank">RelativeLayout.LayoutParams</a>.
+              <a id="style_related"></a></p>
+            <h4 id="atribut-terkait-gaya">Atribut terkait gaya</h4>
+            <p>Anda menetapkan atribut gaya untuk menyesuaikan penampilan tampilan. Tampilan yang <em>tidak</em>
+              memiliki atribut gaya, misalnya <code>android:textColor</code>, <code>android:textSize</code>, dan
+              <code>android:background</code>, menggunakan gaya yang didefinisikan di tema aplikasi.</p>
+            <p>Berikut ini adalah atribut terkait gaya yang digunakan dalam contoh layout XML di bagian sebelumnya:</p>
+            <ul>
+              <li><code>Android:background</code>: Menetapkan warna atau sumber daya dapat digambar untuk digunakan
+                sebagai latar belakang.</li>
+              <li><code>android:text</code>: Menetapkan teks untuk ditampilkan di tampilan.</li>
+              <li><code>android:textColor</code>: Menetapkan warna teks.</li>
+              <li><code>android:textSize</code>: Menetapkan ukuran teks.</li>
+              <li><code>android:textStyle</code>: Menetapkan gaya teks, misalnya <code>bold</code>.</li>
+            </ul>
+            <p><a id="adding_resources"></a></p>
+            <h2 class="text-center" id="file-sumber-daya">File sumber daya</h2>
+            <p>File sumber daya adalah cara memisahkan nilai statis dari kode sehingga Anda tidak harus mengubah kode
+              itu sendiri untuk mengubah nilai. Anda bisa menyimpan semua string, layout, dimensi, warna, gaya, dan teks
+              menu secara terpisah di file sumber daya.</p>
+            <p>File sumber daya disimpan dalam folder yang berada di folder <strong>res</strong>, termasuk:</p>
+            <ul>
+              <li><strong>drawable</strong>: Untuk gambar dan ikon</li>
+              <li><strong>layout</strong>: Untuk file sumber daya layout</li>
+              <li><strong>menu</strong>: Untuk item menu</li>
+              <li><strong>mipmap</strong>: Untuk kumpulan ikon aplikasi yang sudah dihitung dan dioptimalkan yang
+                digunakan oleh Peluncur</li>
+              <li><strong>values</strong>: Untuk warna, dimensi, string, dan gaya (atribut tema)</li>
+            </ul>
+            <p>Sintaks untuk merujuk sumber daya di layout XML adalah seperti berikut:</p>
+            <pre><code>@package_name:resource_type/resource_name
+</code></pre>
+            <ul>
+              <li><em>package_name</em> adalah nama paket tempat sumber daya berada. Ini tidak diperlukan saat merujuk
+                sumber daya dari paket yang sama — yakni, yang disimpan di folder <strong>res</strong> proyek Anda.</li>
+              <li><em>resource_type</em> adalah <code>R</code> subkelas untuk tipe sumber daya. Lihat <a
+                  href="https://developer.android.com/guide/topics/resources/available-resources.html"
+                  target="_blank">Tipe Sumber Daya</a> untuk informasi selengkapnya tentang setiap tipe sumber daya dan
+                cara merujuknya.</li>
+              <li><em>resource_name</em> adalah nama file sumber daya tanpa ekstensi, atau nilai atribut
+                <code>android:name</code> di elemen XML.</li>
+            </ul>
+            <p>Misalnya, pernyataan layout XML berikut menyetel atribut <code>android:text</code> ke sumber daya
+              <code>string</code> :</p>
+            <pre><code>android:text="@string/button_label_toast"
+</code></pre>
+            <ul>
+              <li><em>resource_type</em> adalah <code>string</code>.</li>
+              <li>resource_name adalah <code>button_label_toast.</code></li>
+              <li><em>package_name</em> tidak diperlukan karena sumber daya disimpan di proyek (dalam file strings.xml).
+              </li>
+            </ul>
+            <p>Contoh lainnya: pernyataan layout XML ini menyetel atribut <code>android:background</code> ke sumber daya
+              <code>color</code> , dan karena sumber daya didefinisikan di proyek (dalam file colors.xml),
+              <em>package_name</em> tidak ditetapkan:</p>
+            <pre><code>android:background="@color/colorPrimary"
+</code></pre>
+            <p>Dalam contoh berikut, pernyataan layout XML menyetel atribut <code>android:textColor</code> ke sumber
+              daya <code>color</code> . Akan tetapi, sumber daya tidak didefinisikan dalam proyek, melainkan disediakan
+              oleh Android, sehingga <em>package_name</em> <code>android</code> juga harus ditetapkan, yang diikuti
+              dengan titik dua:</p>
+            <pre><code>android:textColor="@android:color/white"
+</code></pre>
+            <p><strong>Tip</strong>: Untuk informasi selengkapnya tentang mengakses sumber daya dari kode, lihat <a
+                href="http://developer.android.com/guide/topics/resources/accessing-resources.html"
+                target="_blank">Mengakses Sumber Daya</a>. Untuk konstanta warna Android, lihat <a
+                href="http://developer.android.com/reference/android/R.color.html" target="_blank">sumber daya R.color
+                standar Android</a>.</p>
+            <h3 id="file-sumber-daya-nilai">File sumber daya nilai</h3>
+            <p>Menyimpan nilai sebagai string dan warna dalam file sumber daya terpisah mempermudah pengelolaannya,
+              terutama jika Anda menggunakannya lebih dari sekali di layout.</p>
+            <p>Misalnya, penting sekali menyimpan string dalam file sumber daya terpisah untuk menerjemahkan dan
+              melokalkan aplikasi, sehingga Anda bisa membuat file sumber daya string untuk setiap bahasa tanpa mengubah
+              kode. File sumber daya untuk gambar, warna, dimensi, dan atribut lainnya berguna untuk mengembangkan
+              aplikasi bagi orientasi dan ukuran layar perangkat yang berbeda.</p>
+            <h4 id="string">String</h4>
+            <p>Sumber daya string berada dalam file <strong>strings.xml</strong> dalam folder <strong>values</strong> di
+              dalam folder <strong>res</strong> saat menggunakan Project: Tampilan Android. Anda bisa mengedit file ini
+              secara langsung dengan membukanya:</p>
+            <pre><code>&lt;resources&gt;
+&lt;string name="app_name"&gt;Hello Toast&lt;/string&gt;
+&lt;string name="button_label_count"&gt;Count&lt;/string&gt;
+&lt;string name="button_label_toast"&gt;Toast&lt;/string&gt;
+&lt;string name="count_initial_value"&gt;0&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+            <p>Di sini, <code>name</code> (misalnya, <code>button_label_count</code>) adalah nama sumber daya yang Anda
+              gunakan di kode XML, seperti dalam atribut berikut:</p>
+            <pre><code>android:text="@string/button_label_count"
+</code></pre>
+            <p>Nilai string <code>name</code> ini adalah kata (<code>Count</code>) yang dimasukkan dalam tag
+              <code>&lt;string&gt;&lt;/string&gt;</code> (Anda jangan menggunakan tanda kutip kecuali jika tanda kutip
+              harus menjadi bagian dari nilai string.)</p>
+            <h4 id="mengekstrak-string-ke-sumber-daya">Mengekstrak string ke sumber daya</h4>
+            <p>Anda juga harus <em>mengekstrak</em> string hard-code dalam file layout XML ke sumber daya string. Untuk
+              mengekstrak string hard-code dalam layout XML, ikuti langkah-langkah ini (lihat gambar):
+              <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/as_extract_string_resources.png"
+                alt="Mengekstrak Sumber Daya String" title="Mengekstrak Sumber Daya String">
+              <img class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                    style="display: block; margin: auto;" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/as_extract_string_resources2.png"
+                alt="Memberi Nama Sumber Daya String" title="Memberi Nama Sumber Daya String"></p>
+            <ol>
+              <li>Klik string hard-code, dan tekan Alt-Enter di Windows, atau Option-Return pada
+                Mac OS X.</li>
+              <li>Pilih <strong>Extract string resource</strong>.</li>
+              <li>Edit nama Sumber Daya untuk nilai string.</li>
+            </ol>
+            <p>Selanjutnya Anda bisa menggunakan nama sumber daya di kode XML. Gunakan ekspresi
+              <code>"@string/resource_name"</code> (termasuk tanda kutip) untuk merujuk sumber daya string:</p>
+            <pre><code>android:text="@string/button_label_count"
+</code></pre>
+            <h3 id="warna">Warna</h3>
+            <p>Sumber daya warna berada di file <strong>colors.xml</strong> dalam folder <strong>values</strong> di
+              dalam folder <strong>res</strong> saat menggunakan Project: Tampilan Android. Anda bisa mengedit file ini
+              secara langsung:</p>
+            <pre><code>&lt;resources&gt;
+&lt;color name="colorPrimary"&gt;#3F51B5&lt;/color&gt;
+&lt;color name="colorPrimaryDark"&gt;#303F9F&lt;/color&gt;
+&lt;color name="colorAccent"&gt;#FF4081&lt;/color&gt;
+&lt;color name="myBackgroundColor"&gt;#FFF043&lt;/color&gt;
+&lt;/resources&gt;
+</code></pre>
+            <p>Di sini, <code>name</code> (misalnya, <code>colorPrimary</code>) adalah nama sumber daya yang Anda
+              gunakan dalam kode XML:</p>
+            <pre><code>android:textColor="@color/colorPrimary"
+</code></pre>
+            <p>Nilai warna <code>name</code> ini adalah nilai warna heksadesimal (<code>#3F51B5</code>) yang dimasukkan
+              dalam tag <code>&lt;color&gt;&lt;/color&gt;</code> . Nilai heksadesimal menetapkan nilai merah, hijau, dan
+              biru (RGB). Nilai selalu diawali dengan karakter pound (<code>#</code>), yang diikuti dengan informasi
+              Alpha-Red-Green-Blue. Misalnya, nilai heksadesimal hitam adalah #000000, sedangkan nilai heksadesimal
+              untuk varian biru langit adalah #559fe3. Nilai warna dasar dicantumkan dalam dokumentasi kelas <a
+                href="https://developer.android.com/reference/android/graphics/Color.html" target="_blank">Color</a>.
+            </p>
+            <p>Warna <code>colorPrimary</code> adalah salah satu warna dasar yang telah didefinisikan sebelumnya dan
+              digunakan untuk bilah aplikasi. Di aplikasi produksi, Anda bisa, misalnya, menyesuaikannya agar sesuai
+              dengan merek. Menggunakan warna dasar untuk elemen UI lainnya akan membuat UI seragam.</p>
+            <p><strong>Tip</strong>: Untuk spesifikasi desain material warna Android, lihat <a
+                href="https://material.google.com/style/color.html#" target="_blank">Gaya</a> dan <a
+                href="https://developer.android.com/training/material/theme.html" target="_blank">Menggunakan Tema
+                Material</a>. Untuk nilai heksadesimal warna umum, lihat <a href="http://www.color-hex.com/"
+                target="_blank">Kode Warna Heksadesimal</a>. Untuk konstanta warna Android, lihat <a
+                href="http://developer.android.com/reference/android/R.color.html" target="_blank">sumber daya R.color
+                standar Android</a>.</p>
+            <p>Anda bisa melihat blok kecil pilihan warna di margin kiri di sebelah deklarasi sumber daya warna di
+              <strong>colors.xml</strong>, juga di margin kiri di sebelah atribut yang menggunakan nama sumber daya di
+              file XML layout.
+              <img class="br center" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/as_color_block_in_colors_xml.png"
+                alt="Blok Warna di File Sumber Daya" title="Blok Warna di File Sumber Daya">
+              <img class="br center" src="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts/idn/images/1_2_C_images/as_color_block_in_layout.png"
+                alt="Blok Warna di File Layout" title="Blok Warna di File Layout"></p>
+            <p><strong>Tip</strong>: Untuk melihat warna di munculan, aktifkan fitur dokumentasi Munculan otomatis.
+              Pilih <strong>Android Studio &gt; Preferences &gt; Editor &gt; General &gt; Code Completion</strong>, dan
+              centang opsi "Autopopup documentation in (ms)". Selanjutnya Anda bisa mengarahkan kursor ke atas nama
+              sumber daya warna untuk melihat warnanya.</p>
+            <h3 id="dimensi">Dimensi</h3>
+            <p>Dimensi harus dipisahkan dari kode untuk mempermudah pengelolaannya, terutama jika Anda perlu
+              menyesuaikan layout untuk resolusi perangkat yang berbeda. Selain itu juga memudahkan pengukuran yang
+              konsisten untuk tampilan, dan untuk mengubah ukuran beberapa tampilan dengan mengubah satu sumber daya
+              dimensi.</p>
+            <p>Sumber daya dimensi berada di file <strong>dimens.xml</strong> dalam folder <strong>values</strong> di
+              dalam folder <strong>res</strong> saat menggunakan Project: Tampilan Android. <strong>dimens.xml</strong>
+              yang ditampilkan di tampilan bisa menjadi folder yang memiliki lebih dari satu file
+              <strong>dimens.xml</strong> untuk resolusi perangkat yang berbeda. Misalnya, aplikasi yang dibuat dari
+              template Empty Activity menyediakan file <strong>dimens.xml</strong> kedua untuk 820 dp.</p>
+            <p>Anda bisa mengedit file ini secara langsung dengan membukanya:</p>
+            <pre><code>&lt;resources&gt;
+&lt;!-- Default screen margins, per the Android Design guidelines. --&gt;
+&lt;dimen name="activity_horizontal_margin"&gt;16dp&lt;/dimen&gt;
+&lt;dimen name="activity_vertical_margin"&gt;16dp&lt;/dimen&gt;
+&lt;dimen name="my_view_width"&gt;300dp&lt;/dimen&gt;
+&lt;dimen name="count_text_size"&gt;200sp&lt;/dimen&gt;
+&lt;dimen name="counter_height"&gt;300dp&lt;/dimen&gt;
+&lt;/resources&gt;
+</code></pre>
+            <p>Di sini, <code>name</code> (misalnya, <code>activity_horizontal_margin</code>) adalah nama sumber daya
+              yang Anda gunakan di kode XML:</p>
+            <pre><code>android:paddingLeft="@dimen/activity_horizontal_margin"
+</code></pre>
+            <p>Nilai <code>name</code> ini adalah pengukuran (<code>16dp</code>) yang dimasukkan dalam tag
+              <code>&lt;dimen&gt;&lt;/dimen&gt;</code> .</p>
+            <p>Anda bisa mengekstrak dimensi dengan cara yang sama seperti string:</p>
+            <ol>
+              <li>Klik dimensi hard-code, dan tekan Alt-Enter di Windows, atau tekan Option-Return di Mac OS X.</li>
+              <li>Pilih <strong>Extract dimension resource</strong>.</li>
+              <li>Edit nama Sumber Daya untuk nilai dimensi.</li>
+            </ol>
+            <p><a href="https://en.wikipedia.org/wiki/Device_independent_pixel" target="_blank">Piksel yang tidak
+                tergantung perangkat</a> (<code>dp</code>) tidak tergantung resolusi layar. Misalnya, <code>10px</code>
+              (10 piksel tetap) akan terlihat sedikit lebih kecil pada layar yang beresolusi lebih tinggi, namun Android
+              akan menskalakan 1<code>0dp</code> (10 piksel yang tidak tergantung perangkat) untuk melihat langsung di
+              layar resolusi berbeda. Ukuran teks juga bisa disetel untuk terlihat langsung di layar resolusi berbeda
+              dengan menggunakan ukuran <em>piksel yang diskalakan</em> (<code>sp</code>).</p>
+            <p><strong>Tip</strong>: Untuk informasi selengkapnya tentang unit <code>dp</code> dan <code>sp</code> ,
+              lihat <a href="http://developer.android.com/training/multiscreen/screendensities.html"
+                target="_blank">Mendukung Kepadatan Berbeda</a>.</p>
+            <h3 id="gaya">Gaya</h3>
+            <p>Gaya adalah sumber daya yang menetapkan atribut umum seperti tinggi, pengisi, warna font, ukuran font,
+              dan warna latar belakang. Gaya ditujukan untuk atribut yang memodifikasi rupa tampilan.</p>
+            <p>Gaya didefinisikan di file <strong>styles.xml</strong> dalam folder <strong>values</strong> di dalam
+              folder <strong>res</strong> saat menggunakan Project: Tampilan Android. Anda bisa mengedit file ini secara
+              langsung. Gaya dibahas dalam bab berikutnya, bersama Spesifikasi Desain Material.</p>
+            <h3 id="file-sumber-daya-lainnya">File sumber daya lainnya</h3>
+            <p>Android Studio mendefinisikan sumber daya lainnya yang dibahas dalam bab lain:</p>
+            <ul>
+              <li><strong>Gambar dan ikon</strong>. Folder <strong>drawable</strong> menyediakan sumber daya ikon dan
+                gambar. Jika aplikasi Anda tidak memiliki folder drawable, Anda bisa membuatnya di dalam folder res
+                secara manual. Untuk informasi selengkapnya tentang sumber daya dapat digambar, lihat <a
+                  href="https://developer.android.com/guide/topics/resources/drawable-resource.html"
+                  target="_blank">Sumber Daya Dapat Digambar</a> di bagian Sumber Daya Aplikasi dari Panduan Developer
+                Android.</li>
+              <li><strong>Ikon yang dioptimalkan</strong>. Folder <strong>mipmap</strong> umumnya berisi kumpulan ikon
+                aplikasi yang sudah dihitung dan dioptimalkan, yang digunakan oleh Peluncur. Luaskan folder untuk
+                melihat apakah versi ikon disimpan sebagai sumber daya untuk kepadatan layar yang berbeda.</li>
+              <li><strong>Menu</strong>. Anda bisa menggunakan file sumber daya XML untuk mendefinisikan item menu dan
+                menyimpannya di proyek dalam folder <strong>menu</strong>. Menu dijelaskan dalam bab berikutnya.</li>
+            </ul>
+            <p><a id="click"></a></p>
+            <h2 class="text-center" id="merespons-klik-tampilan">Merespons klik tampilan</h2>
+            <p><em>Kejadian klik</em> terjadi bila pengguna mengetuk atau mengeklik tampilan yang bisa diklik seperti <a
+                href="https://developer.android.com/reference/android/widget/Button.html" target="_blank">Button</a>, <a
+                href="https://developer.android.com/reference/android/widget/ImageButton.html"
+                target="_blank">ImageButton</a>, <a
+                href="https://developer.android.com/reference/android/widget/ImageView.html"
+                target="_blank">ImageView</a> (mengetuk atau mengeklik gambar), atau <a
+                href="https://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html"
+                target="_blank">FloatingActionButton</a>.</p>
+            <p>Pola model-view-presenter berguna untuk memahami cara merespons klik tampilan. Bila kejadian terjadi
+              bersama tampilan, kode <em>presenter</em> akan melakukan aksi yang memengaruhi kode <em>model</em>. Agar
+              pola ini berfungsi, Anda harus:</p>
+            <ul>
+              <li>Menulis metode Java yang melakukan aksi khusus, yang ditentukan oleh logika kode <em>model</em> —
+                yakni tindakan yang bergantung pada hal yang Anda inginkan untuk dilakukan aplikasi bila kejadian ini
+                terjadi. Ini biasanya disebut sebagai <em>penangan kejadian</em>.</li>
+              <li>Mengaitkan metode penangan kejadian ini ke <em>tampilan</em>, sehingga metode berjalan bila kejadian
+                terjadi.</li>
+            </ul>
+            <h3 id="atribut-onclick">Atribut onClick</h3>
+            <p>Android Studio menyediakan pintasan untuk mempersiapkan tampilan yang bisa diklik, dan untuk mengaitkan
+              penangan kejadian dengan tampilan: gunakan atribut <code>android:onClick</code> bersama elemen tampilan
+              yang bisa diklik di layout XML.</p>
+            <p>Misalnya, ekspresi XML berikut di file layout untuk serangkaian Button. <code>showToast()</code> sebagai
+              penangan kejadian:</p>
+            <pre><code>android:onClick="showToast"
+</code></pre>
+            <p>Bila tombol <code>b</code>diketuk, atribut <code>android:onClick</code> -nya akan memanggil metode
+              <code>showToast()</code> .</p>
+            <p>Tulis penangan kejadian, misalnya <code>showToast()</code> yang direferensikan dalam kode XML di atas,
+              untuk memanggil metode lain yang mengimplementasikan logika <em>model</em> aplikasi:</p>
+            <pre><code>public void showToast(View view) {
+// Do something in response to the button click.
+}
+</code></pre>
+            <p>Agar dapat digunakan bersama atribut <code>android:onClick</code> , metode <code>showToast()</code> harus
+              berupa <code>public</code>, mengembalikan <code>void</code>, dan memerlukan parameter <code>view</code>
+              agar dapat mengetahui tampilan mana yang memanggil metode.</p>
+            <p>Android Studio menyediakan pintasan untuk membuat <em>stub</em> penangan kejadian (placeholder untuk
+              metode yang bisa Anda isi nanti) di kode Java untuk aktivitas yang terkait dengan layout XML. Ikuti
+              langkah-langkah ini:</p>
+            <ol>
+              <li>Di dalam file layout XML (misalnya activity_main.xml), klik nama metode dalam pernyataan atribut
+                <code>android:onClick</code> .</li>
+              <li>Tekan Alt-Enter di Windows atau Option-Return di Mac OS X, dan pilih <strong>Create onClick event
+                  handler</strong>.</li>
+              <li>Pilih aktivitas yang terkait dengan file layout (misalnya <strong>MainActivity</strong>) dan klik
+                <strong>OK</strong>. Ini akan membuat stub metode placeholder di MainActivity.java.</li>
+            </ol>
+            <h3 id="memperbarui-tampilan">Memperbarui tampilan</h3>
+            <p>Untuk memperbarui materi tampilan, misalnya mengganti teks di TextView, terlebih dahulu kode Anda harus
+              membuat instance objek dari tampilan. Selanjutnya kode Anda bisa memperbarui objek, dengan demikian
+              memperbarui tampilan.</p>
+            <p>Untuk merujuk tampilan dalam kode Anda, gunakan metode <a
+                href="https://developer.android.com/reference/android/view/View.html#findViewById(int)"
+                target="_blank">findViewById()</a> kelas View, yang akan mencari tampilan berdasarkan
+              <code>id</code>sumber daya. Misalnya, pernyataan berikut menyetel <code>mShowCount</code> menjadi TextView
+              dengan <code>show_count</code>ID sumber daya:</p>
+            <pre><code>mShowCount = (TextView) findViewById(R.id.show_count);
+</code></pre>
+            <p>Dari poin ini, kode Anda bisa menggunakan <code>mShowCount</code> untuk menyatakan TextView, sehingga
+              bila Anda memperbarui <code>mShowCount</code>, tampilan akan diperbarui.</p>
+            <p>Misalnya, ketika tombol berikut dengan atribut <code>android:onClick</code> diketuk, onClick akan
+              memanggil metode <code>countUp()</code> :</p>
+            <pre><code>android:onClick="countUp"
+</code></pre>
+            <p>Anda bisa mengimplementasikan <code>countUp()</code> untuk menaikkan hitungan, mengubah hitungan ke
+              string, dan menyetel string sebagai teks untuk objek <code>mShowCount</code> :</p>
+            <pre><code>public void countUp(View view) {
+mCount++;
+if (mShowCount != null)
+mShowCount.setText(Integer.toString(mCount));
+}
+</code></pre>
+            <p>Karena Anda sudah mengaitkan <code>mShowCount</code> dengan TextView untuk menampilkan hitungan, metode
+              <code>mShowCount.setText()</code> memperbarui tampilan teks di layar.</p>
+            <p><a id="relatedpractical"></a></p>
+
+
+
+          </section>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <div class="section-container">
+    <div class="container text-center">
+      <div class="row section-container-spacer">
+        <div class="col-xs-12 col-md-12">
+
+          <h3>Do you like it ?</h3>
+          <p>
+            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer-container white-text-container">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-xs-12">
+          <h3>Android Stack</h3>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-7">
+              <p><small>Website created with <a href="http://www.mashup-template.com/"
+                    title="Create website with free html template">Android Stack</a>/<a href="https://www.unsplash.com/"
+                    title="Beautiful Free Images">Unsplash</a></small>
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+              <p class="text-right">
+                <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+      scrollRevelation('.reveal');
+    });
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+  <script type="text/javascript" src="../../main.0cf8b554.js"></script>
+</body>
+
+</html>

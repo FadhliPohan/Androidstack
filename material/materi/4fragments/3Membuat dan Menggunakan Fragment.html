@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-icon-180x180.png">
+  <link href="../../assets/favicon.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+
+  <title>Arsitek Android</title>
+
+  <link href="../../main.550dcf66.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-default active">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" title="">
+            <img src="../../assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
+            Android Stack
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html" title="">Home</a></li>
+            <li><a href="../../project.html" title="">Project</a></li>
+            <li>
+              <p>
+                <a href="../../components.html" class="btn btn-default navbar-btn" title="">Components</a>
+              </p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <section class="normal markdown-section">
+
+            <div>
+              <h1 class="type--bold mb-3 text-center"> Membuat dan Menggunakan Fragment </h1>
+             
+            </div><img
+              src="https://static.cdn-cdpl.com/source/998b78e349061b4971c0a2b0e8d6be41/Android-App-Wallpaper.png"
+              alt="image" class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+              style="display: block; margin: auto;">
+            <div class="markdown">
+              <div>
+                <p class="text-center"><code>Level intermediate, pembaca diasumsikan sudah memahami dasar-dasar pembuatan aplikasi
+                    Android</code></p>
+                <h2 class="text-center">Pendahuluan</h2>
+                <p>Fragment adalah sebuah <em>reuseable class</em> yang mengimplement beberapa fitur sebuah Activity.
+                  Fragment biasanya dibuat sebagai bagian dari suatu antarmuka. Sebuah fragment harus berada di dalam
+                  sebuah activity, mereka tidak dapat berjalan sendiri tanpa adanya activity tempat mereka menempel.</p>
+                <p><img src="http://developer.android.com/images/fundamentals/fragments.png" alt="Fragments" class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                  style="display: block; margin: auto;"></p>
+                <h3>Memahami Fragment</h3>
+                <p>Berikut ini beberapa hal yang perlu dipahami tentang fragment:</p>
+                <ul>
+                  <li>Sebuah <code>Fragment</code> merupakan kombinasi sebuah layout XML dan kelas java yang mirip
+                    dengan sebuah <code>Activity</code>.</li>
+                  <li>Dengan menggunakan <em>support library</em>, fragment dapat mendukung hampir semua versi Android.
+                  </li>
+                  <li>Fragment dapat dipakai berulang kali didalam activity.</li>
+                  <li>Fragment merupakan komponen utuh yang memiliki view, event, dan <em>logic</em> (meskipun tetap
+                    membutuhkan sebuah fragment agar dapat bekerja).</li>
+                </ul>
+                <p>Dalam arsitektur berorientasi fragment, activity menjadi <em>navigational container</em> yang
+                  bertugas untuk melakukan navigasi ke activity lain, menampilkan fragment dan mengirim data.</p>
+                <h3>Pentingnya Sebuah Fragment</h3>
+                <p>Ada banyak kasus yang dapat diselesaikan menggunakan fragment, namun yang paling umum adalah:</p>
+                <ul>
+                  <li><strong>Penggunaan Komponen View dan Logic Berulang Kali</strong> - Fragment dapat dipakai untuk
+                    menampilkan data atau melakukan event tertentu dibeberapa activity berbeda.</li>
+                  <li><strong>Dukungan Untuk Tablet</strong> - Dibeberapa aplikasi, versi tablet dari sebuah activity
+                    memberikan layout yang berbeda dari versi handphone yang juga berbeda dari versi TV. Fragment
+                    memungkinkan activity untuk menggunakan fragment dalam membuat antarmuka sesuai dengan perangkat
+                    yang membukanya.</li>
+                </ul>
+                <ul>
+                  <li>Orientasi Layar - Seringkali dalam aplikasi, versi <em>portrait</em> dan <em>landscape</em> sebuah
+                    aplikasi memiliki layout yang berbeda. Fragment memungkinkan kedua orientasi tersebut untuk
+                    menggunakan tampilan yang berbeda menggunakan elemen yang sama.</li>
+                </ul>
+                <h3>Mengorganisasi Kode Fragment</h3>
+                <p>Dalam aplikasi yang menggunakan banyak fragment, kita perlu selalu ingat untuk mengorganisasikan kode
+                  kita agar mengikuti <em>best practice</em>. Di dalam sebuah aplikasi yang memakai banyak fragment,
+                  kita harus selalu ingat fungsi dari perpindahan activity.</p>
+                <p><strong>Activity adalah navigation controller</strong> yang bertugas untuk:</p>
+                <ul>
+                  <li>Pindah ke activity lain melalui intent.</li>
+                  <li>Menampilkan komponen navigasi seperti <a
+                      href="https://guides.codepath.com/android/Fragment-Navigation-Drawer">navigation drawer</a> atau
+                    <a href="https://guides.codepath.com/android/ViewPager-with-FragmentPagerAdapter">viewpager</a>.
+                  </li>
+                  <li>Menampilkan dan menyembunyikan fragment tertentu menggunakan fragment manager.</li>
+                  <li>Menerima data dari intent yang mengirim data antar fragment.</li>
+                </ul>
+                <p><strong>Fragments adalah content controllers</strong> dan memiliki view, layout, serta event logic
+                  sendiri:</p>
+                <ul>
+                  <li>Layout dan view menampilkan konten aplikasi yang relevan.</li>
+                  <li>Melakukan <em>management view</em> seperti <em>visibility</em> atau <em>error handling</em>.</li>
+                  <li>Memulai <em>network request</em> melalui objek klien.</li>
+                  <li>Menerima dan menyimpan data dari atau ke database.</li>
+                </ul>
+                <p>Diulangi lagi, dalam arsitektur berbasis fragment, <strong>activity bertugas sebagai
+                    navigasi</strong> dan <strong>fragment untuk menampilkan data yang melakukan logic
+                    aplikasi.</strong></p>
+                <h2 class="text-center">Penggunaan</h2>
+                <h3>Membuat Sebuah Fragment</h3>
+                <p>Sebuah fragment, seperti activity, memiliki XML layout-nya sendiri dan sebuah kelas java sebagai
+                  <em>controller</em> dari <a
+                    href="http://developer.android.com/reference/android/app/Fragment.html">Fragment</a> tersebut.</p>
+                <p>Layout XML yang dimiliki oleh fragment, sama seperti layout-layout lainnya dan bisa memiliki nama apa
+                  saja (selama memiliki format yang ditentukan). Anggap kita memiliki layout sebagai berikut:</p>
+                <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+              &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="vertical" &gt;
+              
+                  &lt;TextView
+                      android:id="@+id/textView1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="TextView" /&gt;
+              
+                  &lt;Button
+                      android:id="@+id/button1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Button" /&gt;
+              
+              &lt;/LinearLayout&gt;
+              </code></pre>
+                <p>Dengan sebuah kelas Java sebagai <em>controller</em>:</p>
+                <pre><code>import android.support.v4.app.Fragment;
+              
+              public class FooFragment extends Fragment {
+                  // Method onCreateView dipanggil saat Fragment harus menampilkan layoutnya 		// dengan membuat layout tersebut secara manual lewat objek View atau dengan 	 // membaca file XML
+                  @Override
+                  public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+                      // Layout tampilan untuk fragment ini
+                      return inflater.inflate(R.layout.fragment_foo, parent, false);
+                  }
+                
+                  // Method ini dipanggil sesaat setelah onCreateView().
+                  // Semua pembacaan view dan penambahan listener dilakukan disini (atau 			// bisa juga didalam onCreateView)
+                  @Override
+                  public void onViewCreated(View view, Bundle savedInstanceState) {
+                      // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
+                  }
+              }
+              </code></pre>
+                <h3>Menempelkan Fragment Kedalam Activity</h3>
+                <p>Ada dua cara untuk menempelkan sebuah fragment ke activity: secara dinamis menggunakan
+                  <strong>Java</strong> dan secara statis (manual) dengan <strong>XML</strong>.</p>
+                <p>Sebelum menempelkan fragment dari library “support” didalam Activity, pastikan bahwa Activity sudah
+                  meng-extends <code>FragmentActivity</code> atau <code>AppCompatActivity</code> yang memiliki fragment
+                  manager untuk semua versi Android.</p>
+                <pre><code>import android.support.v7.app.AppCompatActivity;
+              
+              public class MainActivity extends AppCompatActivity {
+                  // ...
+              }
+              </code></pre>
+                <h4>Menempelkan Fragment Secara Statis (Manual)</h4>
+                <p>Untuk menempelkan fragment secara statis (manual), cukup tambahkan elemen <code>fragment</code> ke
+                  dalam layout milik sebuah activity dimana kita menentukan nama dari Fragment yang akan ditampilkan
+                  lewat elemen tersebut.</p>
+                <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+              &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical" &gt;
+              
+                  &lt;fragment
+                      android:name="com.example.android.FooFragment"
+                      android:id="@+id/fooFragment"
+                      android:layout_width="match_parent" 
+                      android:layout_height="match_parent" /&gt;
+              
+              &lt;/LinearLayout&gt;
+              </code></pre>
+                <p>Catatan:</p>
+                <ul>
+                  <li>Sesuaikan path FooFragment untuk mengikuti <em>package name</em> aplikasi kita.</li>
+                  <li>Kita tidak dapat mengganti fragment yang ditambahkan secara statis lewat file XML menggunakan
+                    FragmentTransaction (baca di bawah). Kita hanya bisa mengganti fragment yang ditempelkan secara
+                    dinamis.</li>
+                </ul>
+                <h4>Menempelkan Fragment Secara Dinamis</h4>
+                <p>Cara yang kedua ialah dengan menempelkan fragment secara dinamis menggunakan Java dengan melalui
+                  <code>FragmentManager</code>. Kelas <code>FragmentManager</code> dan kelas <a
+                    href="http://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a>
+                  memungkinkan kita untuk menambah, menghapus dan menimpa fragment yang ada di layout saat activity
+                  sedang aktif.</p>
+                <p>Dalam kasus ini kita membutuhkan sebuah container (biasanya menggunakan <code>FrameLayout</code>) ke
+                  dalam activity dimana kita bisa menempelkan sebuah fragment.</p>
+                <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+              &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical" &gt;
+              
+                &lt;FrameLayout
+                     android:id="@+id/your_placeholder"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"&gt;
+                &lt;/FrameLayout&gt;
+              
+              &lt;/LinearLayout&gt;
+              </code></pre>
+                <p>lalu kita dapat menggunakan <a
+                    href="http://developer.android.com/reference/android/app/FragmentManager.html">FragmentManager</a>
+                  untuk membuat sebuah <a
+                    href="http://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a>
+                  yang mengijinkan kita menambah fragment ke <code>FrameLayout</code> di atas:</p>
+                <pre><code>// Memulai transaksi 
+              FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+              // mengganti isi container dengan fragment baru 
+              ft.replace(R.id.your_placeholder, new FooFragment());
+              // atau ft.add(R.id.your_placeholder, new FooFragment());
+              // mulai melakukan hal di atas (jika belum di commit maka proses di atas belum dimulai)
+              ft.commit();
+              </code></pre>
+                <p>Jika sebuah fragment harus selalu ada di dalam activity, gunakan XML untuk meanmpilkannya secara
+                  statis namun saat menemukan kasus yang lebih kompleks pastikan untuk menggunakan pendekatan
+                  menggunakan Java.</p>
+                <h3>Fragment Lifecycle</h3>
+                <p>Fragment memiliki banyak method yang dapat di override seperti halnya Activity:</p>
+                <ul>
+                  <li><code>onAttach()</code> dipanggil saat sebuah fragment terhubung ke activity.</li>
+                  <li><code>onCreate()</code> diapnggil saat sebuah fragment dibuat (objeknya di memori).</li>
+                  <li><code>onCreateView()</code> dipanggil saat fragment sudah siap membaca sebuah layout.</li>
+                  <li><code>onViewCreated()</code> dipanggil setelah <code>onCreateView()</code> dan memastikan layout
+                    yang dibaca fragment adalah <code>non-null</code>. Semua pengaturan view seperti pembacaan
+                    findViewById, menambah onClickListener dapat dilakukan di sini.</li>
+                  <li><code>onActivityCreated()</code> dipanggil setelah activity pembaca sudah menyelesaikan
+                    <code>onCreate()</code>-nya.</li>
+                  <li><code>onStart()</code> dipanggil setelah fragment siap untuk ditampilkan di layar.</li>
+                  <li><code>onResume()</code> - Dipakai untuk melakukan pembacaan data yang lebih “rumit” seperti
+                    lokasi, sensor, dll.</li>
+                  <li><code>onPause()</code> - Tempat melepas data “rumit”. Lakukan commit di sini.</li>
+                  <li><code>onDestroyView()</code> dipanggil saat layout sebuah fragment akan dihapus dari memori, namun
+                    fragmentnya masih ada di memori.</li>
+                  <li><code>onDestroy()</code> dipanggil jika fragment sudah tidak dipakai.</li>
+                  <li><code>onDetach()</code> dipanggil saat fragment tidak lagi terhubung ke sebuah activity.</li>
+                </ul>
+                <p>urutan eksekusi <em>lifecycle</em> dapat dilihat pada gambar di bawah:</p>
+                <p><img src="https://i.imgur.com/0EVReuq.png" alt="" class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+                  style="display: block; margin: auto;"></p>
+                <p>Yang paling sering di override adalah <code>onCreateView</code> karena hampir setiap fragment akan
+                  memerlukan sebuah layout, <code>onCreate</code> saat ingin menginisialisasi data dan
+                  <code>onActivityCreated</code> untuk menyiapkan sesuatu saat Activity sudah sempurna dimuat.</p>
+                <p>Berikut ini contoh bagaimana kita bisa memanfaatkan event lifecycle milik fragment:</p>
+                <pre><code>public class SomeFragment extends Fragment {
+                  ThingsAdapter adapter;
+                  FragmentActivity listener;
+                  // Event ini dipanggil pertam akali sebelum pembuatan fragment atau pembacaan
+                  // layout lain. Method onAttach dipanggil saat sebuah instance Fragment 
+                  // terhuubng dengan sebuah Activity.
+                  // Method ini tidak berarti Activity sudah dimuat sempurna.
+                  @Override
+                  public void onAttach(Context context) {
+                      super.onAttach(context);
+                      if (context instanceof Activity){
+                          this.listener = (FragmentActivity) context;
+                      }
+                  }
+                  
+                  // Event ini dipanggil kedua, sebelum layout dibaca dan method onCreate
+                  // didalam Fragment dipanggil saat instance Fragment tersebut sebuah dibuat
+                  // atau dibuat ualng.
+                  // Gunakan onCreate untuk pengaturan standar lainnya yang tidak mensyaratkan
+                  // activity dimuat terlebih dahulu.
+                  @Override
+                  public void onCreate(Bundle savedInstanceState) {
+                      super.onCreate(savedInstanceState);
+                      ArrayList&lt;Thing&gt; things = new ArrayList&lt;Thing&gt;();
+                      adapter = new ThingsAdapter(getActivity(), things);
+                  }
+              
+                  // Method onCreateView dipanggil saat Fragment harus membuat layoutnya
+                  // menggunakan objek View di Java secara dinamis atau membacanya dari XML.
+                  @Override
+                  public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+                      return inflater.inflate(R.layout.fragment_some, parent, false);
+                  }
+                
+                // Event ini dipanggil sesaat setelah onCreateView().
+                // onViewCreated hanya dipanggil jika sebuah view dari onCreateView() tidak 
+                // null.
+                // Pembacaan findViewById atau listener lainnya dapat dilakukan di sini.
+                  @Override
+                  public void onViewCreated(View view, Bundle savedInstanceState) {
+                      ListView lv = (ListView) view.findViewById(R.id.lvSome);
+                      lv.setAdapter(adapter);
+                  }
+              
+                // Method ini dipanggil saat fragment sudah tidak terhubung dengan Activity.
+                // Semua reference yang dipasang di onAttach harus dilepas disini untuk
+                // menghindari memory leak.
+                  @Override
+                  public void onDetach() {
+                      super.onDetach();
+                      this.listener = null;
+                  }
+                      
+                  // method ini dipanggil saat method onCreate() milik Activity yang memanggilnya
+                  // sudah sempurna dijalankan. 
+                  // Dimethod ini kita bisa membaca objek miliki Activity berdasarkan viewnya. 
+                  @Override
+                  public void onActivityCreated(Bundle savedInstanceState) {
+                      super.onActivityCreated(savedInstanceState);
+                  }
+              }
+              </code></pre>
+                <h3>Mencari Fragment yang Sudah Dibuat</h3>
+                <p>Seringkali kita perlu mencari sebuah instance fragment didalam layout activity. Ada beberapa cara
+                  yang dapat kita gunakan untuk mencari sebuah instance fragment yang sebelumnya telah dibuat:</p>
+                <ol>
+                  <li><strong>ID</strong> - Mencari fragment dengan memanggil <code>findFragmentById</code> di
+                    <code>FragmentManager</code></li>
+                  <li><strong>Tag</strong> - Mencari fragment dengan memanggil <code>findFragmentByTag</code> di
+                    <code>FragmentManager</code></li>
+                  <li><strong>Pager</strong> - Mencari fragment dengan memanggil <code>getRegisteredFragment</code> di
+                    <code>PagerAdapter</code></li>
+                </ol>
+                <p>Setiap teknik di atas dibahas secara mendetail di bawah ini.</p>
+                <h4>Mencari Fragment Berdasarkan ID</h4>
+                <p>Jika fragment ditempelkan secara manual di XML (menggunakan elemen <code>&lt;fragment&gt;</code>)
+                  dengan sebuah <code>android:id</code> misalnya <code>fragmentDemo</code> maka kita bisa membaca
+                  fragment ini berdasarkan id yang dia miliki menggunakan <code>findFragmentById</code> pada
+                  <code>FragmentManager</code>:</p>
+                <pre><code>public class MainActivity extends AppCompatActivity {
+                  @Override
+                  public void onCreate(Bundle savedInstanceState) {
+                      super.onCreate(savedInstanceState);
+                      if (savedInstanceState == null) {
+                        DemoFragment fragmentDemo = (DemoFragment) 
+                            getSupportFragmentManager().findFragmentById(R.id.fragmentDemo);
+                      }
+                  }
+              }
+              </code></pre>
+                <h4>Mencari Fragment Berdasarkan Tag</h4>
+                <p>Jika fragment ditambah secara dinamis maka kita bisa mencarinya menggunakan
+                  <code>findFragemntByTag</code> pada <code>FragmentManager</code>:</p>
+                <pre><code>public class MainActivity extends AppCompatActivity {
+                  @Override
+                  public void onCreate(Bundle savedInstanceState) {
+                      super.onCreate(savedInstanceState);
+                      if (savedInstanceState == null) {
+                        // Kita tambahkan dulu sebuah fragment dengan sebuah TAG
+                        getSupportFragmentManager().beginTransaction(). 
+                            replace(R.id.flContainer, new DemoFragment(), "SOMETAG").
+                            commit();
+                        // Kita bisa membaca fragment di atas dengan memanfaatkan TAG yang
+                        // telah diberikan
+                        DemoFragment fragmentDemo = (DemoFragment) 
+                            getSupportFragmentManager().findFragmentByTag("SOMETAG");
+                      }
+                  }
+              }
+              </code></pre>
+                <h4>Mencari Fragment didalam Pager</h4>
+                <p>Jika sebuah fragment ditambahkan secara dinamis menggunakan <code>ViewPager</code> dan sebuah <a
+                    href="https://guides.codepath.com/android/ViewPager-with-FragmentPagerAdapter#setup-fragmentpageradapter">FragmentPagerAdapter</a>
+                  maka kita bisa mencari fragment di dalamnya dengan menggantinya menjadi
+                  <code>SmartFragmentStatePagerAdapter</code> seperti <a
+                    href="https://guides.codepath.com/android/ViewPager-with-FragmentPagerAdapter#setup-smartfragmentstatepageradapter">dijelaskan
+                    di panduan ViewPager ini</a>. Sekarang dengan adapter yang sudah di upgrade, kita bisa dengan mudah
+                  mengakses fragment di dalamnya menggunakan <code>getRegisteredFragment</code>:</p>
+                <pre><code>// returns first Fragment item within the pager
+              adapterViewPager.getRegisteredFragment(0); 
+              </code></pre>
+                <p>Ingat bahwa <code>ViewPager</code> membaca fragment seperti <code>ListView</code> dengan
+                  me-<em>recycle</em> fragment saat mereka tampil di layar. Jika kita mencoba mengakses fragment yang
+                  tidak ada di layar, maka pembacaan ini bisa mendapatkan data <code>null</code>.</p>
+                <h3>Berkomunikasi dengan Fragment (Kirim Data)</h3>
+                <p>Fragment pada umumnya hanya berkomunikasi secara langsung dengan activity yang menampilkannya.
+                  Fragment dapat berkomunikasi melalui activity yang membacanya untuk mengatur data input dan output
+                  dari fragment tersebut ke fragment lain atau activity lain. Cukup anggap Activity sebagai controller
+                  yang mengatur interaksi antar fragment yang dia baca.</p>
+                <p>Beberapa pengecualian untuk teori di atas adalah <a
+                    href="https://guides.codepath.com/android/Using-DialogFragment#passing-data-to-parent-fragment">dialog
+                    fragments</a> yang ditampilkan dari dalam fragment lain atau <a
+                    href="https://guides.codepath.com/android/Creating-and-Using-Fragments#nesting-fragments-within-fragments">nested
+                    child fragments</a>. Kedua kasus ini adalah situasi di mana sebuah fragment memiliki nested child
+                  fragments dan boleh berkomunikasi dengan parent-nya langsung (yang merupakan sebuah fragment) tanpa
+                  melalui activity tempat fragment utama menempel.</p>
+                <p>Hal penting lainnya yang perlu diingat adalah <strong>fragment tidak semestinya berkomunikasi dengan
+                    fragment lain secara langsung</strong> dan sebaiknya hanya berkomunikasi <strong>melalui parent
+                    activity</strong>.</p>
+                <p>Ada tiga cara sebuah fragment dan sebuah activity dapat berkomunikasi:</p>
+                <ol>
+                  <li><strong>Bundle</strong> - Activity dapat membuat sebuah fragment dan menambahkan arguments</li>
+                  <li><strong>Methods</strong> - Activity dapat memanggil method di dalam instance fragment</li>
+                  <li><strong>Listener</strong> - Fragment dapat memanggil <em>event listener</em> di dalam sebuah
+                    activity lewat sebuah <em>interface</em>.</li>
+                </ol>
+                <p>Dengan kat alain, komunikasi yang terjadi seharusnya mengikuti prinsip-prinsip berikut:</p>
+                <ul>
+                  <li>Activity dapat menginisialisasi fragment dengan data saat dibuat.</li>
+                  <li>Activity dapat mengirim data ke fragment menggunakan method yang ada di dalam instance si
+                    fragment.</li>
+                  <li>Fragment dapat berkomunikasi dengan <em>parent activity</em> menggunakan sebuah <em>interface</em>
+                    dan <em>listener</em>.</li>
+                  <li>Fragment harus mengirimkan data ke fragment lain melalui <em>parent activity</em>-nya.</li>
+                  <li>Fragment dapat mengirim data dari dan ke dalam dialog fragment secara langsung.</li>
+                  <li>Fragment dapat memiliki nested child fragment.</li>
+                </ul>
+                <h4>Fragment dengan Argument</h4>
+                <p>Dalam beberapa kasus, fragment kita mungkin perlu meminta argument tertentu. Pola yang paling umum
+                  ialah dengan membuat method static bernama <code>newInstace</code> untuk membuat sebuah Fragment
+                  dengan argument. Hal ini karena kita hanya boleh memiliki sebuah constructor tanpa argument papun. Di
+                  dalam method <code>newInstance</code> ini kita dapat memanggil <code>setArguments</code>:</p>
+                <pre><code>public class DemoFragment extends Fragment {
+                  // Membuat sebuah fragment engan sebuah int dan title
+                  // DemoFragment.newInstance(5, "Hello");
+                  public static DemoFragment newInstance(int someInt, String someTitle) {
+                      DemoFragment fragmentDemo = new DemoFragment();
+                      Bundle args = new Bundle();
+                      args.putInt("someInt", someInt);
+                      args.putString("someTitle", someTitle);
+                      fragmentDemo.setArguments(args);
+                      return fragmentDemo;
+                  }
+              }
+              </code></pre>
+                <p>Kode di atas memberikan argument ke fragment untuk dipanggil nanti di dalam <code>onCreate</code>.
+                  Kita dapat mengakses argument ini nanti menggunakna:</p>
+                <pre><code>public class DemoFragment extends Fragment {
+                 @Override
+                 public void onCreate(Bundle savedInstanceState) {
+                     super.onCreate(savedInstanceState);
+                     // Ambil lagi argument tadi
+                     int SomeInt = getArguments().getInt("someInt", 0);	
+                     String someTitle = getArguments().getString("someTitle", "");	
+                 }
+              }
+              </code></pre>
+                <p>Sekarang kita bisa membaca sebuah fragment secara dinamis di dalam sebuah Activity menggunakan:</p>
+                <pre><code>// Di dalam activity
+              FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+              DemoFragment fragmentDemo = DemoFragment.newInstance(5, "my title");
+              ft.replace(R.id.your_placeholder, fragmentDemo);
+              ft.commit();
+              </code></pre>
+                <p>Pola ini membuat proses pengiriman fragment ke fragment menjadi lebih jelas.</p>
+                <h4>Method Fragment</h4>
+                <p>Jika sebuah activity mengingimkan sebuah fragment melakukan suatu aksi setelah dibuat, cara paling
+                  mudah ialah dengan memanggil method dari dalam instance si fragment. Di dalam fragment, buat sebuah
+                  method:</p>
+                <pre><code>public class DemoFragment extends Fragment {
+                public void doSomething(String param) {
+                    // lakukan sesuatu
+                }
+              }
+              </code></pre>
+                <p>lalu di dalam activity, panggil method tadi:</p>
+                <pre><code>public class MainActivity extends AppCompatActivity {
+                  @Override
+                  public void onCreate(Bundle savedInstanceState) {
+                      super.onCreate(savedInstanceState);
+                      DemoFragment fragmentDemo = (DemoFragment) 
+                          getSupportFragmentManager().findFragmentById(R.id.fragmentDemo);
+                      fragmentDemo.doSomething("some param");
+                  }
+              }
+              </code></pre>
+                <p>maka activity dapat berkomunikasi secara langsung dengan si fragment menggunakan cara ini.</p>
+                <h4>Fragment Listener</h4>
+                <p>Jika fragment perlu berkomunikasi dengan parent activity-nya secara langsung, maka fragment tersebut
+                  perlu mendefinisikan sebuah interface dan meminta activity untuk mengimplement interface ini.</p>
+                <pre><code>import android.support.v4.app.Fragment;
+              
+              public class MyListFragment extends Fragment {
+                // ...
+                // Buat objek untuk listener
+                private OnItemSelectedListener listener;
+                
+                // Definisikan event yang harus ada di dalam sebuah interface
+                public interface OnItemSelectedListener {
+                  // Dapat berupa event apapun
+                  public void onRssItemSelected(String link);
+                }
+                
+                // Simpan listener yang akan terpanggil dari suatu event setelah fragment-nya ter-attach di activity
+                @Override
+                public void onAttach(Context context) {
+                    super.onAttach(context);
+                    if (context instanceof OnItemSelectedListener) {
+                      listener = (OnItemSelectedListener) context;
+                    } else {
+                      throw new ClassCastException(context.toString()
+                          + " must implement MyListFragment.OnItemSelectedListener");
+                    }
+                }
+               
+                // Sekarang kita dapat memanggil event dari dalam fragment
+                public void onSomeClick(View v) {
+                   listener.onRssItemSelected("some link");
+                }
+              }
+              </code></pre>
+                <p>dan di dalam activity kita perlu meng-<em>implement</em> listener
+                  <code>OnItemSelectedListener</code>:</p>
+                <pre><code>import android.support.v7.app.AppCompatActivity;
+              
+              // Activity perlu mengimplement listener di atas untuk meng-handle event
+              public class RssfeedActivity extends AppCompatActivity implements MyListFragment.OnItemSelectedListener {
+                  // Dapat berupa fragment apapun, DetailFragment hanya contoh
+                  DetailFragment fragment;
+              
+                  @Override
+                  protected void onCreate(Bundle savedInstanceState) {
+                      super.onCreate(savedInstanceState);
+                      setContentView(R.layout.activity_rssfeed);
+                      // membaca fragment menggunakan id
+                      fragment = (DetailFragment) getSupportFragmentManager()
+                          .findFragmentById(R.id.detailFragment);
+                }
+                
+                // Sekarang kita bisa mendefinisikan aksi yang perlu dilakukan oleh activity
+                // saat fragment dijalankan
+                // Kita meng-implement method yang didefinisikan didalam interface `OnItemSelectedListener` yang sebelumnya kita buat di dalam Fragment
+                @Override
+                public void onRssItemSelected(String link) {
+                    if (fragment != null &amp;&amp; fragment.isInLayout()) {
+                        fragment.setText(link);
+                    }
+                }
+              }
+              </code></pre>
+                <h3>Memahami FragmentManager</h3>
+                <p><a
+                    href="http://developer.android.com/intl/es/reference/android/support/v4/app/FragmentManager.html">FragmentManager</a>
+                  bertugas untuk melakukan manajemen fragment saat aplikasi berjalan termasuk didalamnya menambah,
+                  menghapus, menampilkan atau melakukan navigasi antar fragment. Seperti terlihat pada contoh-contoh di
+                  atas, fragment manager juga dapat dipakai untuk mencari fragment di dalam sebuah activity. Method
+                  penting dari FragmentManager adalah sebagai berikut:</p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Deskripsi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>addOnBackStackChangedListener</code></td>
+                      <td>Menambah listener untuk back stack fragment.</td>
+                    </tr>
+                    <tr>
+                      <td><code>beginTransaction()</code></td>
+                      <td>Membuat transaksi baru untuk merubah fragment saat program berjalan.</td>
+                    </tr>
+                    <tr>
+                      <td><code>findFragmentById(int id)</code></td>
+                      <td>Mencari fragment berdasarkan id yang biasanya ditulis di layout XML milik activity.</td>
+                    </tr>
+                    <tr>
+                      <td><code>findFragmentByTag(String tag)</code></td>
+                      <td>Mencari fragment berdasarkan tag jika menambah fragment secara dinamis.</td>
+                    </tr>
+                    <tr>
+                      <td><code>popBackStack()</code></td>
+                      <td>Menghapus sebuah fragment dari backstack.</td>
+                    </tr>
+                    <tr>
+                      <td><code>executePendingTransactions()</code></td>
+                      <td>Memaksa transaksi untuk diaplikasikan.</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h3>ActionBar Menu Items dan Fragments</h3>
+                <p>Dalam beberapa kasus kita ingin agar sebuah fragment memiliki menu item sendiri yang hanya tampil
+                  saat fragment tersebut aktif. Kasus ini dapat diselesaikan dengan menambah method
+                  <code>onCreateOptionsMenu</code> ke fragment tersebut. Cara kerjanya mirip dengan yang ada di
+                  Activity:</p>
+                <pre><code>@Override
+              public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+                 inflater.inflate(R.menu.fragment_menu, menu);
+              }
+              </code></pre>
+                <p>Kita juga harus memberitahu fragment bahwa ia memiliki menu item di dalam <code>onCreate</code>:</p>
+                <pre><code>@Override
+              public void onCreate(Bundle savedInstanceState) {
+                   super.onCreate(savedInstanceState);
+                   setHasOptionsMenu(true);
+              }  
+              </code></pre>
+                <p>Klik dapat ditanganai seperti pada activity dengan method <code>onOptionsItemSelected</code>:</p>
+                <pre><code>@Override
+              public boolean onOptionsItemSelected(MenuItem item) {
+                 // handle item selection
+                 switch (item.getItemId()) {
+                    case R.id.edit_item:
+                       // do s.th.
+                       return true;
+                    default:
+                       return super.onOptionsItemSelected(item);
+                 }
+              }
+              </code></pre>
+                <h3>Navigasi Antar Fragments</h3>
+                <p>Ada beberapa method untuk melakukan navigasi antar fragment yang berbeda di dalam satu Activity.
+                  Solusi-solusi utamanya adalah:</p>
+                <p>There are several methods for navigating between different fragments within a single Activity. The
+                  primary options are:</p>
+                <ol>
+                  <li><a href="https://guides.codepath.com/android/Google-Play-Style-Tabs-using-TabLayout">TabLayout</a>
+                    - Tabs di atas</li>
+                  <li><a href="https://guides.codepath.com/android/Fragment-Navigation-Drawer">Fragment Navigation
+                      Drawer</a> - Menyeret menu navigasi dari samping</li>
+                  <li><a href="https://guides.codepath.com/android/ViewPager-with-FragmentPagerAdapter">ViewPager</a> -
+                    Geser antar fragment untuk pindah</li>
+                </ol>
+                <h3>Manajemen Backstack Fragment</h3>
+                <p>Catatan untuk semua transaksi Fragment disimpan oleh setiap Activity melalui FragmentManager. Saat
+                  diatur dengan benar, pengguna dapat menghapus fragment terakhir yang ditambahkan saat tombol
+                  <em>back</em> ditekan (tidak langsung keluar dari activity). Cukup panggil <a
+                    href="http://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackstack</a>
+                  disetiap <code>FragmentTransaction</code>:</p>
+                <pre><code>// Membuat transaksi
+              FragmentTransaction fts = getSupportFragmentManager().beginTransaction();
+              // Mengganti konten f1Container dengan FirstFragment
+              fts.replace(R.id.flContainer, new FirstFragment());	
+              // Menambah transaksi ini ke backstack
+              fts.addToBackStack("optional tag");
+              // Commit the changes
+              fts.commit();
+              </code></pre>
+                <p>Kita juga dapat menghapus fragment terakhir yang ditambahkan lewat kode Java menggungkan objek
+                  manager:</p>
+                <pre><code>FragmentManager fragmentManager = getSupportFragmentManager();
+              if (fragmentManager.getBackStackEntryCount() &gt; 0) {
+                  fragmentManager.popBackStack();
+              }
+              </code></pre>
+                <p>Dengan teknik ini kita dapat mencatat urutan fragmen yang tampil secara dinamis dan memungkinkan
+                  pengguna untuk pindah ke fragment-fragment sebelumnya.</p>
+                <h3>Hide vs Replace</h3>
+                <p>Dapat contoh-contoh di atas, kita memanggil <code>transaction.replace(...)</code> untuk membaca
+                  fragment secara dinamis dengan menghapus fragment yang sebelumnya sudah ada di container. Method ini
+                  akan memanggil <code>onStop</code> dan <code>onDestroy</code> untuk fragment sebelumnya lalu membuat
+                  fragment baru di container tadi. Cara ini baik karena kita bisa membersihkan memori dan membuat UI
+                  lebih <em>smooth</em>. Namun, dalam banyak kasus kita ingin akan fragment-fragment tersebut tetap ada
+                  di container dengan menampilkannya dengan mengatur <em>visibility</em>-nya saja. Dengan begini semua
+                  fragment terlihat seperti saat terakhir sebelum pindah fragment:</p>
+                <pre><code>// Di dalam activity
+              
+              private FragmentA fragmentA;
+              private FragmentB fragmentB;
+              private FragmentC fragmentC;
+              
+              @Override
+              protected void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(savedInstanceState);
+                  setContentView(R.layout.activity_main);
+                  if (savedInstanceState == null) {
+                      fragmentA = FragmentA.newInstance("foo");
+                      fragmentB = FragmentB.newInstance("bar");
+                      fragmentC = FragmentC.newInstance("baz");
+                  }
+              }
+              
+              protected void displayFragmentA() {
+                  FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                  // menghapus fragment sebelumnya
+                  ft.replace(R.id.flContainer, fragmentA); 
+                  ft.commit();
+              }
+              </code></pre>
+                <p>teknik di bawah menambah <code>add</code>, <code>show</code>, dan <code>hide</code> di
+                  <code>FragmentTransaction</code>:</p>
+                <pre><code>// ...onCreate masih sama
+              
+              // Ganti cara perpindahannya
+              protected void displayFragmentA() {
+                  FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                  if (fragmentA.isAdded()) { // jika fragment sudah ada di container tampilkan
+                      ft.show(fragmentA);
+                  } else { // jika tidak ada tambahkan
+                      ft.add(R.id.flContainer, fragmentA, "A");
+                  }
+                  // Sembunyikan fragment B
+                  if (fragmentB.isAdded()) { ft.hide(fragmentB); }
+                  // Sembunyikan fragment  C
+                  if (fragmentC.isAdded()) { ft.hide(fragmentC); }
+                  // Commit perubahan
+                  ft.commit();
+              }
+              </code></pre>
+                <p>Dengan teknik ini ketiga fragment tetap ada di container dan perpindahannya hanya dilakukan dengan
+                  mengatur <em>visibility</em>-nya saja.</p>
+                <h3>Fragment di dalam Fragment</h3>
+                <p>Terkadang kita perlu menambah fragment di dalam fragment yang lai. Sejak Andorid 4.2 kita memiliki
+                  kemampuan tersebut. Fragment yang ditempelkan ke dalam fragment lain disebut dengan <strong>child
+                    fragment</strong>. Situasi seperti ini terjadi saat kita ingin membuat fragment menampilkan tabs
+                  saat menggunakan teknik navigasi lain seperti ViewPager atau Navigation Drawer.</p>
+                <p>Kekurangan <em>child fragment</em> adalah mereka harus ditambahkan secara dinamis tidak bisa
+                  menggunakan tag <code>&lt;fragment&gt;</code>. Untuk menambahkan fragment ke dalam fragment lain, kita
+                  memerlukan <code>&lt;FragmeLayout&gt;</code> atau sebuah ViewPager (yang nantinya akan membaca
+                  fragment secara dinamis, dimasa mendatang kita akan membahasnya) ke
+                  <code>res/layout/fragment_parent.xml</code> (ingat bahwa file ini hanya contoh, sesuaikan dengan
+                  layout yang dimiliki oleh fragment dimana kita ingin menambah fragment lain di dalamnya):</p>
+                <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+              &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent" android:layout_height="fill_parent"
+                  android:orientation="vertical" &gt;
+              &lt;TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="I am the parent fragment" /&gt;
+              &lt;FrameLayout
+                      android:id="@+id/child_fragment_container"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" /&gt;
+              &lt;/LinearLayout&gt;
+              </code></pre>
+                <p>Lihat di <code>FrameLayout</code> di atas memiliki id <code>@+id/child_fragment_container</code>
+                  dimana child fragment akan kita tempelkan. Kita dapat menempelkan fragment ke FrameLayout ini melalui
+                  kelas Java si Fragment-nya:</p>
+                <pre><code>// Kelas Fragment utama tempat kita ingin menempelkan fragment lain
+              public class ParentFragment extends Fragment {
+                  @Override
+                  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                      Bundle savedInstanceState) {
+                     return inflater.inflate(R.layout.fragment_parent, container, false);
+                 }
+              }
+              
+              // Kelas Fragment yang ingin ditampilkan ke fragment di atas
+              public class ChildFragment extends Fragment {
+                  @Override
+                  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                      Bundle savedInstanceState) {
+                     // Need to define the child fragment layout
+                     return inflater.inflate(R.layout.fragment_child, container, false);
+                 }
+              }
+              </code></pre>
+                <p>Di dalam Fragment Utama, kita akan menambahkan ChildFragment menggunakan method
+                  <code>getChildFragmentManager</code>:</p>
+                <pre><code>// Kelas Fragment utama tempat kita ingin menempelkan fragment lain
+              public class ParentFragment extends Fragment {
+                  @Override
+                  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                      Bundle savedInstanceState) {
+                      return inflater.inflate(R.layout.fragment_parent, container, false);
+                  }
+              
+                 // Dipanggil setelah onCreateView() sukses.
+                 // onViewCreated() hanya dipanggil jika view dari onCreateView() tidak null
+                  @Override
+                  public void onViewCreated(View view, Bundle savedInstanceState) {
+                      insertNestedFragment();
+                  }
+                
+                 // Tambah child fragment secara dinamis
+                 private void insertNestedFragment() {
+                     Fragment childFragment = new ChildFragment();
+                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                     transaction.replace(R.id.child_fragment_container, childFragment).commit();
+                 }
+              }
+              </code></pre>
+                <p>Catat bahwa kita harus selalu menggunakan <strong>getChildFragmentManager</strong> saat berinteraksi
+                  dengan <em>nested fragment</em> dan tidak menggunakan <code>getSupportFragmentManager</code>. Baca <a
+                    href="http://stackoverflow.com/a/14775322">stackoverflow post</a> ini untuk penjelasan perbedaan
+                  antara keduanya.</p>
+                <p>Di dalam child fragment, kita dapat menggunakan <code>getParentFragment()</code> untuk mendapat
+                  <em>reference</em> ke <em>parent fragment</em>, seperti <code>getActivity()</code> jika di fragment
+                  biasa yang memberikan akses ke parent Activity.</p>
+
+
+          </section>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <div class="section-container">
+    <div class="container text-center">
+      <div class="row section-container-spacer">
+        <div class="col-xs-12 col-md-12">
+
+          <h3>Do you like it ?</h3>
+          <p>
+            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer-container white-text-container">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-xs-12">
+          <h3>Android Stack</h3>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-7">
+              <p><small>Website created with <a href="http://www.mashup-template.com/"
+                    title="Create website with free html template">Android Stack</a>/<a href="https://www.unsplash.com/"
+                    title="Beautiful Free Images">Unsplash</a></small>
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+              <p class="text-right">
+                <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+      scrollRevelation('.reveal');
+    });
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+  <script type="text/javascript" src="../../main.0cf8b554.js"></script>
+</body>
+
+</html>

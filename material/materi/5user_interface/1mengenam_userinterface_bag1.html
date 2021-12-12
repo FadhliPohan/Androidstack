@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-icon-180x180.png">
+  <link href="../../assets/favicon.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+
+  <title>Arsitek Android</title>
+
+  <link href="../../main.550dcf66.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-default active">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" title="">
+            <img src="../../assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
+            Android Stack
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html" title="">Home</a></li>
+            <li><a href="../../project.html" title="">Project</a></li>
+            <li>
+              <p>
+                <a href="../../components.html" class="btn btn-default navbar-btn" title="">Components</a>
+              </p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <div class="post-outer">
+            <div class="post hentry uncustomized-post-template" itemprop="blogPost" itemscope="itemscope"
+              itemtype="http://schema.org/BlogPosting">
+              <meta
+                content="https://dicodingacademy.blob.core.windows.net/academies/201611031408209eba2e7c2771b1152715f5b74cc2e9ea.png"
+                itemprop="image_url">
+              <meta content="4652798211971881151" itemprop="blogId">
+              <meta content="4912454310467809495" itemprop="postId">
+              <a name="4912454310467809495"></a>
+              <h1 class="text-center" itemprop="name">
+                Pengenalan Komponen Android Studio: View and ViewGroup
+              </h1>
+              <div class="post-header">
+                <div class="post-header-line-1"></div>
+              </div>
+              <div class="post-body entry-content" id="post-body-4912454310467809495"
+                itemprop="description articleBody">
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Pada bagian ini
+                    anda akan mempelajari lebih dalam tentang konsep dasar pembentukan tampilan antar muka pengguna
+                    seperti pemanfaatan komponen&nbsp;</span><span
+                    style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">berbasis&nbsp;</span><span
+                    style="box-sizing: border-box; font-family: &quot;times&quot; , &quot;times new roman&quot; , serif; font-weight: 700;">View</span><span
+                    style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">&nbsp;</span><span
+                    style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">dan</span><span
+                    style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">&nbsp;</span><span
+                    style="box-sizing: border-box; font-family: &quot;times&quot; , &quot;times new roman&quot; , serif; font-weight: 700;">ViewGroup</span><span
+                    style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">&nbsp;</span><span
+                    style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">yang berkolaborasi
+                    sehingga membentuk sebuah tampilan antar muka pengguna. Contohnya seperti ini,</span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px;">
+                  <img class="fr-draggable fr-dib"
+                    src="https://dicodingacademy.blob.core.windows.net/academies/201611031408209eba2e7c2771b1152715f5b74cc2e9ea.png"
+                    style="border: 0px; box-sizing: border-box; display: block; float: none; margin: 5px auto; max-width: 100%; position: relative; text-align: justify; vertical-align: top; width: 500px;">
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Keren bukan? Baik,
+                    kita mulai saja pembahasannya.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Pada dasarnya
+                    semua elemen antar pengguna di aplikasi android dibangun menggunakan dua buah komponen inti yaitu
+                    :&nbsp;<span style="box-sizing: border-box; font-weight: 700;">View</span>&nbsp;dan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Sebuah&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">View</span>&nbsp;adalah obyek yang menggambar
+                    komponen tampilan ke layar yang mana pengguna dapat melihat dan berinteraksi langsung.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Contoh komponen
+                    turunan dari View seperti :</span></div>
+                <ul
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; margin-top: 0px;">
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span
+                          style="box-sizing: border-box; font-weight: 700;">TextView</span>, komponen yang berguna untuk
+                        menampilkan teks ke layar.</span></div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span
+                          style="box-sizing: border-box; font-weight: 700;">Button</span>, komponen yang membuat
+                        pengguna dapat berinteraksi dengan cara ditekan untuk melakukan sesuatu.</span></div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span
+                          style="box-sizing: border-box; font-weight: 700;">ImageView</span>, Komponen untuk menampilkan
+                        gambar.</span></div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span
+                          style="box-sizing: border-box; font-weight: 700;">ListView</span>, komponen untuk menampilkan
+                        informasi dalam bentuk list.</span></div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span
+                          style="box-sizing: border-box; font-weight: 700;">GridView</span>, komponen untuk menampilkan
+                        informasi dalam bentuk grid.</span></div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span
+                          style="box-sizing: border-box; font-weight: 700;">RadioButton</span>, komponen yang
+                        memungkinkan pengguna dapat memilih satu pilihan dari berbagai pilihan yang disediakan.</span>
+                    </div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span
+                          style="box-sizing: border-box; font-weight: 700;">Checkbox</span>, komponen yang memungkinkan
+                        pengguna dapat memilih lebih dari satu dari pilihan yang ada.</span></div>
+                  </li>
+                </ul>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span
+                    style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Sedangkan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>&nbsp;adalah sebuah obyek yang
+                    mewadahi obyek-obyek&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">View</span>&nbsp;dan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>&nbsp;itu sendiri sehingga
+                    membentuk satu kesatuan tampilan aplikasi yang utuh.&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>&nbsp;lebih seperti :
+                    &nbsp;</span></div>
+                <ul
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; margin-top: 0px;">
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div dir="ltr" style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="box-sizing: border-box; font-weight: 700;"><span
+                          style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">LinearLayout</span></span>
+                    </div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div dir="ltr" style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="box-sizing: border-box; font-weight: 700;"><span
+                          style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">FrameLayout</span></span>
+                    </div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div dir="ltr" style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="box-sizing: border-box; font-weight: 700;"><span
+                          style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">RelativeLayout</span></span>
+                    </div>
+                  </li>
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div dir="ltr" style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="box-sizing: border-box; font-weight: 700;"><span
+                          style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">TableLayout</span></span>
+                    </div>
+                  </li>
+                </ul>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="box-sizing: border-box; font-size: 18px;"><span
+                      style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Secara hierarki
+                      dalam pembentukan tampilan pengguna, kolaborasi penggunaan antara komponen&nbsp;<span
+                        style="box-sizing: border-box; font-weight: 700;">View</span>&nbsp;dan komponen&nbsp;<span
+                        style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>&nbsp;memungkinkan seperti ini
+                      :</span></span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px;">
+                  <img class="fr-draggable fr-dib"
+                    src="https://dicodingacademy.blob.core.windows.net/academies/201611031412227442fb23ba6853d57594ff7ea66b273f.png"
+                    style="border: 0px; box-sizing: border-box; display: block; float: none; margin: 5px auto; max-width: 100%; position: relative; text-align: justify; vertical-align: top; width: 500px;">
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Jika diterjemahkan
+                    di dalam sebuah&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>&nbsp;akan ditampung dua buah
+                    komponen&nbsp;<span style="box-sizing: border-box; font-weight: 700;">View</span>&nbsp;dan satu
+                    komponen&nbsp;<span style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>&nbsp;yang
+                    terdiri dari 3 buah komponen&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">View</span>.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Ya, ini sudah
+                    bersifat bertingkat atau&nbsp;<em style="box-sizing: border-box;">nested</em>.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Salah satu contoh
+                    dari tampilan dalam file layout xml untuk merepresentasikan kolaborasi&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">View&nbsp;</span>dan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>&nbsp;seperti ini :</span></div>
+                <pre class="prettyprint linenums prettyprinted" dir="ltr"
+                  style="background-color: whitesmoke; border-radius: 4px; border: 1px solid rgb(136, 136, 136); box-sizing: border-box; font-size: 13px; line-height: 1.42857; margin-bottom: 10px; max-height: 500px; overflow: auto; padding: 2px; white-space: pre-wrap; word-break: break-all; word-wrap: break-word;"><ol class="linenums" style="box-sizing: border-box; margin-bottom: 0px; margin-top: 0px;">
+            <li class="L0" style="box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pun" style="box-sizing: border-box;">&lt;?</span><span class="pln" style="box-sizing: border-box;">xml version</span><span class="pun" style="box-sizing: border-box;">=</span><span class="str" style="box-sizing: border-box;">"1.0"</span><span class="pln" style="box-sizing: border-box;"> encoding</span><span class="pun" style="box-sizing: border-box;">=</span><span class="str" style="box-sizing: border-box;">"utf-8"</span><span class="pun" style="box-sizing: border-box;">?&gt;</span></span></li>
+            <li class="L1" style="background: rgb(238, 238, 238); box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="tag" style="box-sizing: border-box;">&lt;LinearLayout</span><span class="pln" style="box-sizing: border-box;"> </span><span class="atn" style="box-sizing: border-box;">xmlns:android</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"http://schemas.android.com/apk/res/android"</span></span></li>
+            <li class="L2" style="box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:layout_width</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"match_parent"</span></span></li>
+            <li class="L3" style="background: rgb(238, 238, 238); box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:layout_height</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"match_parent"</span></span></li>
+            <li class="L4" style="box-sizing: border-box; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:orientation</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"vertical"</span><span class="pln" style="box-sizing: border-box;"> </span><span class="tag" style="box-sizing: border-box;">&gt;</span></span></li>
+            <li class="L5" style="background: rgb(238, 238, 238); box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; </span><span class="tag" style="box-sizing: border-box;">&lt;TextView</span><span class="pln" style="box-sizing: border-box;"> </span><span class="atn" style="box-sizing: border-box;">android:id</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"@+id/text"</span></span></li>
+            <li class="L6" style="box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:layout_width</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"wrap_content"</span></span></li>
+            <li class="L7" style="background: rgb(238, 238, 238); box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:layout_height</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"wrap_content"</span></span></li>
+            <li class="L8" style="box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:text</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"I am a TextView"</span><span class="pln" style="box-sizing: border-box;"> </span><span class="tag" style="box-sizing: border-box;">/&gt;</span></span></li>
+            <li class="L9" style="background: rgb(238, 238, 238); box-sizing: border-box; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; </span><span class="tag" style="box-sizing: border-box;">&lt;Button</span><span class="pln" style="box-sizing: border-box;"> </span><span class="atn" style="box-sizing: border-box;">android:id</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"@+id/button"</span></span></li>
+            <li class="L0" style="box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:layout_width</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"wrap_content"</span></span></li>
+            <li class="L1" style="background: rgb(238, 238, 238); box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:layout_height</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"wrap_content"</span></span></li>
+            <li class="L2" style="box-sizing: border-box; list-style-type: none; text-align: justify;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span class="pln" style="box-sizing: border-box;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn" style="box-sizing: border-box;">android:text</span><span class="pun" style="box-sizing: border-box;">=</span><span class="atv" style="box-sizing: border-box;">"I am a Button"</span><span class="pln" style="box-sizing: border-box;"> </span><span class="tag" style="box-sizing: border-box;">/&gt;</span></span></li>
+            <li class="L3" style="background: rgb(238, 238, 238); box-sizing: border-box; list-style-type: none; text-align: justify;"><span class="tag" style="box-sizing: border-box;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">&lt;/LinearLayout&gt;</span></span></li>
+            </ol>
+            </pre>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Obyek
+                    turunan&nbsp;<span style="box-sizing: border-box; font-weight: 700;">ViewGroup
+                      LinearLayout</span>&nbsp;menjadi kontainer untuk obyek turunan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">View</span>,&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">Button</span>, dan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">TextView</span>&nbsp;guna membentuk sebuah
+                    tampilan melalui file layout xml. Beberapa komponen&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>&nbsp;seperti&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">LinearLayout</span>,&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">RelativeLayout</span>,&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">FrameLayout</span>,<span
+                      style="box-sizing: border-box; font-weight: 700;">&nbsp;</span>dan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">TableLayout</span>&nbsp;merupakan komponen yang
+                    paling banyak digunakan untuk menjadi parent / root dari komponen-komponen&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">View</span>&nbsp;di dalam sebuah tampilan
+                    aplikasi android. Berikut adalah definisi singkat dan inti dari komponen-komponen tersebut terhadap
+                    penempatan komponen&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">View</span>&nbsp;(<em
+                      style="box-sizing: border-box;">child</em>) di dalamnya.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="box-sizing: border-box; font-weight: 700;"><span
+                      style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">LinearLayout</span></span>
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Akan menempatkan
+                    komponen-komponen di dalamnya secara horizontal atau vertikal.&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">LinearLayout</span>&nbsp;memilikiatribut weight
+                    untuk masing-masing child view yang berguna untuk mengontrol porsi ukuran view secara Relatif dalam
+                    sebuah &nbsp;ruang (space) yangtersedia.</span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><img
+                      class="fr-dii fr-draggable" height="354"
+                      src="https://dicodingacademy.blob.core.windows.net/academies/201611031408538f282c8950a103899135d75d111a22ed.png"
+                      style="border: 0px; box-sizing: border-box; display: inline-block; float: none; margin-left: 5px; margin-right: 5px; max-width: calc(100% - 10px); position: relative; vertical-align: bottom; width: 300px;"
+                      width="400"><img class="fr-dii fr-draggable" height="400"
+                      src="https://dicodingacademy.blob.core.windows.net/academies/201611031408573f981c3190fc431579c7e258ce5252b9.png"
+                      style="border: 0px; box-sizing: border-box; display: inline-block; float: none; margin-left: 5px; margin-right: 5px; max-width: calc(100% - 10px); position: relative; vertical-align: bottom; width: 300px;"
+                      width="319"></span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;android:orientation=”vertical” &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;android:orientation=”horizontal”</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <br></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="box-sizing: border-box; font-weight: 700;"><span
+                      style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">RelativeLayout</span></span>
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Layout yang paling
+                    fleksible dikarenakan posisi dari masing-masing komponen di dalamnya dapat mengacu secara relatif
+                    pada komponen yang lainnya dan juga dapat mengacu secara relatif ke batas layar.</span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px;">
+                  <img class="fr-draggable fr-dib"
+                    src="https://dicodingacademy.blob.core.windows.net/academies/20161103140902a4f57c6dd65a88ff058e3a1c55c00e0c.png"
+                    style="border: 0px; box-sizing: border-box; display: block; float: none; margin: 5px auto; max-width: 100%; position: relative; text-align: justify; vertical-align: top; width: 300px;">
+                </div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="box-sizing: border-box; font-weight: 700;"><span
+                      style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">FrameLayout</span></span>
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Layout ini adalah
+                    layout yang paling sederhana. Layout ini akan membuat komponen yang ada di dalamnya menjadi menumpuk
+                    atau saling menutupi satu dengan yang lainnya. Komponen yang paling pertama pada layout ini akan
+                    menjadi bagian bawah dari komponen-komponen di atasnya. Pada materi penggunaan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">fragment</span>&nbsp;di materi
+                    sebelumnya,&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">FrameLayout</span>&nbsp;memiliki kemampuan untuk
+                    menjadi kontainer buat&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">fragment-fragment</span>&nbsp;di dalam
+                    sebuah&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Activity</span>. Berikut
+                    ilustrasi dari penggunaan&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">FrameLayout</span>terhadap child view yang
+                    dimiliki di dalamnya.</span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px;">
+                  <img class="fr-draggable fr-dib"
+                    src="https://dicodingacademy.blob.core.windows.net/academies/201611021451063417adaf355fdf178cc9b1e9ef85bd31.png"
+                    style="border: 0px; box-sizing: border-box; display: block; float: none; margin: 5px auto; max-width: 100%; position: relative; text-align: justify; vertical-align: top; width: 500px;">
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><span
+                      style="box-sizing: border-box; font-weight: 700;">TableLayout</span>&nbsp; &nbsp;&nbsp;</span>
+                </div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px;">
+                  <img class="fr-draggable fr-dib"
+                    src="https://dicodingacademy.blob.core.windows.net/academies/2016110314092420c3a5ba0c7748e68c959155e97a7fa7.png"
+                    style="border: 0px; box-sizing: border-box; display: block; float: none; margin: 5px auto; max-width: 100%; position: relative; text-align: justify; vertical-align: top; width: 500px;">
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Susunan komponen
+                    di dalam&nbsp;<span style="box-sizing: border-box; font-weight: 700;">TableLayout</span>&nbsp;akan
+                    berada dalam baris dan kolom. Namun jangan berharap layout jenis ini akan menampilkan garis pembatas
+                    untuk baris, kolom atau cell-nya menggunakan konsep yang sama pada pengembangan aplikasi berbasis
+                    web. &nbsp;&nbsp;</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <br></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Jika anda sadari
+                    sebetulnya perbedaan dari masing-masing layout yang dijelaskan di atas terletak pada susunan
+                    komponen view di dalamnya. Itu saja.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Lalu pertanyaannya
+                    kapan kita menggunakan LinearLayout, RelativeLayout, FrameLayout, dan TabletLayout ? jawabannya
+                    adalah relatif tergantung pada kebutuhan dan performa.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Salah satu tips
+                    performa dari aplikasi android adalah dengan membuat susunan hierarki layout dalam sebuah file
+                    layout xml secara sederhana dan flat dalam artian kedalaman penggunaan nested layout atau layout
+                    bersarang tidak terlalu dalam. Selain itu, pemahaman yang baik terhadap dasar-dasar
+                    pembangunan&nbsp;<span style="box-sizing: border-box; font-weight: 700;">UI</span>&nbsp;di android,
+                    pengalaman, feeling, dan selalu mencari tahu best-practice seperti apa.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Semua tergantung
+                    latihan dan seberapa sering kita berhadapan dengan kasus-kasus melakukan transformasi&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">UI</span>&nbsp;dari bentuk mockup ke dalam
+                    bentuk kode xml di Android.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Dengan membiasakan
+                    melakukan penulisan kode sisi&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">UI</span>&nbsp;di xml tanpa penggunaan drag and
+                    drop akan membentuk pola pikir dan feeling kita dalam membangun dan mentransformasi&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">UI</span>&nbsp;ke dalam bentuk yang dibutuhkan.
+                    Ini bersifat Relatif, mungkin cara membentuk UI dari satu developer android dengan developer android
+                    lainnya akan berbeda.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><img
+                      class="fr-dii fr-draggable"
+                      src="https://dicodingacademy.blob.core.windows.net/academies/201611031409348f84be6dbaca11cbda2b56c346bfd15a.png"
+                      style="border: 0px; box-sizing: border-box; display: inline-block; float: none; margin-left: 5px; margin-right: 5px; max-width: calc(100% - 10px); position: relative; vertical-align: bottom; width: 300px;"><img
+                      class="fr-dii fr-draggable"
+                      src="https://dicodingacademy.blob.core.windows.net/academies/20161103140947780f3dd296d1ded9414e3a79e500e4a1.png"
+                      style="border: 0px; box-sizing: border-box; display: inline-block; float: none; height: 530px; margin-left: 5px; margin-right: 5px; max-width: calc(100% - 10px); position: relative; vertical-align: bottom;"></span>
+                </div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Kelemahan dari
+                    layout-layout tersebut adalah ketidakmampuan untuk melakukan scroll konten secara vertikal atau
+                    horizontal. Jelas, adakalanya tampilan aplikasi anda memuat informasi yang panjangnya melebihi layar
+                    yang ada, jika hanya bergantung pada layout-layout yang dijelaskan sebelumnya maka tampilan aplikasi
+                    anda akan terpotong. Di situlah peran&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">ScrollView</span>&nbsp;membantu untuk memberikan
+                    solusi.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="box-sizing: border-box; font-weight: 700;"><span
+                      style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">ScrollView</span></span>
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Adalah layout yang
+                    akan membuat komponen di dalamnya dapat digeser (scroll) secara vertical dan horizontal. Komponen di
+                    dalam&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Scrollview</span>&nbsp;hanya
+                    diperbolehkan memiliki 1 parent utama dari&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">LayoutLinear</span>,&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">RelativeLayout</span>,&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">FrameLayout</span>, atau&nbsp;<span
+                      style="box-sizing: border-box; font-weight: 700;">TableLayout</span>.</span></div>
+                <ul
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; margin-top: 0px;">
+                  <li style="box-sizing: border-box; text-align: justify;"><a
+                      href="https://developer.android.com/reference/android/widget/ScrollView.html"
+                      style="background-color: transparent; box-sizing: border-box; text-decoration-line: none;"><span
+                        style="color: black; font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">ScrollView</span></a>
+                  </li>
+                </ul>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="box-sizing: border-box; font-weight: 700;"><span
+                      style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Satuan Dimensi di
+                      Android</span></span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Platform Android
+                    dikenal karena keberagamannya, dari mulai ukuran device, layar, spesifikasi, hingga level operating
+                    system-nya. Karena keberagaman tersebut tak heran jika dibutuhkan tampilan yang konsisten agar
+                    aplikasi kita bisa berjalan dan tampil maksimal khususnya di beragam jenis layar device android yang
+                    beredar di pasaran.&nbsp;</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Android sendiri
+                    memiliki satuan unit dimensi untuk ukuran tinggi dan lebar sebuah komponen View atau<span
+                      style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>. Berikut adalah esensi dari
+                    satuan dimensi unit di android.&nbsp;</span></div>
+                <ol
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; margin-top: 0px;">
+                  <li dir="ltr" style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Ekosistem
+                        android dikenal dengan fragmentasi spesifikasi device yang sangat bervariasi termasuk perbedaan
+                        dimensi layar dan kerapatan&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">pixel</span>&nbsp;(density) dari layar di
+                        masing-masing jenis layar device</span></div>
+                  </li>
+                  <li style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Untuk tampilan
+                        yang konsisten di handset Android terdapat satuan untuk dimensi dan ukuran dari teks yaitu
+                        :&nbsp;<span style="box-sizing: border-box; font-weight: 700;">dip</span>/<span
+                          style="box-sizing: border-box; font-weight: 700;">dp</span>(<span
+                          style="box-sizing: border-box; font-weight: 700;">density-independent pixel</span>)
+                        dan&nbsp;<span style="box-sizing: border-box; font-weight: 700;">sp</span>&nbsp;(<span
+                          style="box-sizing: border-box; font-weight: 700;">scale-independent pixels</span>).</span>
+                    </div>
+                  </li>
+                  <li style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span
+                        style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Satuan&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">dp/dip</span>&nbsp;digunakan untuk satuan
+                        dari nilai dimensi misal width (attribut :&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">layout_width</span>) dan height (attribut
+                        :&nbsp;<span style="box-sizing: border-box; font-weight: 700;">layout_height</span>) dari sebuah
+                        komponen&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">View</span>&nbsp;atau&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">ViewGroup</span>.</span></div>
+                  </li>
+                  <li style="box-sizing: border-box; text-align: justify;">
+                    <div style="box-sizing: border-box; margin-bottom: 10px;">
+                      <span
+                        style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Satuan&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">sp</span>&nbsp;digunakan untuk ukuran teks.
+                        Perbedaannya dengan&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">dp&nbsp;</span>/&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">dip</span>&nbsp;adalah satuan&nbsp;<span
+                          style="box-sizing: border-box; font-weight: 700;">sp</span>&nbsp;android akan men-scale ukuran
+                        teks sesuai dengan setting ukuran teks di device (yang biasa dapat di akses melalui menu
+                        settings)</span></div>
+                  </li>
+                </ol>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Contoh 1 :</span>
+                </div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px;">
+                  <img class="fr-draggable fr-dib"
+                    src="https://dicodingacademy.blob.core.windows.net/academies/2016110314110028488eba6e3035f35fce4fece1e9a3d3.png"
+                    style="border: 0px; box-sizing: border-box; display: block; float: none; margin: 5px auto; max-width: 100%; position: relative; text-align: justify; vertical-align: top; width: 800px;">
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Misalkan ada dua
+                    tablet 7-inch (ukuran diagonal layar), tablet pertama (A) memiliki resolusi layar 1200x1920px 320dpi
+                    dan yang lainnya (B) beresolusi 2048x1536px 326dpi. Membuat button dengan ukuran 300x300px mungkin
+                    akan tampak normal pada tablet A tapi akan tampak kecil di tablet B.</span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px;">
+                  <img class="fr-draggable fr-dib"
+                    src="https://dicodingacademy.blob.core.windows.net/academies/201611031411091e01d65360633f6bb99abb7b8978b3bb.png"
+                    style="border: 0px; box-sizing: border-box; display: block; float: none; margin: 5px auto; max-width: 100%; position: relative; text-align: justify; vertical-align: top; width: 800px;">
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Tapi akan berbeda
+                    jika kita spesifikasikan ukuran button-nya dengan ukuran yang bergantung pada density layar alias
+                    menggunakan dip misal 300x300dp. Secara fisik ukuran button tersebut akan selalu sama pada ukuran
+                    layar yang berbeda.</span></div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;"><br
+                      style="box-sizing: border-box;"></span></div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Contoh 2 :</span>
+                </div>
+                <div dir="ltr"
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px;">
+                  <img class="fr-draggable fr-dib"
+                    src="https://dicodingacademy.blob.core.windows.net/academies/201706102233425418151a416f686a24bb72f7af06d5c2.png"
+                    style="border: 0px; box-sizing: border-box; display: block; float: none; margin: 5px auto; max-width: 100%; position: relative; text-align: justify; vertical-align: top; width: 500px;">
+                </div>
+                <div
+                  style="background-color: white; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; text-align: justify;">
+                  <span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif;">Pada gambar di
+                    atas ukuran 200dp akan dikonversi pada device mdpi (device dengan density 160dpi/dots per inch)
+                    menjadi 200px dan menjadi 400px pada device xhdpi (density 420dpi) misal pada nexus 4. Sehingga
+                    ukuran tersebut tampak sama dan konsisten secara fisik untuk beragam device dengan ukuran layar yang
+                    berbeda.</span></div>
+                <div style="clear: both;"></div>
+              </div>
+              <div class="post-footer">
+                <div class="post-footer-line post-footer-line-1">
+                  <span class="post-author vcard">
+                    Diposting oleh
+                    <span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                      <meta content="https://www.blogger.com/profile/01758513238921273277" itemprop="url">
+                      <a class="g-profile" href="https://www.blogger.com/profile/01758513238921273277" rel="author"
+                        title="author profile" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+                        <span itemprop="name">Unknown</span>
+                      </a>
+                    </span>
+                  </span>
+                  <span class="post-timestamp">
+                    di
+                    <meta
+                      content="http://winditi12016.blogspot.com/2018/01/pengenalan-komponen-android-studio-view.html"
+                      itemprop="url">
+                    <a class="timestamp-link"
+                      href="http://winditi12016.blogspot.com/2018/01/pengenalan-komponen-android-studio-view.html"
+                      rel="bookmark" title="permanent link"><abbr class="published" itemprop="datePublished"
+                        title="2018-01-08T13:02:00+08:00">13.02</abbr></a>
+                  </span>
+                  <span class="post-comment-link">
+                  </span>
+                  <span class="post-icons">
+                    <span class="item-control blog-admin pid-1269857380">
+                      <a href="https://www.blogger.com/post-edit.g?blogID=4652798211971881151&amp;postID=4912454310467809495&amp;from=pencil"
+                        title="Edit Entri">
+                        <img alt="" class="icon-action" height="18"
+                          src="https://resources.blogblog.com/img/icon18_edit_allbkg.gif" width="18">
+                      </a>
+                    </span>
+                  </span>
+                  <div class="post-share-buttons goog-inline-block">
+                    <a class="goog-inline-block share-button sb-email"
+                      href="https://www.blogger.com/share-post.g?blogID=4652798211971881151&amp;postID=4912454310467809495&amp;target=email"
+                      target="_blank" title="Kirimkan Ini lewat Email"><span class="share-button-link-text">Kirimkan Ini
+                        lewat Email</span></a><a class="goog-inline-block share-button sb-blog"
+                      href="https://www.blogger.com/share-post.g?blogID=4652798211971881151&amp;postID=4912454310467809495&amp;target=blog"
+                      onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;"
+                      target="_blank" title="BlogThis!"><span class="share-button-link-text">BlogThis!</span></a><a
+                      class="goog-inline-block share-button sb-twitter"
+                      href="https://www.blogger.com/share-post.g?blogID=4652798211971881151&amp;postID=4912454310467809495&amp;target=twitter"
+                      target="_blank" title="Berbagi ke Twitter"><span class="share-button-link-text">Berbagi ke
+                        Twitter</span></a><a class="goog-inline-block share-button sb-facebook"
+                      href="https://www.blogger.com/share-post.g?blogID=4652798211971881151&amp;postID=4912454310467809495&amp;target=facebook"
+                      onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;"
+                      target="_blank" title="Berbagi ke Facebook"><span class="share-button-link-text">Berbagi ke
+                        Facebook</span></a><a class="goog-inline-block share-button sb-pinterest"
+                      href="https://www.blogger.com/share-post.g?blogID=4652798211971881151&amp;postID=4912454310467809495&amp;target=pinterest"
+                      target="_blank" title="Bagikan ke Pinterest"><span class="share-button-link-text">Bagikan ke
+                        Pinterest</span></a>
+                  </div>
+                </div>
+                <div class="post-footer-line post-footer-line-2">
+                  <span class="post-labels">
+                    Label:
+                    <a href="http://winditi12016.blogspot.com/search/label/Android" rel="tag">Android</a>
+                  </span>
+                </div>
+                <div class="post-footer-line post-footer-line-3">
+                  <span class="post-location">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="comments" id="comments">
+              <a name="comments"></a>
+              <h4>3 komentar:</h4>
+              <div class="comments-content">
+                <script async="async" src="" type="text/javascript"></script>
+                <script type="text/javascript">
+                  (function () {
+                    var items = null;
+                    var msgs = null;
+                    var config = {};
+
+                    // <![CDATA[
+                    var cursor = null;
+                    if (items && items.length > 0) {
+                      cursor = parseInt(items[items.length - 1].timestamp) + 1;
+                    }
+
+                    var bodyFromEntry = function (entry) {
+                      var text = (entry &&
+                          ((entry.content && entry.content.$t) ||
+                            (entry.summary && entry.summary.$t))) ||
+                        '';
+                      if (entry && entry.gd$extendedProperty) {
+                        for (var k in entry.gd$extendedProperty) {
+                          if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+                            return '<span class="deleted-comment">' + text + '</span>';
+                          }
+                        }
+                      }
+                      return text;
+                    }
+
+                    var parse = function (data) {
+                      cursor = null;
+                      var comments = [];
+                      if (data && data.feed && data.feed.entry) {
+                        for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+                          var comment = {};
+                          // comment ID, parsed out of the original id format
+                          var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+                          comment.id = id ? id[2] : null;
+                          comment.body = bodyFromEntry(entry);
+                          comment.timestamp = Date.parse(entry.published.$t) + '';
+                          if (entry.author && entry.author.constructor === Array) {
+                            var auth = entry.author[0];
+                            if (auth) {
+                              comment.author = {
+                                name: (auth.name ? auth.name.$t : undefined),
+                                profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                                avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                              };
+                            }
+                          }
+                          if (entry.link) {
+                            if (entry.link[2]) {
+                              comment.link = comment.permalink = entry.link[2].href;
+                            }
+                            if (entry.link[3]) {
+                              var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                              if (pid && pid[1]) {
+                                comment.parentId = pid[1];
+                              }
+                            }
+                          }
+                          comment.deleteclass = 'item-control blog-admin';
+                          if (entry.gd$extendedProperty) {
+                            for (var k in entry.gd$extendedProperty) {
+                              if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                                comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                              } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                                comment.displayTime = entry.gd$extendedProperty[k].value;
+                              }
+                            }
+                          }
+                          comments.push(comment);
+                        }
+                      }
+                      return comments;
+                    };
+
+                    var paginator = function (callback) {
+                      if (hasMore()) {
+                        var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+                        if (cursor) {
+                          url += '&published-min=' + new Date(cursor).toISOString();
+                        }
+                        window.bloggercomments = function (data) {
+                          var parsed = parse(data);
+                          cursor = parsed.length < 50 ? null :
+                            parseInt(parsed[parsed.length - 1].timestamp) + 1
+                          callback(parsed);
+                          window.bloggercomments = null;
+                        }
+                        url += '&callback=bloggercomments';
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = url;
+                        document.getElementsByTagName('head')[0].appendChild(script);
+                      }
+                    };
+                    var hasMore = function () {
+                      return !!cursor;
+                    };
+                    var getMeta = function (key, comment) {
+                      if ('iswriter' == key) {
+                        var matches = !!comment.author &&
+                          comment.author.name == config.authorName &&
+                          comment.author.profileUrl == config.authorUrl;
+                        return matches ? 'true' : '';
+                      } else if ('deletelink' == key) {
+                        return config.baseUri + '/delete-comment.g?blogID=' +
+                          config.blogId + '&postID=' + comment.id;
+                      } else if ('deleteclass' == key) {
+                        return comment.deleteclass;
+                      }
+                      return '';
+                    };
+
+                    var replybox = null;
+                    var replyUrlParts = null;
+                    var replyParent = undefined;
+
+                    var onReply = function (commentId, domId) {
+                      if (replybox == null) {
+                        // lazily cache replybox, and adjust to suit this style:
+                        replybox = document.getElementById('comment-editor');
+                        if (replybox != null) {
+                          replybox.height = '250px';
+                          replybox.style.display = 'block';
+                          replyUrlParts = replybox.src.split('#');
+                        }
+                      }
+                      if (replybox && (commentId !== replyParent)) {
+                        replybox.src = '';
+                        document.getElementById(domId).insertBefore(replybox, null);
+                        replybox.src = replyUrlParts[0] +
+                          (commentId ? '&parentID=' + commentId : '') +
+                          '#' + replyUrlParts[1];
+                        replyParent = commentId;
+                      }
+                    };
+
+                    var hash = (window.location.hash || '#').substring(1);
+                    var startThread, targetComment;
+                    if (/^comment-form_/.test(hash)) {
+                      startThread = hash.substring('comment-form_'.length);
+                    } else if (/^c[0-9]+$/.test(hash)) {
+                      targetComment = hash.substring(1);
+                    }
+
+                    // Configure commenting API:
+                    var configJso = {
+                      'maxDepth': config.maxThreadDepth
+                    };
+                    var provider = {
+                      'id': config.postId,
+                      'data': items,
+                      'loadNext': paginator,
+                      'hasMore': hasMore,
+                      'getMeta': getMeta,
+                      'onReply': onReply,
+                      'rendered': true,
+                      'initComment': targetComment,
+                      'initReplyThread': startThread,
+                      'config': configJso,
+                      'messages': msgs
+                    };
+
+                    var render = function () {
+                      if (window.goog && window.goog.comments) {
+                        var holder = document.getElementById('comment-holder');
+                        window.goog.comments.render(holder, provider);
+                      }
+                    };
+
+                    // render now, or queue to render when library loads:
+                    if (window.goog && window.goog.comments) {
+                      render();
+                    } else {
+                      window.goog = window.goog || {};
+                      window.goog.comments = window.goog.comments || {};
+                      window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+                      window.goog.comments.loadQueue.push(render);
+                    }
+                  })();
+                  // ]]>
+                </script>
+                <div id="comment-holder">
+                  <div class="comment-thread toplevel-thread">
+                    <ol id="top-ra">
+                      <li class="comment" id="c254993232009941660">
+                        <div class="avatar-image-container"><img
+                            src="//4.bp.blogspot.com/-tcCTI3wT66A/XjUdmTyD1EI/AAAAAAAAAQk/uqWAbTNl-fgrZzarM1T9Ij9NPOPam3abQCK4BGAYYCw/s35/51KgCvUNObL._SY355_.jpg"
+                            alt=""></div>
+                        <div class="comment-block">
+                          <div class="comment-header"><cite class="user"><a
+                                href="https://www.blogger.com/profile/05297235748379584603" rel="nofollow">LOVELYZ
+                                TRILOGY</a></cite><span class="icon user "></span><span
+                              class="datetime secondary-text"><a rel="nofollow"
+                                href="http://winditi12016.blogspot.com/2018/01/pengenalan-komponen-android-studio-view.html?showComment=1549856975864#c254993232009941660">11
+                                Februari 2019 11.49</a></span></div>
+                          <p class="comment-content">makasih infonya gan <br><a
+                              href="https://cody.id/produk/blower/blower-cody-858-digital/" rel="nofollow">solder
+                              uap</a></p><span class="comment-actions secondary-text"><a class="comment-reply"
+                              target="_self" data-comment-id="254993232009941660" href="javascript:;">Balas</a><span
+                              class="item-control blog-admin blog-admin pid-696345044"><a target="_self"
+                                href="https://www.blogger.com/delete-comment.g?blogID=4652798211971881151&amp;postID=254993232009941660">Hapus</a></span></span>
+                        </div>
+                        <div class="comment-replies">
+                          <div id="c254993232009941660-rt" class="comment-thread inline-thread hidden"><span
+                              class="thread-toggle thread-expanded"><span class="thread-arrow"></span><span
+                                class="thread-count"><a target="_self" href="javascript:;">Balasan</a></span></span>
+                            <ol id="c254993232009941660-ra" class="thread-chrome thread-expanded">
+                              <div></div>
+                              <div id="c254993232009941660-continue" class="continue"><a class="comment-reply"
+                                  target="_self" data-comment-id="254993232009941660" href="javascript:;">Balas</a>
+                              </div>
+                            </ol>
+                          </div>
+                        </div>
+                        <div class="comment-replybox-single" id="c254993232009941660-ce"></div>
+                      </li>
+                      <li class="comment" id="c847581091553147671">
+                        <div class="avatar-image-container"><img src="//www.blogger.com/img/blogger_logo_round_35.png"
+                            alt=""></div>
+                        <div class="comment-block">
+                          <div class="comment-header"><cite class="user"><a
+                                href="https://www.blogger.com/profile/11048593533278386284"
+                                rel="nofollow">reynaldi.yusuf.kurniawan-2016</a></cite><span
+                              class="icon user "></span><span class="datetime secondary-text"><a rel="nofollow"
+                                href="http://winditi12016.blogspot.com/2018/01/pengenalan-komponen-android-studio-view.html?showComment=1564504822676#c847581091553147671">31
+                                Juli 2019 00.40</a></span></div>
+                          <p class="comment-content"><a
+                              href="http://galuhpandansari-feb13.web.unair.ac.id/artikel_detail-117597-Android-Fenomena%20Android%20di%20Kalangan%20Gadget%20Freak.html"
+                              rel="nofollow">Fenomena Android di Kalangan Gadget Freak</a></p><span
+                            class="comment-actions secondary-text"><a class="comment-reply" target="_self"
+                              data-comment-id="847581091553147671" href="javascript:;">Balas</a><span
+                              class="item-control blog-admin blog-admin pid-1245165290"><a target="_self"
+                                href="https://www.blogger.com/delete-comment.g?blogID=4652798211971881151&amp;postID=847581091553147671">Hapus</a></span></span>
+                        </div>
+                        <div class="comment-replies">
+                          <div id="c847581091553147671-rt" class="comment-thread inline-thread hidden"><span
+                              class="thread-toggle thread-expanded"><span class="thread-arrow"></span><span
+                                class="thread-count"><a target="_self" href="javascript:;">Balasan</a></span></span>
+                            <ol id="c847581091553147671-ra" class="thread-chrome thread-expanded">
+                              <div></div>
+                              <div id="c847581091553147671-continue" class="continue"><a class="comment-reply"
+                                  target="_self" data-comment-id="847581091553147671" href="javascript:;">Balas</a>
+                              </div>
+                            </ol>
+                          </div>
+                        </div>
+                        <div class="comment-replybox-single" id="c847581091553147671-ce"></div>
+                      </li>
+                      <li class="comment" id="c6294080932033446072">
+                        <div class="avatar-image-container"><img
+                            src="//1.bp.blogspot.com/-CG_zcopRUP0/XA9lgvNVotI/AAAAAAAABTQ/xcGEP6Gm8Hwmsw04bVj8sr1fy6LAvf-AwCK4BGAYYCw/s35/stretched-1366-768-333580.jpg"
+                            alt=""></div>
+                        <div class="comment-block">
+                          <div class="comment-header"><cite class="user"><a
+                                href="https://www.blogger.com/profile/06784212580441694691"
+                                rel="nofollow">brilianeranaomi</a></cite><span class="icon user "></span><span
+                              class="datetime secondary-text"><a rel="nofollow"
+                                href="http://winditi12016.blogspot.com/2018/01/pengenalan-komponen-android-studio-view.html?showComment=1582007572542#c6294080932033446072">18
+                                Februari 2020 14.32</a></span></div>
+                          <p class="comment-content">Artikelnya bagus mudah dipahami, kunjungi website kami juga <a
+                              href="https://www.lauwba.com/" rel="nofollow">ya</a>! untuk mendapatkan pengalaman lebih
+                            :)</p><span class="comment-actions secondary-text"><a class="comment-reply" target="_self"
+                              data-comment-id="6294080932033446072" href="javascript:;">Balas</a><span
+                              class="item-control blog-admin blog-admin pid-1295800824"><a target="_self"
+                                href="https://www.blogger.com/delete-comment.g?blogID=4652798211971881151&amp;postID=6294080932033446072">Hapus</a></span></span>
+                        </div>
+                        <div class="comment-replies">
+                          <div id="c6294080932033446072-rt" class="comment-thread inline-thread hidden"><span
+                              class="thread-toggle thread-expanded"><span class="thread-arrow"></span><span
+                                class="thread-count"><a target="_self" href="javascript:;">Balasan</a></span></span>
+                            <ol id="c6294080932033446072-ra" class="thread-chrome thread-expanded">
+                              <div></div>
+                              <div id="c6294080932033446072-continue" class="continue"><a class="comment-reply"
+                                  target="_self" data-comment-id="6294080932033446072" href="javascript:;">Balas</a>
+                              </div>
+                            </ol>
+                          </div>
+                        </div>
+                        <div class="comment-replybox-single" id="c6294080932033446072-ce"></div>
+                      </li>
+                    </ol>
+                    <div id="top-continue" class="continue hidden"><a class="comment-reply" target="_self"
+                        href="javascript:;">Tambahkan komentar</a></div>
+                    <div class="comment-replybox-thread" id="top-ce"><iframe allowtransparency="true"
+                        class="blogger-iframe-colorize blogger-comment-from-post" frameborder="0" height="194px"
+                        id="comment-editor" name="comment-editor"
+                        src="https://www.blogger.com/comment-iframe.g?blogID=4652798211971881151&amp;postID=4912454310467809495&amp;blogspotRpcToken=5248578#%7B%22color%22:%22rgb(114,%20114,%20114)%22,%22backgroundColor%22:%22rgb(24,%2030,%2082)%22,%22unvisitedLinkColor%22:%22rgb(187,%20187,%2037)%22,%22fontFamily%22:%22Arial,%20Tahoma,%20Helvetica,%20FreeSans,%20sans-serif%22%7D"
+                        width="100%" style="display: block;" data-resized="true"></iframe></div>
+                    <div class="loadmore hidden" data-post-id="4912454310467809495"><a target="_self">Muat yang
+                        lain...</a></div>
+                  </div>
+                </div>
+              </div>
+              <p class="comment-footer">
+              </p>
+              <div class="comment-form">
+                <a name="comment-form"></a>
+                <p>
+                </p>
+                <a href="https://www.blogger.com/comment-iframe.g?blogID=4652798211971881151&amp;postID=4912454310467809495&amp;blogspotRpcToken=5248578"
+                  id="comment-editor-src"></a>
+
+                <script src="https://www.blogger.com/static/v1/jsbin/1706263374-comment_from_post_iframe.js"
+                  type="text/javascript"></script>
+                <script type="text/javascript">
+                  BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html');
+                </script>
+              </div>
+              <p></p>
+              <div id="backlinks-container">
+                <div id="Blog1_backlinks-container">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="section-container">
+    <div class="container text-center">
+      <div class="row section-container-spacer">
+        <div class="col-xs-12 col-md-12">
+
+          <h3>Do you like it ?</h3>
+          <p>
+            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer-container white-text-container">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-xs-12">
+          <h3>Android Stack</h3>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-7">
+              <p><small>Website created with <a href="http://www.mashup-template.com/"
+                    title="Create website with free html template">Android Stack</a>/<a href="https://www.unsplash.com/"
+                    title="Beautiful Free Images">Unsplash</a></small>
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+              <p class="text-right">
+                <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+      scrollRevelation('.reveal');
+    });
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+  <script type="text/javascript" src="../../main.0cf8b554.js"></script>
+</body>
+
+</html>

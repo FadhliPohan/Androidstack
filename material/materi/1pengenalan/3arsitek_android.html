@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-icon-180x180.png">
+  <link href="../../assets/favicon.ico" rel="icon">
+
+  <link href="" rel="stylesheet">
+
+
+  <title>Arsitek Android</title>
+
+  <link href="../../main.550dcf66.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Add your content of header -->
+  <header>
+    <nav class="navbar navbar-default active">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" title="">
+            <img src="../../assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
+            Android Stack
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html" title="">Home</a></li>
+            <li><a href="../../project.html" title="">Project</a></li>
+            <li>
+              <p>
+                <a href="../../components.html" class="btn btn-default navbar-btn" title="">Components</a>
+              </p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <h1 class="text-center">Arsitektur Android</h1>
+          <p>Android merupakan Operating System (OS) berbasis Linux
+            yang sifatnya open source. Andy Rubin adalah orang
+            dibalik OS ini. Tahun 2003 Ia bersama dengan kawannya
+            mengumumkan perusahaan Android inc yang bertempat
+            di California. kemudian Google secara penuh
+            membelinya pada tahun 2005.
+          </p>
+          <p>
+            Tau ga sih salah satu perbedaan antar programmer android dengan user android. Yeeppss yang menjadi pembeda
+            antar programmer dengan user ialah seorang programmer harus tau Arsitektur Android yang disini seorang
+            programmer dituntut untuk mengetahui dan memahami dari seluk beluk aplikasi android. Pada artikel kali ini
+            saya akan mencoba untuk mengupas tentang Arsitektur Android.
+          </p>
+          <p>
+            Beberapa orang google juga menyebut arsitektur android sebagai stack android (Tumpukan). Bisa disebutkan
+            sebagai stack karena aplikasi android memiliki berbagai lapisan didalamnya serta memiliki tugasnya masing —
+            masing.
+          </p>
+
+          <div class="section-container-spacer">
+            <img src="https://miro.medium.com/max/862/1*Rjsi4xvQBdBnP9OhHsyhWA.png" alt=""
+              class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+              style="display: block; margin: auto;">
+          </div>
+
+          <p>
+            Seperti yang bisa kita lihat pada gambar diatas, aplikasi android mempunyai 5 lapisan didalamnya yaitu:
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Kernel</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Library</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Android Runtime</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Application Framework</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Application</li>
+          </p>
+          <br>
+          <h3 class="text-Left">1. Karel</h3>
+          <div class="section-container-spacer">
+            <img src="https://miro.medium.com/max/600/1*Lk5ZRe-KsgkfXlFuNbGoJw.png" alt=""
+              class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+              style="display: block; margin: auto;">
+          </div>
+          <p> Karena Android merupakan salah satu turunan dari sistem operasi Linux, maka Android juga memiliki
+            kernel.
+            Bagi yang belum pernah menyentuh sistem operasi Linux pasti akan bertanya — tanya apa itu “KERNEL”. Kernel
+            merupakan inti dari sistem operasi berbasis UNIX. Kernel merupakan lapisan terdalam yang berada pada
+            sistem
+            operasi baik itu Linux maupun Android. Lapisan ini tidak benar — benar berinteraksi dengan pengguna maupun
+            developer, tapi lapisan ini merupakan jantung dari seluruh sistem di Android karena lapisan inilah yang
+            memberikan fungsi-fungsi berikut pada sistem Android:
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Abstraksi Hardware</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Program Manajemen Memory</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Pengaturan Sekuritas</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Manajemen Energi Software (Baterai)</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Driver (Driver adalah program yang mengontrol hardware)</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Network Stack</li>
+          </p>
+
+          <br>
+          <h3 class="text-Left">2. Library</h3>
+          <div class="section-container-spacer">
+            <img src="https://miro.medium.com/max/600/1*bqjGiKnQGTUT5Etp7ptn8Q.png" alt=""
+              class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+              style="display: block; margin: auto;">
+          </div>
+          <p> Library membawa sekumpulan instruksi untuk mengarahkan perangkat Android kita dalam menangani berbagai
+            tipe data. Contohnya,perekam dari berbagai macam format Video dan Audio ditangani oleh Media Framework
+            Library.</p>
+          <p>Berikut adalah beberapa kegunaan Library:
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Surface Manager: Mengolah tampilan Windows Pada Layar</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">SGL: Grafik 2 Dimensi</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Open GL|ES: Grafik 3 Dimensi maupun 2 Dimensi</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Media Framework: Menunjang perekaman dari berbagai macam format audio,
+              video, dan gambar</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Free Type: Penerjemah Font</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">WebKit: Mesin Browser</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">libc (System C libraries)</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">SQLite: Database</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Open SSL: Sekuritas Jaringan</li>
+          </p>
+
+          <br>
+          <h3 class="text-Left">3. Android Libraries</h3>
+          <div class="section-container-spacer">
+            <img src="https://miro.medium.com/max/600/1*bqjGiKnQGTUT5Etp7ptn8Q.png" alt=""
+              class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+              style="display: block; margin: auto;">
+          </div>
+          <p> Kategori ini menyangkut Library berbasis Java yang berfungsi khusus untuk pengembangan Android. Contoh
+            dari Library yang termasuk dalam kategori ini adalah Library yang memfasilitasi pembangunan User Interface,
+            Penggambaran Grafik dan akses Database, juga library yang terdapat pada Application Framework.</p>
+          <p>Rangkuman dari beberapa Library Android yang tersedia untuk Android Developer adalah sebagai berikut :
+
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.app − Memberikan akses ke model aplikasi dan fondasi dari semua
+              aplikasi Android.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.content − Memfasilitasi akses konten, mempublikasikan dan mengirim
+              pesan antar aplikasi dan komponen aplikasi.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.database − Digunakan untuk mengakses data yang dipublikasikan oleh
+              content providers, juga termasuk kelas manajemen basis data SQLite.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Media Framework: Menunjang perekaman dari berbagai macam format audio,
+              video, dan gambar</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.opengl − antarmuka Java ke Api penerjemah OpenGL ES 3D Graphic</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.os − Menyediakan akses aplikasi ke OS system service stAndar seperti
+              perpesanan, system service, dan IPC ( Inter Process Communication ).</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.text − Digunakan untuk menyajikan dan memanipulasi teks yang
+              ditampilkan pada perangkat.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.view − Dasar dari pembangunan user interface aplikasi.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.widget − Koleksi dari beberapa user interface yang telah dibuat dan
+              dapat langsung digunakan seperti tombol, label, tabel, view, layout manager, tombol pilihan, dll.
+            </li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">android.webkit − Sekumpulan kelas untuk memungkinkan kemampuan web browsing
+              yang akan dibangun ke dalam aplikasi.
+            </li>
+          </p>
+
+
+          <br>
+          <h3 class="text-Left">4. Android Runtime</h3>
+          <div class="section-container-spacer">
+            <img src="https://miro.medium.com/max/274/1*ebcfo1up4_ph-p5m2R3nKg.png" alt=""
+              class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+              style="display: block; margin: auto;">
+          </div>
+          <p> Terletak pada level yang sama dengan lapisan Library juga terdapat Lapisan Android Runtime dan juga
+            sekumpulan Library Java yang dikhususkan untuk Android. Programmer Aplikasi Android membuat aplikasinya
+            menggunakan bahasa pemrograman Java. Dalam lapisan Android Runtime juga terdapat Dalvik VM (Virtual Machine)
+          </p>
+          <br>
+          <p>
+            Apa Itu Dalvik VM ?</p>
+          <br>
+          <p>
+            Dalvik Virtual Machine adalah sejenis Java Virtual Machine yang didesain khusus dan dioptimasikan untuk
+            Android. Dalvik VM menggunakan fitur inti Linux seperti manajemen memory dan multi-threading. Dalvik VM
+            membuat setiap Aplikasi Android dapat berjalan dengan prosesnya sendiri. Berikut beberapa rangkuman mengenai
+            Dalvik VM</p>
+          <p>Berikut adalah beberapa kegunaan Library:
+
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Dalvik VM adalah sebuah VM berbasis Register.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Optimal karena kebutuhan memory yang sedikit.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Didesain agar banyak VM dapat dijalankan pada saat yang sama.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Bergantung pada OS yang mendasari suatu proses isolasi, manajemen memori dan
+              dukungan threading.</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Beroperasi pada ekstensi DEX.</li>
+          </p>
+
+
+
+          <br>
+          <h3 class="text-Left">5. Application Framework</h3>
+          <div class="section-container-spacer">
+            <img src="https://miro.medium.com/max/600/1*aHqT4IifjyTvZ8ObAdW9kQ.png" alt=""
+              class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+              style="display: block; margin: auto;">
+          </div>
+          <p> Lapisan ini berinteraksi langsung dengan aplikasi kita. Program-program di atas memanajemen fungsi dasar
+            dari perangkat seperti manajemen Resource, Manajemen Panggilan, Manajemen Window dll. Sebagai seorang
+            developer, kita dapat melihat lapisan ini sebagai alat dasar yang dapat digunakan untuk mengembangkan
+            aplikasi.</p>
+          <p>Beberapa program penting pada Application Framework antara lain:</p>
+
+          <li id="dfc7" class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+            data-selectable-paragraph=""> Activity Manager − Mengontrol semua aspek dari siklus hidup aplikasi dan
+            Activity Stack.</li>
+          <li id="dfc7" class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+            data-selectable-paragraph=""> Content Providers − Mengizinkan aplikasi untuk mempublikasikan dan berbagi
+            data dengan aplikasi lainnya.
+          </li>
+          <li id="dfc7" class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+            data-selectable-paragraph=""> Resource Manager − Memberikan akses kepada resources yang bukan kode seperti
+            strings, setting warna, dan layout User Interface.
+          </li>
+          <li id="dfc7" class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+            data-selectable-paragraph=""> Notifications Manager − Membuat aplikasi dapat menampilkan pengingat dan
+            notifikasi kepada pengguna.
+          </li>
+          <li id="dfc7" class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+            data-selectable-paragraph="">View System − Digunakan untuk membuat User Interface aplikasi</li>
+          </p>
+
+
+
+          <br>
+          <h3 class="text-Left">5. Application Layer</h3>
+          <div class="section-container-spacer">
+            <img src="https://miro.medium.com/max/700/1*RKxr2rRj7wBX3DDZKuWHqg.png" alt=""
+              class="img-responsive reveal-content" data-action="zoom" width="700" height="443"
+              style="display: block; margin: auto;">
+          </div>
+          <p> Aplikasi berada pada lapisan terluar dari Arsitektur Android. Pengguna awam Android pasti akan
+            berinteraksi dengan lapisan ini untuk fungsi umum seperti menelepon, mengakses website, dll. Lapisan di
+            bawah dari lapisan aplikasi ini diakses kebanyakan oleh Developer, Programmer atau sejenisnya.</p>
+            <p>Beberapa aplikasi stAndar yang pasti ada pada setiap perangkat, seperti:</p>
+         
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Aplikasi SMS</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Penelepon</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph=""> Web Browser</li>
+            <li id="dfc7"
+              class="he hf fo hg b hh hy hi hj hk hz hl hm hn ia ho hp hq ib hr hs ht ic hu hv hx is it iu gk"
+              data-selectable-paragraph="">Contact Manager</li>
+            
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+  &lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">"en"</span>&gt;
+      &lt;<span style="color:#ff79c6">head</span>&gt;
+          &lt;<span style="color:#ff79c6">title</span>&gt;Tutorial Paragraf di HTML&lt;/<span style="color:#ff79c6">title</span>&gt;
+      &lt;/<span style="color:#ff79c6">head</span>&gt;
+      &lt;<span style="color:#ff79c6">body</span>&gt;
+          &lt;<span style="color:#ff79c6">p</span>&gt;Ini adalah sebuah paragraf yang berisi beberapa kalimat.
+          Saya sedang belajar HTML di Petani Kode. Saat ini Sedang,
+          Belajar tentang paragraf.&lt;/<span style="color:#ff79c6">p</span>&gt;
+          &lt;<span style="color:#ff79c6">p</span>&gt;Paragraf adalah kumpulan dari beberapa kalimat yang saling
+          mendukung. Punya ide pokok sebagai dasar dari paragraf itu sendiri.&lt;/<span style="color:#ff79c6">p</span>&gt;
+      &lt;/<span style="color:#ff79c6">body</span>&gt;
+  &lt;/<span style="color:#ff79c6">html</span>&gt;
+  </code></pre>
+
+  <div class="section-container">
+    <div class="container text-center">
+      <div class="row section-container-spacer">
+        <div class="col-xs-12 col-md-12">
+
+          <h3>Do you like it ?</h3>
+          <p>
+            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer-container white-text-container">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-xs-12">
+          <h3>Android Stack</h3>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-7">
+              <p><small>Website created with <a href="http://www.mashup-template.com/"
+                    title="Create website with free html template">Android Stack</a>/<a href="https://www.unsplash.com/"
+                    title="Beautiful Free Images">Unsplash</a></small>
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+              <p class="text-right">
+                <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      navActivePage();
+      scrollRevelation('.reveal');
+    });
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+  <script type="text/javascript" src="../../main.0cf8b554.js"></script>
+</body>
+
+</html>
